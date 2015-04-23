@@ -2,8 +2,8 @@
 
 <div class="row">
   <div class="one-half column" style="margin-top: 25%">
-    <h4>Kuriex</h4>
-    <p><a href="login">Zaloguj się</a> | <a href="find">Szukaj</a></p>
+    <h4>Witaj!</h4>
+    <p></p>
   </div>
 </div>
 

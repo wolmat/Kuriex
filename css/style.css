@@ -1,0 +1,22 @@
+header {
+  width: 100%;
+  padding-left: 10%;
+  border-bottom: 1px solid #eee;
+  height: 2em;
+}
+
+header h1 {
+  float: left;
+  font-size: 2em;
+  line-height: 1em;
+  margin: 0;
+}
+
+header a {
+  text-decoration: none;
+}
+
+header nav {
+  text-indent: 5em;
+  padding-top: 0.3em;
+}
