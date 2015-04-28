@@ -61,7 +61,7 @@
 	</div>
 </div>
 
-<div id="zero_block">
+<div id="zero_block" style="text-align: center;">
 	<div class="container">
 		<div class="row">
 			<div class="one-full column" style="margin-top:5%">
