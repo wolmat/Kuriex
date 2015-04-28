@@ -21,4 +21,3 @@
     <a href="login">Zaloguj się</a> | <a href="find">Szukaj</a>
   </nav>
 </header>
-<div class="container">
