@@ -8,10 +8,13 @@ class MainView extends View{
         $this->render('/main/index');
     }
 	
-    public function  login() {
-        $this->render('/main/login');
+    public function  about() {
+        $this->render('/main/about');
     }
 
+    public function  find() {
+        $this->render('/main/find');
+    }
 }
 
 ?>

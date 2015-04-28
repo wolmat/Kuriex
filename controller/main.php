@@ -12,10 +12,16 @@ class MainController extends Controller{
         $view->index();
     }
 	
-	//Logowanie do strony
-	public function login(){
+	//Informacje kontaktowe
+	public function about(){
 		$view=$this->loadView('main');
-        $view->login();
+        $view->about();
 	}
 
+	//Znajdywanie paczki
+	public function find(){
+		$view=$this->loadView('main');
+        $view->find();
+	}
+	
 }
