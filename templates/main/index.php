@@ -47,7 +47,7 @@
 		</div>
 			
 		<div class="row">
-			<div class="one-half column" style="margin-top:5%">
+			<div class="one-half column" style="margin-top:1%; padding-bottom: 5%">
 				<img src="templates/images/map.jpg">
 			</div>
 			
