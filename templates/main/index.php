@@ -30,9 +30,10 @@
 				<h3><font color="#F07830">4432 pracowników</font> </h3>
 			</div>
 			
-			<div class="one-full column" style="margin-top:3%">
+			<div class="one-half column" style="margin-top:3%">
 				<img src="templates/images/courier.png">
 			</div>
+
 		</div>
 	</div>
 </div>
