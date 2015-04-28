@@ -40,7 +40,9 @@ header nav {
 	background-color:#4878A8;
 	width:100%;
 }
-
+#first_block img, #second_block img{
+    vertical-align: bottom
+}
 #second_block {
 	color:#4878A8;
 	background-color:#A8D8F0;
