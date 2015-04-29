@@ -1,5 +1,19 @@
 ﻿# KURIEX
 
+## Git - porady
+* Synchronizacja
+ * do pobrania zmian używaj `git fetch` zamiast `git pull`
+* Gałęzie
+ * przed rozpoczęciem nowych prac utwórz gałąź `git checkout -b nazwa/gałęzi`
+ * nazywaj swoje gałęzie według schematu `kategoria/temat` np. `frontend/index`
+* Commit
+ * commituj mniej, a częściej - używaj `git add -p`, dużo commitów to nie błąd!
+ * gdy masz więcej informacji do przekazania używaj `git commit` zamiast `git commit -m`
+ * opisuj zmiany w czasie teraźniejszym np. `Add main controller` zamiast `Added main controller`
+* Zmiany w innych repozytoriach
+ * dodaj serwer z którego również chcesz pobierać zmiany np `git remote add davpal https://github.com/davpal/Kuriex`
+ * pobieraj je przy pomocy `git fetch nazwa_serwera` np. `git fetch davpal`
+
 ## Pomoce
 ### Treść zadania:
 * http://riad.pk.edu.pl/~strug/bd/st/bd-st.html
