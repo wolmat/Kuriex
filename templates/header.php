@@ -22,6 +22,7 @@
 <header>
   <h1><a href="main">Kuriex</a></h1>
   <nav>
-    <a href="login">Zaloguj się</a> | <a href="find">Szukaj</a>
+    <a href="login">Zaloguj się</a> | <a href="find">Szukaj</a> |
+    <a href="about">Kontakt</a>
   </nav>
 </header>
