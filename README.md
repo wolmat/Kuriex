@@ -14,6 +14,9 @@
  * dodaj serwer z którego również chcesz pobierać zmiany np `git remote add davpal https://github.com/davpal/Kuriex`
  * pobieraj je przy pomocy `git fetch nazwa_serwera` np. `git fetch davpal`
 
+## Styl kodowania
+* Wcięcia na 4 spacje
+
 ## Pomoce
 ### Treść zadania:
 * http://riad.pk.edu.pl/~strug/bd/st/bd-st.html
@@ -51,7 +54,3 @@
 * Sprawdzanie stanu przesyłki
 * Po podaniu ID przesyłki, można sprawdzić co dzieje się z daną paczką
 * Wyświetlenie danych kontaktowych do nadawcy/odbiorcy, nadzorcy lub kuriera
-
-## Styl kodowania
-* Kod HTML/CSS wcięcia na 2 spacje
-* Kod PHP wcięcia na 4 spacje
