@@ -8,6 +8,8 @@ include 'controller/controller.php';
 class MainController extends Controller{
 	//Wyœwietlanie strony g³ównej
     public function index() {
+		$model=$this->loadModel('main');
+
         $view=$this->loadView('main');
         $view->index();
     }

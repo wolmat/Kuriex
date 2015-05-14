@@ -6,8 +6,7 @@ switch($_GET['task']){
 	case "main":
 		include 'controller/main.php';
 		$ob = new MainController();
-			$ob->$_GET['action']();
-
+		$ob->$_GET['action']();
 	break;
 	
 	case "user":

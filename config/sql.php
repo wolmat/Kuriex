@@ -1,9 +1,8 @@
 <?php
 
-$host='localhost'
-$port = '3306';
-$dbase='kuriex'
-$user='admin'
-$pass='pass'
+$host='localhost';
+$dbase='kuriex';
+$user='root';
+$pass='';
 
 ?>

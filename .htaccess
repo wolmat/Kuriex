@@ -1,5 +1,7 @@
 RewriteEngine on
+
 RewriteRule ^\/?$ main
+
 RewriteRule main index.php?task=main&action=index
 RewriteRule about index.php?task=main&action=about
 RewriteRule find index.php?task=main&action=find
