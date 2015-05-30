@@ -98,5 +98,13 @@ CREATE TABLE `klient`(
 );
 
 
+-- REKLAMACJA
 
-
+DROP TABLE IF EXISTS `reklamacja`;
+CREATE TABLE `reklamacja`(
+        id_reklamacji   int(5)      NOT NULL,
+        opis            varchar(20)         ,
+        status          ENUM("w realizacji","odrzucono","przyjeto") NOT NULL,
+        id_przesylki    int(5)      NOT NULL,
+        PRIMARY KEY(id_reklamacji)
+);
