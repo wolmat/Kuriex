@@ -69,8 +69,6 @@ CREATE TABLE `przesylka`(
         PRIMARY KEY(id_przesylki)
 );
 
--- ZLECENIE
-
 DROP TABLE IF EXISTS `zlecenie`;
 CREATE TABLE `zlecenie`(
         id_zlecenia     int(5)      NOT NULL,
@@ -81,9 +79,6 @@ CREATE TABLE `zlecenie`(
         pesel_nadawcy   int(11)     NOT NULL,
         PRIMARY KEY(id_zlecenia)
 );
-
-
--- KLIENT
 
 DROP TABLE IF EXISTS `klient`;
 CREATE TABLE `klient`(
@@ -97,9 +92,6 @@ CREATE TABLE `klient`(
         PRIMARY KEY(pesel_klienta)
 );
 
-
--- REKLAMACJA
-
 DROP TABLE IF EXISTS `reklamacja`;
 CREATE TABLE `reklamacja`(
         id_reklamacji   int(5)      NOT NULL,
@@ -109,9 +101,6 @@ CREATE TABLE `reklamacja`(
         PRIMARY KEY(id_reklamacji)
 );
 
-
--- TYP PRZESYLKI
-
 DROP TABLE IF EXISTS `typprzesylki`;
 CREATE TABLE `typprzesylki`(
         id_typu         int(5)      NOT NULL,
@@ -120,9 +109,6 @@ CREATE TABLE `typprzesylki`(
         rozmiar_maksymalny varchar(7)       ,
         PRIMARY KEY(id_typu)
 );
-
-
--- PRZESYLKA_TYPPRZESYLKI
 
 DROP TABLE IF EXISTS `przesylka_typprzesylki`;
 CREATE TABLE `przesylka_typprzesylki`(
