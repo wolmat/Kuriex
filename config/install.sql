@@ -132,42 +132,6 @@ CREATE TABLE `przesylka_typprzesylki`(
         PRIMARY KEY(id_typu, id_przesylki)
 );
 
-ALTER TABLE kurier
-    ADD CONSTRAINT kurier_pojazd
-    FOREIGN KEY (id_pojazdu)
-    REFERENCES pojazd(id_pojazdu),
-    ADD CONSTRAINT kurier_obszar
-    FOREIGN KEY (id_obszaru)
-    REFERENCES obszar(id_obszaru);
-
-ALTER TABLE kurier_katprawajazdy
-    ADD CONSTRAINT kierowca_pesel
-    FOREIGN KEY (pesel_kierowcy)
-    REFERENCES kurier(pesel);
-
-ALTER TABLE dostawca
-    ADD CONSTRAINT dostawca_pojazd
-    FOREIGN KEY (id_pojazdu)
-    REFERENCES pojazd(id_pojazdu),
-    ADD CONSTRAINT dostawca_filia
-    FOREIGN KEY (id_filii)
-    REFERENCES filia(id_filii)
-
-ALTER TABLE dostawca_katprawajazdy
-    ADD CONSTRAINT dostawca_pesel
-    FOREIGN KEY (pesel_kierowcy)
-    REFERENCES dostawca(pesel);
-
-ALTER TABLE filia
-    ADD CONSTRAINT filia_obszar
-    FOREIGN KEY (id_obszaru)
-    REFERENCES obszar(id_obszaru);
-
-ALTER TABLE rejon
-    ADD CONSTRAINT rejon_filia
-    FOREIGN KEY (id_filii)
-    REFERENCES filia(id_filii)
-
 ALTER TABLE `przesylka`
         ADD CONSTRAINT przesylka_zlecenie
         FOREIGN KEY (id_zlecenia)
@@ -208,3 +172,39 @@ ALTER TABLE `przesylka_typprzesylki`
         ADD CONSTRAINT przesylka_typrzesylki_typprzesylki
         FOREIGN KEY (id_typu)
         REFERENCES typprzesylki(id_typu);
+
+ALTER TABLE kurier
+    ADD CONSTRAINT kurier_pojazd
+    FOREIGN KEY (id_pojazdu)
+    REFERENCES pojazd(id_pojazdu),
+    ADD CONSTRAINT kurier_obszar
+    FOREIGN KEY (id_obszaru)
+    REFERENCES obszar(id_obszaru);
+
+ALTER TABLE kurier_katprawajazdy
+    ADD CONSTRAINT kierowca_pesel
+    FOREIGN KEY (pesel_kierowcy)
+    REFERENCES kurier(pesel);
+
+ALTER TABLE dostawca
+    ADD CONSTRAINT dostawca_pojazd
+    FOREIGN KEY (id_pojazdu)
+    REFERENCES pojazd(id_pojazdu),
+    ADD CONSTRAINT dostawca_filia
+    FOREIGN KEY (id_filii)
+    REFERENCES filia(id_filii);
+
+ALTER TABLE dostawca_katprawajazdy
+    ADD CONSTRAINT dostawca_pesel
+    FOREIGN KEY (pesel_kierowcy)
+    REFERENCES dostawca(pesel);
+
+ALTER TABLE filia
+    ADD CONSTRAINT filia_obszar
+    FOREIGN KEY (id_obszaru)
+    REFERENCES obszar(id_obszaru);
+
+ALTER TABLE rejon
+    ADD CONSTRAINT rejon_filia
+    FOREIGN KEY (id_filii)
+    REFERENCES filia(id_filii)
