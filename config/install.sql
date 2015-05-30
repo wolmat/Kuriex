@@ -156,3 +156,44 @@ ALTER TABLE rejon
     ADD CONSTRAINT rejon_filia
     FOREIGN KEY (id_filii)
     REFERENCES filia(id_filii)
+
+ALTER TABLE `przesylka`
+        ADD CONSTRAINT przesylka_zlecenie
+        FOREIGN KEY (id_zlecenia)
+        REFERENCES zlecenie(id_zlecenia),
+
+        ADD CONSTRAINT przesylka_kurier 
+        FOREIGN KEY (pesel_kuriera)
+        REFERENCES kurier(pesel),
+
+        ADD CONSTRAINT przesylka_dostawca
+        FOREIGN KEY (pesel_dostawcy)
+        REFERENCES dostawca(pesel),
+
+        ADD CONSTRAINT przesylka_odbiorca
+        FOREIGN KEY (pesel_odbiorcy)
+        REFERENCES klient(pesel_klienta);
+
+ALTER TABLE `zlecenie`
+        ADD CONSTRAINT zlecenie_nadawca
+        FOREIGN KEY (pesel_nadawcy)
+        REFERENCES klient(pesel_klienta);
+
+ALTER TABLE `klient`
+        ADD CONSTRAINT klient_rejon
+        FOREIGN KEY (id_rejonu)
+        REFERENCES rejon(id_rejonu);
+
+ALTER TABLE `reklamacja`
+        ADD CONSTRAINT reklamacja
+        FOREIGN KEY (id_przesylki)
+        REFERENCES przesylka(id_przesylki);
+
+ALTER TABLE `przesylka_typprzesylki`
+        ADD CONSTRAINT przesylka_typrzesylki_przesylka
+        FOREIGN KEY (id_przesylki)
+        REFERENCES przesylka(id_przesylki),
+
+        ADD CONSTRAINT przesylka_typrzesylki_typprzesylki
+        FOREIGN KEY (id_typu)
+        REFERENCES typprzesylki(id_typu);
