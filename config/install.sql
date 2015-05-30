@@ -60,6 +60,13 @@ CREATE TABLE rejon (
     PRIMARY KEY(id_rejonu)
 );
 
+CREATE TABLE pojazd (
+    id_pojazdu INT(5)      NOT NULL,
+    marka      VARCHAR(20) NOT NULL,
+    model      VARCHAR(20) NOT NULL,
+    ladownosc  INT(8)      NOT NULL
+);
+
 DROP TABLE IF EXISTS `przesylka`;
 CREATE TABLE `przesylka`(
         id_przesylki    int(5)      NOT NULL,
