@@ -133,3 +133,11 @@ ALTER TABLE kurier_katprawajazdy
     ADD CONSTRAINT kierowca_pesel
     FOREIGN KEY (pesel_kierowcy)
     REFERENCES kurier(pesel);
+
+ALTER TABLE dostawca
+    ADD CONSTRAINT dostawca_pojazd
+    FOREIGN KEY (id_pojazdu)
+    REFERENCES pojazd(id_pojazdu),
+    ADD CONSTRAINT dostawca_filia
+    FOREIGN KEY (id_filii)
+    REFERENCES filia(id_filii)
