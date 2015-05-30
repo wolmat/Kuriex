@@ -29,7 +29,7 @@
             
 			<div class="one-half column" style="margin-top:3%; color: #f07830">
 				<h2><?php  $result = $this->get('statisticsIndex'); echo $result[0]; ?> klientów</h2>
-				<h2><?php echo $result[1]; ?> miliona paczek</h2>
+				<h2><?php echo $result[1]; ?> paczek</h2>
 				<h2><?php echo $result[2]; ?> pracowników</h2>
 			</div>
 			
