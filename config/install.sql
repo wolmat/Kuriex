@@ -64,7 +64,8 @@ CREATE TABLE pojazd (
     id_pojazdu INT(5)      NOT NULL,
     marka      VARCHAR(20) NOT NULL,
     model      VARCHAR(20) NOT NULL,
-    ladownosc  INT(8)      NOT NULL
+    ladownosc  INT(8)      NOT NULL,
+    PRIMARY KEY(id_pojazdu)
 );
 
 CREATE TABLE `przesylka`(
