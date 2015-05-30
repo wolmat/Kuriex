@@ -122,4 +122,11 @@ CREATE TABLE `typprzesylki`(
 );
 
 
+-- PRZESYLKA_TYPPRZESYLKI
 
+DROP TABLE IF EXISTS `przesylka_typprzesylki`;
+CREATE TABLE `przesylka_typprzesylki`(
+        id_typu         int(5)      NOT NULL,
+        id_przesylki    int(5)      NOT NULL,
+        PRIMARY KEY(id_typu, id_przesylki)
+);
