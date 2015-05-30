@@ -152,3 +152,7 @@ ALTER TABLE filia
     FOREIGN KEY (id_obszaru)
     REFERENCES obszar(id_obszaru);
 
+ALTER TABLE rejon
+    ADD CONSTRAINT rejon_filia
+    FOREIGN KEY (id_filii)
+    REFERENCES filia(id_filii)
