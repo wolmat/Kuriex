@@ -124,7 +124,10 @@ CREATE TABLE `przesylka_typprzesylki`(
 ALTER TABLE kurier
     ADD CONSTRAINT kurier_pojazd
     FOREIGN KEY (id_pojazdu)
-    REFERENCES pojazd(id_pojazdu);
+    REFERENCES pojazd(id_pojazdu),
+    ADD CONSTRAINT kurier_obszar
+    FOREIGN KEY (id_obszaru)
+    REFERENCES obszar(id_obszaru);
 
 ALTER TABLE kurier_katprawajazdy
     ADD CONSTRAINT kierowca_pesel
