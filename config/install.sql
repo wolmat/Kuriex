@@ -50,21 +50,21 @@ CREATE TABLE dostawca_katprawajazdy (
 );
 
 CREATE TABLE obszar (
-    id_obszaru INT(5)      NOT NULL,
+    id_obszaru INT(5)      NOT NULL AUTO_INCREMENT,
     nazwa      VARCHAR(20) NOT NULL,
     opis       VARCHAR(50),
     PRIMARY KEY(id_obszaru)
 );
 
 CREATE TABLE filia (
-    id_filii   INT(5)      NOT NULL,
+    id_filii   INT(5)      NOT NULL AUTO_INCREMENT,
     nazwa      VARCHAR(20) NOT NULL,
     id_obszaru INT(5),
     PRIMARY KEY(id_filii)
 );
 
 CREATE TABLE rejon (
-    id_rejonu  INT(5)      NOT NULL,
+    id_rejonu  INT(5)      NOT NULL AUTO_INCREMENT,
     nazwa      VARCHAR(20) NOT NULL,
     opis       VARCHAR(50),
     id_filii   INT(5),
@@ -72,7 +72,7 @@ CREATE TABLE rejon (
 );
 
 CREATE TABLE pojazd (
-    id_pojazdu INT(5)      NOT NULL,
+    id_pojazdu INT(5)      NOT NULL AUTO_INCREMENT,
     marka      VARCHAR(20) NOT NULL,
     model      VARCHAR(20) NOT NULL,
     ladownosc  INT(8)      NOT NULL,
@@ -80,7 +80,7 @@ CREATE TABLE pojazd (
 );
 
 CREATE TABLE `przesylka`(
-        id_przesylki    int(5)      NOT NULL,
+        id_przesylki    int(5)      NOT NULL AUTO_INCREMENT,
         opis            varchar(30) NOT NULL,
         pesel_dostawcy  int(11)     NOT NULL,
         pesel_kuriera   int(11)     NOT NULL,
@@ -111,7 +111,7 @@ CREATE TABLE `klient`(
 );
 
 CREATE TABLE `reklamacja`(
-        id_reklamacji   int(5)      NOT NULL,
+        id_reklamacji   int(5)      NOT NULL AUTO_INCREMENT,
         opis            varchar(20)         ,
         status          ENUM("w realizacji","odrzucono","przyjeto") NOT NULL,
         id_przesylki    int(5)      NOT NULL,
@@ -119,7 +119,7 @@ CREATE TABLE `reklamacja`(
 );
 
 CREATE TABLE `typprzesylki`(
-        id_typu         int(5)      NOT NULL,
+        id_typu         int(5)      NOT NULL AUTO_INCREMENT,
         opis            varchar(20) NOT NULL,
         waga_maksymalny int(4)              ,
         rozmiar_maksymalny varchar(7)       ,
@@ -127,7 +127,7 @@ CREATE TABLE `typprzesylki`(
 );
 
 CREATE TABLE `przesylka_typprzesylki`(
-        id_typu         int(5)      NOT NULL,
+        id_typu         int(5)      NOT NULL AUTO_INCREMENT,
         id_przesylki    int(5)      NOT NULL,
         PRIMARY KEY(id_typu, id_przesylki)
 );
