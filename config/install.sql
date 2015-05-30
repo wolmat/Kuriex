@@ -67,7 +67,7 @@ CREATE TABLE `przesylka`(
         id_zlecenia     int(5)      NOT NULL,
         pesel_odbiorcy  int(11)     NOT NULL,
         PRIMARY KEY(id_przesylki)
-)
+);
 
 -- ZLECENIE
 
@@ -80,6 +80,23 @@ CREATE TABLE `zlecenie`(
         status          ENUM("w realizacji","zakonczono","oczekuje") NOT NULL,
         pesel_nadawcy   int(11)     NOT NULL,
         PRIMARY KEY(id_zlecenia)
-)
+);
+
+
+-- KLIENT
+
+DROP TABLE IF EXISTS `klient`
+CREATE TABLE `klient`(
+        pesel_klienta   int(11)     NOT NULL,
+        imie            varchar(10) NOT NULL,
+        nazwisko        varchar(15) NOT NULL,
+        adres           varchar(40) NOT NULL,
+        numer_kontaktowy int(10)    NOT NULL,
+        adres_email     varchar(20) NOT NULL,
+        id_rejonu       int(5)      NOT NULL,
+        PRIMARY KEY(pesel_klienta)
+);
+
+
 
 
