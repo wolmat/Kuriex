@@ -17,6 +17,11 @@ CREATE TABLE kurier (
     PRIMARY KEY(pesel)
 );
 
+CREATE TABLE kurier_katprawajazdy (
+    nazwa_kategorii INT(5) NOT NULL,
+    pesel_kierowcy  INT(5) NOT NULL
+);
+
 CREATE TABLE dostawca (
     pesel      INT(5)      NOT NULL,
     imie       VARCHAR(20) NOT NULL,
