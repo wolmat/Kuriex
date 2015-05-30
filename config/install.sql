@@ -7,3 +7,12 @@ USE kuriex;
 
 DROP TABLE IF EXISTS kurier, dostawca, kurier_katprawajazdy,
     dostawca_katprawajazdy, filia, obszar, rejon;
+
+CREATE TABLE kurier (
+    pesel      INT(5)      NOT NULL,
+    imie       VARCHAR(20) NOT NULL,
+    nazwisko   VARCHAR(20) NOT NULL,
+    id_obszaru INT(5)      NOT NULL,
+    id_pojazdu INT(5)      NOT NULL,
+    PRIMARY KEY(pesel)
+);
