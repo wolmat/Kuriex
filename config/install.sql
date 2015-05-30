@@ -57,3 +57,16 @@ CREATE TABLE rejon (
     id_obszaru INT(5),
     PRIMARY KEY(id_rejonu)
 );
+
+DROP TABLE IF EXISTS `przesylka`
+CREATE TABLE `przesylka`(
+        id_przesylki    int(5)      NOT NULL,
+        opis            varchar(30) NOT NULL,
+        pesel_dostawcy  int(11)     NOT NULL,
+        pesel_kuriera   int(11)     NOT NULL,
+        id_zlecenia     int(5)      NOT NULL,
+        pesel_odbiorcy  int(11)     NOT NULL,
+        PRIMARY KEY(id_przesylki)
+    
+)
+
