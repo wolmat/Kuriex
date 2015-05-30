@@ -16,3 +16,12 @@ CREATE TABLE kurier (
     id_pojazdu INT(5)      NOT NULL,
     PRIMARY KEY(pesel)
 );
+
+CREATE TABLE dostawca (
+    pesel      INT(5)      NOT NULL,
+    imie       VARCHAR(20) NOT NULL,
+    nazwisko   VARCHAR(20) NOT NULL,
+    id_filii   INT(5)      NOT NULL,
+    id_pojazdu INT(5)      NOT NULL,
+    PRIMARY KEY(pesel)
+);
