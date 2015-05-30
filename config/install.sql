@@ -120,3 +120,8 @@ CREATE TABLE `przesylka_typprzesylki`(
         id_przesylki    int(5)      NOT NULL,
         PRIMARY KEY(id_typu, id_przesylki)
 );
+
+ALTER TABLE kurier
+    ADD CONSTRAINT kurier_pojazd
+    FOREIGN KEY (id_pojazdu)
+    REFERENCES pojazd(id_pojazdu);
