@@ -146,3 +146,9 @@ ALTER TABLE dostawca_katprawajazdy
     ADD CONSTRAINT dostawca_pesel
     FOREIGN KEY (pesel_kierowcy)
     REFERENCES dostawca(pesel);
+
+ALTER TABLE filia
+    ADD CONSTRAINT filia_obszar
+    FOREIGN KEY (id_obszaru)
+    REFERENCES obszar(id_obszaru);
+
