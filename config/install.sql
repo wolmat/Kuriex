@@ -67,7 +67,6 @@ CREATE TABLE pojazd (
     ladownosc  INT(8)      NOT NULL
 );
 
-DROP TABLE IF EXISTS `przesylka`;
 CREATE TABLE `przesylka`(
         id_przesylki    int(5)      NOT NULL,
         opis            varchar(30) NOT NULL,
@@ -78,7 +77,6 @@ CREATE TABLE `przesylka`(
         PRIMARY KEY(id_przesylki)
 );
 
-DROP TABLE IF EXISTS `zlecenie`;
 CREATE TABLE `zlecenie`(
         id_zlecenia     int(5)      NOT NULL,
         opis            varchar(30) NOT NULL,
@@ -89,7 +87,6 @@ CREATE TABLE `zlecenie`(
         PRIMARY KEY(id_zlecenia)
 );
 
-DROP TABLE IF EXISTS `klient`;
 CREATE TABLE `klient`(
         pesel_klienta   int(11)     NOT NULL,
         imie            varchar(10) NOT NULL,
@@ -101,7 +98,6 @@ CREATE TABLE `klient`(
         PRIMARY KEY(pesel_klienta)
 );
 
-DROP TABLE IF EXISTS `reklamacja`;
 CREATE TABLE `reklamacja`(
         id_reklamacji   int(5)      NOT NULL,
         opis            varchar(20)         ,
@@ -110,7 +106,6 @@ CREATE TABLE `reklamacja`(
         PRIMARY KEY(id_reklamacji)
 );
 
-DROP TABLE IF EXISTS `typprzesylki`;
 CREATE TABLE `typprzesylki`(
         id_typu         int(5)      NOT NULL,
         opis            varchar(20) NOT NULL,
@@ -119,7 +114,6 @@ CREATE TABLE `typprzesylki`(
         PRIMARY KEY(id_typu)
 );
 
-DROP TABLE IF EXISTS `przesylka_typprzesylki`;
 CREATE TABLE `przesylka_typprzesylki`(
         id_typu         int(5)      NOT NULL,
         id_przesylki    int(5)      NOT NULL,
