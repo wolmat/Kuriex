@@ -2,7 +2,7 @@
 
 $host='localhost';
 $dbase='kuriex';
-$user='root';
-$pass='';
+$user='kuriex';
+$pass='kuriex';
 
 ?>
