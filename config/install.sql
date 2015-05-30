@@ -25,3 +25,10 @@ CREATE TABLE dostawca (
     id_pojazdu INT(5)      NOT NULL,
     PRIMARY KEY(pesel)
 );
+
+CREATE TABLE obszar (
+    id_obszaru INT(5)      NOT NULL,
+    nazwa      VARCHAR(20) NOT NULL,
+    opis       VARCHAR(50),
+    PRIMARY KEY(id_obszaru)
+);
