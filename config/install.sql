@@ -108,3 +108,18 @@ CREATE TABLE `reklamacja`(
         id_przesylki    int(5)      NOT NULL,
         PRIMARY KEY(id_reklamacji)
 );
+
+
+-- TYP PRZESYLKI
+
+DROP TABLE IF EXISTS `typprzesylki`;
+CREATE TABLE `typprzesylki`(
+        id_typu         int(5)      NOT NULL,
+        opis            varchar(20) NOT NULL,
+        waga_maksymalny int(4)              ,
+        rozmiar_maksymalny varchar(7)       ,
+        PRIMARY KEY(id_typu)
+);
+
+
+
