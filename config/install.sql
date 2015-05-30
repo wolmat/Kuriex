@@ -31,6 +31,11 @@ CREATE TABLE dostawca (
     PRIMARY KEY(pesel)
 );
 
+CREATE TABLE dostawca_katprawajazdy (
+    nazwa_kategorii INT(5) NOT NULL,
+    pesel_kierowcy  INT(5) NOT NULL
+);
+
 CREATE TABLE obszar (
     id_obszaru INT(5)      NOT NULL,
     nazwa      VARCHAR(20) NOT NULL,
