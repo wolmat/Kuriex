@@ -6,7 +6,9 @@ SET PASSWORD FOR 'kuriex'@'localhost' = PASSWORD('kuriex');
 USE kuriex;
 
 DROP TABLE IF EXISTS kurier, dostawca, kurier_katprawajazdy,
-    dostawca_katprawajazdy, filia, obszar, rejon;
+    dostawca_katprawajazdy, filia, obszar, rejon, reklamacja,
+    przesylka_typprzesylki, typprzesylki, przesylka,
+    zlecenie, klient, pojazd;
 
 CREATE TABLE kurier (
     pesel      INT(5)      NOT NULL,
