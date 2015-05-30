@@ -58,7 +58,7 @@ CREATE TABLE rejon (
     PRIMARY KEY(id_rejonu)
 );
 
-DROP TABLE IF EXISTS `przesylka`
+DROP TABLE IF EXISTS `przesylka`;
 CREATE TABLE `przesylka`(
         id_przesylki    int(5)      NOT NULL,
         opis            varchar(30) NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE `przesylka`(
 
 -- ZLECENIE
 
-DROP TABLE IF EXISTS `zlecenie`
+DROP TABLE IF EXISTS `zlecenie`;
 CREATE TABLE `zlecenie`(
         id_zlecenia     int(5)      NOT NULL,
         opis            varchar(30) NOT NULL,
@@ -85,7 +85,7 @@ CREATE TABLE `zlecenie`(
 
 -- KLIENT
 
-DROP TABLE IF EXISTS `klient`
+DROP TABLE IF EXISTS `klient`;
 CREATE TABLE `klient`(
         pesel_klienta   int(11)     NOT NULL,
         imie            varchar(10) NOT NULL,
