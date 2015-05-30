@@ -67,6 +67,19 @@ CREATE TABLE `przesylka`(
         id_zlecenia     int(5)      NOT NULL,
         pesel_odbiorcy  int(11)     NOT NULL,
         PRIMARY KEY(id_przesylki)
-    
 )
+
+-- ZLECENIE
+
+DROP TABLE IF EXISTS `zlecenie`
+CREATE TABLE `zlecenie`(
+        id_zlecenia     int(5)      NOT NULL,
+        opis            varchar(30) NOT NULL,
+        cena            float(10,2) NOT NULL,
+        rodzaj_platnosci ENUM("przy odbiorze","z góry","za pobraniem") NOT NULL,
+        status          ENUM("w realizacji","zakonczono","oczekuje") NOT NULL,
+        pesel_nadawcy   int(11)     NOT NULL,
+        PRIMARY KEY(id_zlecenia)
+)
+
 
