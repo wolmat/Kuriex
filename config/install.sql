@@ -67,7 +67,7 @@ CREATE TABLE rejon (
     id_rejonu  INT(5)      NOT NULL,
     nazwa      VARCHAR(20) NOT NULL,
     opis       VARCHAR(50),
-    id_obszaru INT(5),
+    id_filii   INT(5),
     PRIMARY KEY(id_rejonu)
 );
 
