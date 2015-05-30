@@ -6,7 +6,10 @@ class MainView extends View{
 	
     public function  index() {
         $mod=$this->loadModel('main');
-        $this->set('customersNumber',$mod->customerNumber());
+        
+        $this->set('statisticsIndex',$mod->statisticsIndex());
+        
+        
         $this->render('/main/index');
     }
 	
