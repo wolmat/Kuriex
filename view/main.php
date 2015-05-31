@@ -18,7 +18,12 @@ class MainView extends View{
     }
 
     public function  find() {
-        $this->render('/main/find');
+        if(isset($_POST['id'])){
+            $this->set('id',$_POST['id']);
+            $this->render('/main/findResult');    
+        }
+        else
+            $this->render('/main/find');
     }
 }
 

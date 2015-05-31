@@ -1,13 +1,13 @@
 <?php include 'templates/header.php'; ?>
-
+<?php  $result = $this->get('id'); ?>
+    
 	<div class="container">
 		<div class="row">
 			<div class="one-half column" style="margin-top:5%">
-				<h3>Znajdz paczke</h3>
-				<form action="find" method="post">
-					ID paczki: <input type="text" name="id"><br>
-					<input style="margin auto" type="submit" value="Znajdz">
-				</form>
+				<h3>Znalezione zlecenie</h3>
+				
+                id zlecenia: <?php echo $result; ?>
+                
 			</div>
 		</div>
 	</div>

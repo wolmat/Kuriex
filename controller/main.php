@@ -1,12 +1,12 @@
 <?php
 /**
- * Kontroler strony g³ównej
+ * Kontroler strony glownej
  */
  
 include 'controller/controller.php';
  
 class MainController extends Controller{
-	//Wyœwietlanie strony g³ównej
+	//Wyswietlanie strony glownej
     public function index() {
         $view=$this->loadView('main');
         $view->index();
