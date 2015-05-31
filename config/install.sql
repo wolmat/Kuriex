@@ -25,13 +25,13 @@ CREATE TABLE kurier (
     pesel      BIGINT      NOT NULL,
     imie       VARCHAR(20) NOT NULL,
     nazwisko   VARCHAR(20) NOT NULL,
-    id_obszaru INT      NOT NULL,
-    id_pojazdu INT      NOT NULL,
+    id_obszaru INT         NOT NULL,
+    id_pojazdu INT         NOT NULL,
     PRIMARY KEY(pesel)
 );
 
 CREATE TABLE kurier_katprawajazdy (
-    nazwa_kategorii INT NOT NULL,
+    nazwa_kategorii INT    NOT NULL,
     pesel_kierowcy  BIGINT NOT NULL
 );
 
@@ -80,98 +80,98 @@ CREATE TABLE pojazd (
 );
 
 CREATE TABLE `przesylka`(
-        id_przesylki    INT      NOT NULL AUTO_INCREMENT,
-        opis            varchar(30) NOT NULL,
-        pesel_dostawcy  BIGINT      NOT NULL,
-        pesel_kuriera   BIGINT      NOT NULL,
-        id_zlecenia     INT      NOT NULL,
-        pesel_odbiorcy  BIGINT      NOT NULL,
-        PRIMARY KEY(id_przesylki)
+    id_przesylki    INT         NOT NULL AUTO_INCREMENT,
+    opis            varchar(30) NOT NULL,
+    pesel_dostawcy  BIGINT      NOT NULL,
+    pesel_kuriera   BIGINT      NOT NULL,
+    id_zlecenia     INT         NOT NULL,
+    pesel_odbiorcy  BIGINT      NOT NULL,
+    PRIMARY KEY(id_przesylki)
 );
 
 CREATE TABLE `zlecenie`(
-        id_zlecenia     INT      NOT NULL,
-        opis            varchar(30) NOT NULL,
-        cena            float(10,2) NOT NULL,
-        rodzaj_platnosci ENUM("przy odbiorze","z góry","za pobraniem") NOT NULL,
-        status          ENUM("w realizacji","zakonczono","oczekuje") NOT NULL,
-        pesel_nadawcy   BIGINT     NOT NULL,
-        PRIMARY KEY(id_zlecenia)
+    id_zlecenia     INT         NOT NULL,
+    opis            varchar(30) NOT NULL,
+    cena            float(10,2) NOT NULL,
+    rodzaj_platnosci ENUM("przy odbiorze","z góry","za pobraniem") NOT NULL,
+    status      ENUM("w realizacji","zakonczono","oczekuje") NOT NULL,
+    pesel_nadawcy   BIGINT     NOT NULL,
+    PRIMARY KEY(id_zlecenia)
 );
 
 CREATE TABLE `klient`(
-        pesel_klienta   BIGINT      NOT NULL,
-        imie            varchar(10) NOT NULL,
-        nazwisko        varchar(15) NOT NULL,
-        adres           varchar(40) NOT NULL,
-        numer_kontaktowy int(10)    NOT NULL,
-        adres_email     varchar(20) NOT NULL,
-        id_rejonu       INT      NOT NULL,
-        PRIMARY KEY(pesel_klienta)
+    pesel_klienta    BIGINT      NOT NULL,
+    imie             varchar(10) NOT NULL,
+    nazwisko         varchar(15) NOT NULL,
+    adres            varchar(40) NOT NULL,
+    numer_kontaktowy int(10)     NOT NULL,
+    adres_email      varchar(20) NOT NULL,
+    id_rejonu        INT         NOT NULL,
+    PRIMARY KEY(pesel_klienta)
 );
 
 CREATE TABLE `reklamacja`(
-        id_reklamacji   INT      NOT NULL AUTO_INCREMENT,
-        opis            varchar(20)         ,
-        status          ENUM("w realizacji","odrzucono","przyjeto") NOT NULL,
-        id_przesylki    INT      NOT NULL,
-        PRIMARY KEY(id_reklamacji)
+    id_reklamacji INT         NOT NULL AUTO_INCREMENT,
+    opis          varchar(20)     ,
+    status        ENUM("w realizacji","odrzucono","przyjeto") NOT NULL,
+    id_przesylki  INT         NOT NULL,
+    PRIMARY KEY(id_reklamacji)
 );
 
 CREATE TABLE `typprzesylki`(
-        id_typu            INT         NOT NULL AUTO_INCREMENT,
-        opis               varchar(20) NOT NULL,
-        waga_maksymalny    INT,
-        rozmiar_maksymalny varchar(7),
-        PRIMARY KEY(id_typu)
+    id_typu            INT         NOT NULL AUTO_INCREMENT,
+    opis               varchar(20) NOT NULL,
+    waga_maksymalny    INT,
+    rozmiar_maksymalny varchar(7),
+    PRIMARY KEY(id_typu)
 );
 
 CREATE TABLE `przesylka_typprzesylki`(
-        id_typu         INT NOT NULL AUTO_INCREMENT,
-        id_przesylki    INT NOT NULL,
-        PRIMARY KEY(id_typu, id_przesylki)
+    id_typu       INT NOT NULL AUTO_INCREMENT,
+    id_przesylki  INT NOT NULL,
+    PRIMARY KEY(id_typu, id_przesylki)
 );
 
 ALTER TABLE `przesylka`
-        ADD CONSTRAINT przesylka_zlecenie
-        FOREIGN KEY (id_zlecenia)
-        REFERENCES zlecenie(id_zlecenia),
+    ADD CONSTRAINT przesylka_zlecenie
+    FOREIGN KEY (id_zlecenia)
+    REFERENCES zlecenie(id_zlecenia),
 
-        ADD CONSTRAINT przesylka_kurier 
-        FOREIGN KEY (pesel_kuriera)
-        REFERENCES kurier(pesel),
+    ADD CONSTRAINT przesylka_kurier 
+    FOREIGN KEY (pesel_kuriera)
+    REFERENCES kurier(pesel),
 
-        ADD CONSTRAINT przesylka_dostawca
-        FOREIGN KEY (pesel_dostawcy)
-        REFERENCES dostawca(pesel),
+    ADD CONSTRAINT przesylka_dostawca
+    FOREIGN KEY (pesel_dostawcy)
+    REFERENCES dostawca(pesel),
 
-        ADD CONSTRAINT przesylka_odbiorca
-        FOREIGN KEY (pesel_odbiorcy)
-        REFERENCES klient(pesel_klienta);
+    ADD CONSTRAINT przesylka_odbiorca
+    FOREIGN KEY (pesel_odbiorcy)
+    REFERENCES klient(pesel_klienta);
 
 ALTER TABLE `zlecenie`
-        ADD CONSTRAINT zlecenie_nadawca
-        FOREIGN KEY (pesel_nadawcy)
-        REFERENCES klient(pesel_klienta);
+    ADD CONSTRAINT zlecenie_nadawca
+    FOREIGN KEY (pesel_nadawcy)
+    REFERENCES klient(pesel_klienta);
 
 ALTER TABLE `klient`
-        ADD CONSTRAINT klient_rejon
-        FOREIGN KEY (id_rejonu)
-        REFERENCES rejon(id_rejonu);
+    ADD CONSTRAINT klient_rejon
+    FOREIGN KEY (id_rejonu)
+    REFERENCES rejon(id_rejonu);
 
 ALTER TABLE `reklamacja`
-        ADD CONSTRAINT reklamacja
-        FOREIGN KEY (id_przesylki)
-        REFERENCES przesylka(id_przesylki);
+    ADD CONSTRAINT reklamacja
+    FOREIGN KEY (id_przesylki)
+    REFERENCES przesylka(id_przesylki);
 
 ALTER TABLE `przesylka_typprzesylki`
-        ADD CONSTRAINT przesylka_typrzesylki_przesylka
-        FOREIGN KEY (id_przesylki)
-        REFERENCES przesylka(id_przesylki),
+    ADD CONSTRAINT przesylka_typrzesylki_przesylka
+    FOREIGN KEY (id_przesylki)
+    REFERENCES przesylka(id_przesylki),
 
-        ADD CONSTRAINT przesylka_typrzesylki_typprzesylki
-        FOREIGN KEY (id_typu)
-        REFERENCES typprzesylki(id_typu);
+    ADD CONSTRAINT przesylka_typrzesylki_typprzesylki
+    FOREIGN KEY (id_typu)
+    REFERENCES typprzesylki(id_typu);
 
 ALTER TABLE kurier
     ADD CONSTRAINT kurier_pojazd
