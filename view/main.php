@@ -18,7 +18,7 @@ class MainView extends View{
     }
 
     public function  find() {
-        if(isset($_POST['id'])){
+        if( $_SERVER['REQUEST_METHOD'] == 'POST' ){
             $this->set('id',$_POST['id']);
             $this->render('/main/findResult');    
         }
