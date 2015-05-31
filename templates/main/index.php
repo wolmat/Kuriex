@@ -1,19 +1,7 @@
 <?php include('templates/header.php'); ?>
 
 
-<div id="zero_block">
-	<div class="container">
-		<div class="row">
-			<div class="one-half column" style="margin-top:5%">
-				<h4>Witaj na stronie naszej firmy!</h4>
-			</div>
-			
-			<div class="one-half column" style="margin-top:5%">
-				<img src="templates/images/kuriex.png">
-			</div>
-		</div>
-	</div>
-</div>
+
 
 <div id="first_block">
 	<div class="container">
