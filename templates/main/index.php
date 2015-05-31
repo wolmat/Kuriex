@@ -44,7 +44,10 @@
 			
 			<div class="one-half column" style="margin-top:5%">
 				<h4>Filia w <span style="color: #f07830">każdym</span> województwie</h4>
-				<h4>Działamy w <span style="color: #f07830">243</span> miastach</h4>
+                <h4>Działamy w
+                <span style="color: #f07830">
+                    <?php echo $result[3]; ?>
+                </span> miastach</h4>
 				<h4>Dotrzemy <span style="color: #f07830">wszędzie</span>!</h4>
 				<h4>Bo dla nas granice <span style="color: #f07830">nie istnieją</span></h4>
 			</div>

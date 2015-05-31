@@ -6,7 +6,7 @@ class MainModel extends Model{
     
      public function statisticsIndex() {
         $query='
-        SELECT k.*,p.*, ku.x + d.x
+        SELECT k.*,p.*, ku.x + d.x, m.x
         FROM(
             SELECT COUNT(pesel_klienta)
             FROM klient
@@ -23,6 +23,10 @@ class MainModel extends Model{
             SELECT COUNT(pesel) AS x
             FROM dostawca
         ) AS d
+        JOIN(
+            SELECT COUNT(id_rejonu) AS x
+            FROM rejon
+        ) AS m
         ';
  
         $select=$this->pdo->query($query);
