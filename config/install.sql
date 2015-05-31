@@ -22,113 +22,113 @@ DROP TABLE IF EXISTS
     obszar;
 
 CREATE TABLE kurier (
-    pesel      INT(5)      NOT NULL,
+    pesel      BIGINT      NOT NULL,
     imie       VARCHAR(20) NOT NULL,
     nazwisko   VARCHAR(20) NOT NULL,
-    id_obszaru INT(5)      NOT NULL,
-    id_pojazdu INT(5)      NOT NULL,
+    id_obszaru INT      NOT NULL,
+    id_pojazdu INT      NOT NULL,
     PRIMARY KEY(pesel)
 );
 
 CREATE TABLE kurier_katprawajazdy (
-    nazwa_kategorii INT(5) NOT NULL,
-    pesel_kierowcy  INT(5) NOT NULL
+    nazwa_kategorii INT NOT NULL,
+    pesel_kierowcy  BIGINT NOT NULL
 );
 
 CREATE TABLE dostawca (
-    pesel      INT(5)      NOT NULL,
+    pesel      BIGINT      NOT NULL,
     imie       VARCHAR(20) NOT NULL,
     nazwisko   VARCHAR(20) NOT NULL,
-    id_filii   INT(5)      NOT NULL,
-    id_pojazdu INT(5)      NOT NULL,
+    id_filii   INT      NOT NULL,
+    id_pojazdu INT      NOT NULL,
     PRIMARY KEY(pesel)
 );
 
 CREATE TABLE dostawca_katprawajazdy (
-    nazwa_kategorii INT(5) NOT NULL,
-    pesel_kierowcy  INT(5) NOT NULL
+    nazwa_kategorii VARCHAR(5) NOT NULL,
+    pesel_kierowcy  BIGINT     NOT NULL
 );
 
 CREATE TABLE obszar (
-    id_obszaru INT(5)      NOT NULL AUTO_INCREMENT,
+    id_obszaru INT      NOT NULL AUTO_INCREMENT,
     nazwa      VARCHAR(20) NOT NULL,
     opis       VARCHAR(50),
     PRIMARY KEY(id_obszaru)
 );
 
 CREATE TABLE filia (
-    id_filii   INT(5)      NOT NULL AUTO_INCREMENT,
+    id_filii   INT      NOT NULL AUTO_INCREMENT,
     nazwa      VARCHAR(20) NOT NULL,
-    id_obszaru INT(5),
+    id_obszaru INT,
     PRIMARY KEY(id_filii)
 );
 
 CREATE TABLE rejon (
-    id_rejonu  INT(5)      NOT NULL AUTO_INCREMENT,
+    id_rejonu  INT      NOT NULL AUTO_INCREMENT,
     nazwa      VARCHAR(20) NOT NULL,
     opis       VARCHAR(50),
-    id_filii   INT(5),
+    id_filii   INT,
     PRIMARY KEY(id_rejonu)
 );
 
 CREATE TABLE pojazd (
-    id_pojazdu INT(5)      NOT NULL AUTO_INCREMENT,
+    id_pojazdu INT      NOT NULL AUTO_INCREMENT,
     marka      VARCHAR(20) NOT NULL,
     model      VARCHAR(20) NOT NULL,
-    ladownosc  INT(8)      NOT NULL,
+    ladownosc  INT      NOT NULL,
     PRIMARY KEY(id_pojazdu)
 );
 
 CREATE TABLE `przesylka`(
-        id_przesylki    int(5)      NOT NULL AUTO_INCREMENT,
+        id_przesylki    INT      NOT NULL AUTO_INCREMENT,
         opis            varchar(30) NOT NULL,
-        pesel_dostawcy  int(11)     NOT NULL,
-        pesel_kuriera   int(11)     NOT NULL,
-        id_zlecenia     int(5)      NOT NULL,
-        pesel_odbiorcy  int(11)     NOT NULL,
+        pesel_dostawcy  BIGINT      NOT NULL,
+        pesel_kuriera   BIGINT      NOT NULL,
+        id_zlecenia     INT      NOT NULL,
+        pesel_odbiorcy  BIGINT      NOT NULL,
         PRIMARY KEY(id_przesylki)
 );
 
 CREATE TABLE `zlecenie`(
-        id_zlecenia     int(5)      NOT NULL,
+        id_zlecenia     INT      NOT NULL,
         opis            varchar(30) NOT NULL,
         cena            float(10,2) NOT NULL,
         rodzaj_platnosci ENUM("przy odbiorze","z góry","za pobraniem") NOT NULL,
         status          ENUM("w realizacji","zakonczono","oczekuje") NOT NULL,
-        pesel_nadawcy   int(11)     NOT NULL,
+        pesel_nadawcy   BIGINT     NOT NULL,
         PRIMARY KEY(id_zlecenia)
 );
 
 CREATE TABLE `klient`(
-        pesel_klienta   int(11)     NOT NULL,
+        pesel_klienta   BIGINT      NOT NULL,
         imie            varchar(10) NOT NULL,
         nazwisko        varchar(15) NOT NULL,
         adres           varchar(40) NOT NULL,
         numer_kontaktowy int(10)    NOT NULL,
         adres_email     varchar(20) NOT NULL,
-        id_rejonu       int(5)      NOT NULL,
+        id_rejonu       INT      NOT NULL,
         PRIMARY KEY(pesel_klienta)
 );
 
 CREATE TABLE `reklamacja`(
-        id_reklamacji   int(5)      NOT NULL AUTO_INCREMENT,
+        id_reklamacji   INT      NOT NULL AUTO_INCREMENT,
         opis            varchar(20)         ,
         status          ENUM("w realizacji","odrzucono","przyjeto") NOT NULL,
-        id_przesylki    int(5)      NOT NULL,
+        id_przesylki    INT      NOT NULL,
         PRIMARY KEY(id_reklamacji)
 );
 
 CREATE TABLE `typprzesylki`(
-        id_typu         int(5)      NOT NULL AUTO_INCREMENT,
-        opis            varchar(20) NOT NULL,
-        waga_maksymalny int(4)              ,
-        rozmiar_maksymalny varchar(7)       ,
+        id_typu            INT         NOT NULL AUTO_INCREMENT,
+        opis               varchar(20) NOT NULL,
+        waga_maksymalny    INT,
+        rozmiar_maksymalny varchar(7),
         PRIMARY KEY(id_typu)
 );
 
 CREATE TABLE `przesylka_typprzesylki`(
-        id_typu         int(5)      NOT NULL AUTO_INCREMENT,
-        id_przesylki    int(5)      NOT NULL,
+        id_typu         INT NOT NULL AUTO_INCREMENT,
+        id_przesylki    INT NOT NULL,
         PRIMARY KEY(id_typu, id_przesylki)
 );
 
