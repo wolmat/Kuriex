@@ -18,8 +18,10 @@ class MainView extends View{
     }
 
     public function  find() {
+        $mod=$this->loadModel('main');
+        
         if( $_SERVER['REQUEST_METHOD'] == 'POST' ){
-            $this->set('id',$_POST['id']);
+            $this->set('zlecenie',$mod->zlecenieById($_POST));
             $this->render('/main/findResult');    
         }
         else

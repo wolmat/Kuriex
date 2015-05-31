@@ -6,6 +6,7 @@
 				<h3>Znajdz paczke</h3>
 				<form action="find" method="post">
 					ID paczki: <input type="text" name="id"><br>
+                    PESEL: <input type="text" name="pesel"><br>
 					<input style="margin auto" type="submit" value="Znajdz">
 				</form>
 			</div>

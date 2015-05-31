@@ -1,7 +1,8 @@
 <?php
 
 include 'model/model.php';
- 
+include 'entities/zlecenie.php'; 
+
 class MainModel extends Model{
     
      public function statisticsIndex() {
@@ -37,6 +38,13 @@ class MainModel extends Model{
         return $result;
     }
 
+    public function zlecenieById($data){
+        
+        $result = new Zlecenie($data['id'],'opis');
+        
+        return $result;
+        
+    }
 }
 
 ?>
