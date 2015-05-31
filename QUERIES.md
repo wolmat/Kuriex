@@ -1,7 +1,7 @@
 # Zapytania
 
 ## Wyszukiwanie informacji na temat zlecenia
-Należy podać `pesel nadawcy` i `id zlecenia`
+Należy podać `pesel nadawcy` i `id zlecenia`.
 Zwróci dane całego zlecenia i zestawienie wszystkich przesyłek
 
 ```
@@ -23,4 +23,10 @@ ON p.pesel_dostawcy = d.pesel
 WHERE nad.pesel_klienta = #PESEL AND z.id_zlecenia = #ID
 ```
 
-##
+## Wypisanie informacji o wszystkich pracownikach
+
+## Wypisanie informacji o wszystkich klientach
+
+## Wypisanie informacji o wszystkich zleceniach
+
+## Wypisanie oczekujacych zleceniach 
