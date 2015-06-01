@@ -6,5 +6,6 @@ RewriteRule main index.php?task=main&action=index
 RewriteRule about index.php?task=main&action=about
 RewriteRule find index.php?task=main&action=find
 
-RewriteRule login index.php?task=user&action=login
-RewriteRule register index.php?task=user&action=register
+RewriteRule admin index.php?task=admin&action=index
+RewriteRule login index.php?task=admin&action=login
+
