@@ -22,14 +22,6 @@ $zlecenie = $this->get('zlecenie'); ?>
                     <td>Nadawca</td>
                     <td><?php echo $zlecenie->nadawca; ?></td>
                 </tr>
-                <tr>
-                    <td>Odbiorca</td>
-                    <td><?php echo $zlecenie->odbiorca; ?></td>
-                </tr>
-                <tr>
-                    <td>Dostawca</td>
-                    <td><?php echo $zlecenie->dostawca; ?></td>
-                </tr>
                 </table>
                     
 			</div>

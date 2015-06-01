@@ -9,7 +9,7 @@ class Zlecenie{
     public $status;
     public $nadawca;
     public $odbiorce;
-    public $dostawac;
+    public $dostawca;
     
         public function  __construct($data) {
 
@@ -19,8 +19,6 @@ class Zlecenie{
             $this->rodzaj_platnosci = $data[3];
             $this->status = $data[4];
             $this->nadawca = $data[5];
-            $this->odbiorca = $data[6];
-            $this->dostawca = $data[7];
         }
 
 }
