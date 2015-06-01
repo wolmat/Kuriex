@@ -21,7 +21,7 @@ class MainView extends View{
         $mod=$this->loadModel('main');
         
         if( $_SERVER['REQUEST_METHOD'] == 'POST' ){
-            $this->set('zlecenie',$mod->orderDetails($_POST));
+            $this->set('orderInfo',$mod->orderDetails($_POST));
             $this->render('/main/findResult');    
         }
         else

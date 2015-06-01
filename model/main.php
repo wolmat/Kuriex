@@ -1,7 +1,7 @@
 <?php
 
 include 'model/model.php';
-include 'entities/zlecenie.php'; 
+include 'entities/order.php'; 
 
 class MainModel extends Model{
     
