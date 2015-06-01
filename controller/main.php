@@ -3,7 +3,7 @@
  * Kontroler strony glownej
  */
  
-include 'controller/controller.php';
+include_once 'controller/controller.php';
  
 class MainController extends Controller{
 	//Wyswietlanie strony glownej

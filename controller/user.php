@@ -3,7 +3,7 @@
  * Kontroler logowania
  */
  
-include 'controller/controller.php';
+include_once 'controller/controller.php';
  
 class UserController extends Controller{
 	//Logowanie sie pracownika
