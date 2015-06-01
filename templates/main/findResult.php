@@ -25,7 +25,6 @@ $order = $this->get('orderInfo'); ?>
                 </table>
                     
                 <h5>Przesyłki</h5>
-                <?php foreach($this->get('deliveries') as $delivery) { ?>
                 <table>
                 <tr>
                     <td><b>Id</b></td>
@@ -37,6 +36,7 @@ $order = $this->get('orderInfo'); ?>
                     <?php } ?>
                     
                 </tr>
+                <?php foreach($this->get('deliveries') as $delivery) { ?>
                 <tr>
                     <td><b><?php echo $delivery['id_przesylki']; ?></b></td>
                     <td><?php echo $delivery['opis']; ?></td>
@@ -47,9 +47,8 @@ $order = $this->get('orderInfo'); ?>
                     <?php } ?>
                     
                 </tr>
-                </table>
                 <?php } ?>
-                
+                </table>              
 			</div>
 		</div>
 	</div>
