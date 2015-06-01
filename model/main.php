@@ -39,12 +39,34 @@ class MainModel extends Model{
     }
 
     public function zlecenieById($data){
+        $query='
+        SELECT 
+            z.id_zlecenia, z.opis, z.cena, z.rodzaj_platnosci, z.status,
+            CONCAT (nad.imie," ",nad.nazwisko) as nadawca,
+            p.id_przesylki, p.opis,
+        CONCAT (odb.imie," ",odb.nazwisko) as odbiorca,
+        CONCAT (d.imie," ",d.nazwisko) as dostawca
+        FROM zlecenie z
+        LEFT JOIN klient nad
+        ON z.pesel_nadawcy = nad.pesel_klienta
+        LEFT JOIN przesylka p
+        ON p.id_zlecenia = p.id_zlecenia
+        LEFT JOIN klient odb
+        ON p.pesel_odbiorcy = odb.pesel_klienta
+        LEFT JOIN dostawca d
+        ON p.pesel_dostawcy = d.pesel
+        WHERE nad.pesel_klienta = '.$data['pesel'].' AND z.id_zlecenia = '.$data['id'];
+
+
+        $select=$this->pdo->query($query);
         
-        $result = new Zlecenie($data['id'],'opis');
+        $result = $select->fetch();
+        $select->closeCursor();
+        $zlecenie = new Zlecenie($result);
         
-        return $result;
+        return $zlecenie;
         
-    }
+    }   
 }
 
 ?>
