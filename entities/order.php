@@ -10,7 +10,7 @@ class Order{
     public $nadawca;
     public $odbiorce;
     public $dostawca;
-    
+
         public function  __construct($data) {
 
             $this->id = $data[0];

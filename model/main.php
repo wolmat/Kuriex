@@ -53,7 +53,7 @@ class MainModel extends Model{
         
         $result = $select->fetch();
         $select->closeCursor();
-        $zlecenie = new Zlecenie($result);
+        $zlecenie = new Order($result);
         
         return $zlecenie;
         
