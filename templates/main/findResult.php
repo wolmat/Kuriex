@@ -32,14 +32,20 @@ $order = $this->get('orderInfo'); ?>
                     <td><b>Opis</b></td>
                     <td><b>Odbiorca</b></td>
                     <td><b>Dostawca</b></td>
+                    <?php if (isset($delivery['kurier'])){ ?>
                     <td><b>Kurier</b></td>
+                    <?php } ?>
+                    
                 </tr>
                 <tr>
                     <td><b><?php echo $delivery['id_przesylki']; ?></b></td>
                     <td><?php echo $delivery['opis']; ?></td>
                     <td><?php echo $delivery['odbiorca']; ?></td>
                     <td><?php echo $delivery['dostawca']; ?></td>
+                    <?php if (isset($delivery['kurier'])){ ?>
                     <td><?php echo $delivery['kurier']; ?></td>
+                    <?php } ?>
+                    
                 </tr>
                 </table>
                 <?php } ?>
