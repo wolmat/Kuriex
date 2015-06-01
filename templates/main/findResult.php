@@ -7,19 +7,19 @@ $zlecenie = $this->get('zlecenie'); ?>
 				<h3>Zamówienie nr #<?php echo $zlecenie->id; ?></h3>
                 <table>
                 <tr>
-                    <td>Opis</td>
+                    <td><b>Opis</b></td>
                     <td><?php echo $zlecenie->opis; ?></td>
                 </tr>
                 <tr>
-                    <td>Cena</td>
+                    <td><b>Cena</b></td>
                     <td><?php echo $zlecenie->cena.' zł ('.$zlecenie->rodzaj_platnosci.')'; ?></td>
                 </tr>
                 <tr>
-                    <td>Status</td>
+                    <td><b>Status</b></td>
                     <td><?php echo $zlecenie->status; ?></td>
                 </tr>
                 <tr>
-                    <td>Nadawca</td>
+                    <td><b>Nadawca</b></td>
                     <td><?php echo $zlecenie->nadawca; ?></td>
                 </tr>
                 </table>
