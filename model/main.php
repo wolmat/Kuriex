@@ -53,11 +53,39 @@ class MainModel extends Model{
         
         $result = $select->fetch();
         $select->closeCursor();
-        $zlecenie = new Order($result);
+        $order = new Order($result);
         
-        return $zlecenie;
+        return $order;
         
     }   
+    
+    public function deliveryDetails($data){
+        $query='
+        SELECT 
+            p.id_przesylki,
+            p.opis,
+            CONCAT(odb.imie," ",odb.nazwisko) as odbiorca,
+            CONCAT(d.imie," ",d.nazwisko) as dostawca,
+            CONCAT(k.imie," ",k.nazwisko) as kurier
+        FROM przesylka p 
+        INNER JOIN zlecenie z
+        ON p.id_zlecenia = z.id_zlecenia
+        INNER JOIN dostawca d
+        ON p.pesel_dostawcy = d.pesel
+        INNER JOIN klient odb
+        ON p.pesel_odbiorcy = odb.pesel_klienta
+        LEFT JOIN kurier k
+        ON p.pesel_kuriera = k.pesel
+        WHERE z.id_zlecenia ='.$data['id'];
+        
+        $select=$this->pdo->query($query);
+        foreach ($select as $row) {
+            $deliveries []=$row;
+        }
+        $select->closeCursor();
+        
+        return $deliveries ;
+    }
 }
 
 ?>
