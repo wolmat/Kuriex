@@ -1,4 +1,6 @@
-CREATE DATABASE IF NOT EXISTS `kuriex`;
+CREATE DATABASE IF NOT EXISTS `kuriex`
+DEFAULT CHARACTER SET utf8
+DEFAULT COLLATE utf8_general_ci;
 
 GRANT ALL ON `kuriex`.* TO `kuriex`@`localhost`;
 SET PASSWORD FOR 'kuriex'@'localhost' = PASSWORD('kuriex');
