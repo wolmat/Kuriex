@@ -23,7 +23,7 @@ class MainView extends View{
         if( $_SERVER['REQUEST_METHOD'] == 'POST' ){
             $this->set('orderInfo',$mod->orderDetails($_POST));
             $this->set('deliveries',$mod->deliveryDetails($_POST));
-            $this->render('/main/findResult');    
+            $this->render('/main/findResult');       
         }
         else
             $this->render('/main/find');

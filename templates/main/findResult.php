@@ -2,8 +2,7 @@
 $order = $this->get('orderInfo'); ?>
     
 	<div class="container">
-		<div class="row">
-			<div class="one-half column" style="margin-top:5%">
+        <?php if($order->id != null){ ?>
 				<h5>Podsumowanie zamówienia nr <?php echo $order->id; ?></h5>
                 <table>
                 <tr>
@@ -31,10 +30,7 @@ $order = $this->get('orderInfo'); ?>
                     <td><b>Opis</b></td>
                     <td><b>Odbiorca</b></td>
                     <td><b>Dostawca</b></td>
-                    <?php if (isset($delivery['kurier'])){ ?>
-                    <td><b>Kurier</b></td>
-                    <?php } ?>
-                    
+                    <td><b>Kurier</b></td>                    
                 </tr>
                 <?php foreach($this->get('deliveries') as $delivery) { ?>
                 <tr>
@@ -42,15 +38,13 @@ $order = $this->get('orderInfo'); ?>
                     <td><?php echo $delivery['opis']; ?></td>
                     <td><?php echo $delivery['odbiorca']; ?></td>
                     <td><?php echo $delivery['dostawca']; ?></td>
-                    <?php if (isset($delivery['kurier'])){ ?>
                     <td><?php echo $delivery['kurier']; ?></td>
-                    <?php } ?>
                     
                 </tr>
                 <?php } ?>
                 </table>              
-			</div>
-		</div>
+        <?php } else { echo '<h5>Nie znaleziono paczki!</h5>'; } ?>
 	</div>
+
 
 <?php include 'templates/footer.php'; ?>
