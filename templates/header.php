@@ -10,13 +10,15 @@
 
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
-  <link rel="stylesheet" href="css/style.css">
+  <!-- include all css stylesheets -->
+  <?php foreach(glob('css/*.css') as $css): ?>
+    <link rel="stylesheet" href="<?php echo $css; ?>">
+  <?php endforeach; ?>
   
-  <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-  <script type="text/javascript" src="js/topMenu.js"></script>
-  
+  <!-- include all js scripts -->
+  <?php foreach(glob('js/*.js') as $script): ?>
+    <script type="text/javascript" src="<?php echo $script; ?>"></script>
+  <?php endforeach; ?>
 </head>
 <body>
 <header>
