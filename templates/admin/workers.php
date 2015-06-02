@@ -1,5 +1,5 @@
 <?php include 'templates/header.php'; ?>
-
+<?php include('header.php'); ?>
 	<div class="container">
 
 				<h3>Lista pracowników </h3>

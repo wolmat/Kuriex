@@ -1,4 +1,5 @@
 <?php include('templates/header.php'); ?>
+<?php include('header.php'); ?>
 
 
 
@@ -8,7 +9,7 @@
 			
 				
                 <h4> Strona główna panelu admina</h4>
-                
+
 
 		</div>
 	</div>
