@@ -2,8 +2,14 @@
 <?php include('header.php'); ?>
 	<div class="container">
 
-				<h3>Lista pracowników </h3>
-				<form action="find" method="post">
+        <h3>Lista pracowników</h3>
+        Rodzaj pracownika:
+                <select name='function'>
+                    <option name="kurier">Kurier</option>
+                    <option name="dostawca">Dostawca</option>
+                </select>
+        
+				<form action="workers" method="post">
 					<table>
                         <thead>
                         <tr>
