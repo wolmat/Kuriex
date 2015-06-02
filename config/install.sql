@@ -94,7 +94,7 @@ CREATE TABLE `zlecenie`(
     opis            varchar(30) NOT NULL,
     cena            float(10,2) NOT NULL,
     rodzaj_platnosci ENUM("przy odbiorze","z góry","za pobraniem") NOT NULL,
-    status      ENUM("w realizacji","zakonczono","oczekuje") NOT NULL,
+    status      ENUM("w realizacji","zakończono","oczekuje") NOT NULL,
     pesel_nadawcy   BIGINT     NOT NULL,
     PRIMARY KEY(id_zlecenia)
 );
@@ -113,7 +113,7 @@ CREATE TABLE `klient`(
 CREATE TABLE `reklamacja`(
     id_reklamacji INT         NOT NULL AUTO_INCREMENT,
     opis          varchar(20)     ,
-    status        ENUM("w realizacji","odrzucono","przyjeto") NOT NULL,
+    status        ENUM("w realizacji","odrzucono","przyjęto") NOT NULL,
     id_przesylki  INT         NOT NULL,
     PRIMARY KEY(id_reklamacji)
 );
