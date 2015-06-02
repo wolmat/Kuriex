@@ -101,11 +101,11 @@ CREATE TABLE `zlecenie`(
 
 CREATE TABLE `klient`(
     pesel_klienta    BIGINT      NOT NULL,
-    imie             varchar(10) NOT NULL,
-    nazwisko         varchar(15) NOT NULL,
-    adres            varchar(40) NOT NULL,
+    imie             varchar(50) NOT NULL,
+    nazwisko         varchar(50) NOT NULL,
+    adres            varchar(50) NOT NULL,
     numer_kontaktowy int(10)     NOT NULL,
-    adres_email      varchar(20) NOT NULL,
+    adres_email      varchar(50) NOT NULL,
     id_rejonu        INT         NOT NULL,
     PRIMARY KEY(pesel_klienta)
 );
