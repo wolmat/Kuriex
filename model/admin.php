@@ -4,20 +4,6 @@ include 'model/model.php';
 
 class AdminModel extends Model{
    
-    public function selectAllCustomers(){
-        
-        $query='SELECT * FROM klient';
-        
-        $select=$this->pdo->query($query);
-        
-        foreach ($select as $row) {
-            $data[]=$row;
-        }
-        $select->closeCursor();
- 
-        return $data;  
-    }
-    
     public function selectCustomers($post){
         
         $pesel=NULL;

@@ -18,12 +18,8 @@ class AdminView extends View{
     
     public function  customers() {
         $mod=$this->loadModel('admin');
-        
-        if( $_SERVER['REQUEST_METHOD'] == 'POST'  ){
-            $this->set('customers',$mod->selectCustomers($_POST));
-        }
-        else
-            $this->set('customers',$mod->selectAllCustomers());
+        $this->set('customers',$mod->selectCustomers($_POST));
+
         $this->render('/admin/customers');
     
     }
