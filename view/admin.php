@@ -13,6 +13,8 @@ class AdminView extends View{
     }
 
     public function  workers() {
+        $mod=$this->loadModel('admin');
+        $this->set('workers',$mod->selectWorkers($_POST));
         $this->render('/admin/workers');
     }
     

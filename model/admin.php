@@ -79,7 +79,56 @@ class AdminModel extends Model{
         $this->pdo->query($query);
     }
     
-    
+    public function selectWorkers($post){
+        
+        $pesel=NULL;
+        if(isset($post['pesel']))
+           $pesel=$post['pesel'];
+        
+        $imie=NULL;
+        if(isset($post['imie']))
+           $imie=$post['imie'];
+        
+        $nazwisko=NULL;
+        if(isset($post['nazwisko']))
+           $nazwisko=$post['nazwisko'];
+        
+        $id_obszaru=NULL;
+        if(isset($post['id_obszaru']))
+           $id_obszaru=$post['id_obszaru'];
+        
+        $id_pojazdu=NULL;
+        if(isset($post['id_pojazdu']))
+           $id_pojazdu=$post['id_pojazdu'];
+                echo $post['function'];
+ 
+        if(isset($post['function']))
+           $function=$post['function'];
+
+        $query='SELECT * FROM '.$function.' WHERE 1';
+        if($pesel!=NULL)
+        $query=$query.' AND pesel = '.$pesel;
+        if($imie!=NULL)
+        $query=$query.' AND imie = "'.$imie.'"';
+        if($nazwisko!=NULL)
+        $query=$query.' AND nazwisko = "'.$nazwisko.'"';
+        if($id_obszaru!=NULL)
+        $query=$query.' AND id_obszaru = "'.$id_obszaru.'"';
+        if($id_pojazdu!=NULL)
+        $query=$query.' AND id_pojazdu = '.$id_pojazdu;
+                
+        $data[] = null;
+        $select=$this->pdo->query($query);
+
+            
+        foreach ($select as $row) {
+            $data[]=$row;
+        }
+        $select->closeCursor();
+ 
+        return $data;  
+           
+    }
     
     
 }

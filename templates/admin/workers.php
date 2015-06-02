@@ -3,13 +3,16 @@
 	<div class="container">
 
         <h3>Lista pracowników</h3>
-        Rodzaj pracownika:
-                <select name='function'>
-                    <option name="kurier">Kurier</option>
-                    <option name="dostawca">Dostawca</option>
-                </select>
-        
+
+
 				<form action="workers" method="post">
+                    
+                Rodzaj pracownika:
+                <select name="function">
+                    <option value="kurier">Kurier</option>
+                    <option value="dostawca">Dostawca</option>
+                </select>
+                    
 					<table>
                         <thead>
                         <tr>
@@ -27,6 +30,17 @@
                             <td><input type="text" name="id_fili"></td>
                             <td><input type="text" name="id_pojazdu"></td>
                         </tr>
+                        
+                        <?php foreach($this->get('workers') as $worker) { ?>
+                        <tr>
+                            <td><?php echo $worker['pesel']; ?></td>
+                            <td><?php echo $worker['imie']; ?></td>
+                            <td><?php echo $worker['nazwisko']; ?></td>
+                            <td><?php echo $worker['id_obszaru']; ?></td>
+                            <td><?php echo $worker['id_pojazdu']; ?></td>
+                        </tr>
+                        <?php } ?>
+                        
                     </table>
 				    <input style="margin auto" type="submit" value="Znajdz">
 				</form>
