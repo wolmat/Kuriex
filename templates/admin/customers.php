@@ -5,7 +5,7 @@
 
 				<h3>Lista klientów </h3>
 				<form action="customers" method="post">
-					<table>
+					<table class="customer-table">
                         <thead>
                         <tr>
                             <td>PESEL </td>

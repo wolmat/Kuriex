@@ -4,7 +4,7 @@ $order = $this->get('orderInfo'); ?>
 	<div class="container">
         <?php if($order->id != null){ ?>
 				<h5>Podsumowanie zamówienia nr <?php echo $order->id; ?></h5>
-                <table>
+                <table class="order-table">
                 <tr>
                     <td><b>Opis</b></td>
                     <td><?php echo $order->opis; ?></td>
@@ -24,7 +24,7 @@ $order = $this->get('orderInfo'); ?>
                 </table>
                     
                 <h5>Przesyłki</h5>
-                <table>
+                <table class="package-table">
                 <tr>
                     <td><b>Id</b></td>
                     <td><b>Opis</b></td>

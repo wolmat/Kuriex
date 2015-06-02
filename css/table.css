@@ -1,0 +1,14 @@
+.package-table {
+}
+
+.package-table .odd {
+    background: #fafaff;
+}
+
+.package-table .even {
+    background: #eaeaff;
+}
+
+.customer-table input[type="text"] {
+    width: 120px;
+}
