@@ -1,10 +1,10 @@
 <?php include 'templates/header.php';
-$customers = $this->get('customers'); ?>
+ ?>
 
 	<div class="container">
 
 				<h3>Lista klientów </h3>
-				<form action="find" method="post">
+				<form action="customers" method="post">
 					<table>
                         <thead>
                         <tr>
@@ -18,7 +18,7 @@ $customers = $this->get('customers'); ?>
                         </tr>
                         </thead>
                         <tr>
-                            <td><input type="text" name="pesel"></td>
+                            <td><input type="text" name="pesel_klienta"></td>
                             <td><input type="text" name="imie"></td>
                             <td><input type="text" name="nazwisko"></td>
                             <td><input type="text" name="adres"></td>
