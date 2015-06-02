@@ -23,8 +23,8 @@ DROP TABLE IF EXISTS
 
 CREATE TABLE kurier (
     pesel      BIGINT      NOT NULL,
-    imie       VARCHAR(20) NOT NULL,
-    nazwisko   VARCHAR(20) NOT NULL,
+    imie       VARCHAR(50) NOT NULL,
+    nazwisko   VARCHAR(50) NOT NULL,
     id_obszaru INT         NOT NULL,
     id_pojazdu INT         NOT NULL,
     PRIMARY KEY(pesel)
@@ -37,8 +37,8 @@ CREATE TABLE kurier_katprawajazdy (
 
 CREATE TABLE dostawca (
     pesel      BIGINT      NOT NULL,
-    imie       VARCHAR(20) NOT NULL,
-    nazwisko   VARCHAR(20) NOT NULL,
+    imie       VARCHAR(50) NOT NULL,
+    nazwisko   VARCHAR(50) NOT NULL,
     id_filii   INT      NOT NULL,
     id_pojazdu INT      NOT NULL,
     PRIMARY KEY(pesel)
@@ -51,7 +51,7 @@ CREATE TABLE dostawca_katprawajazdy (
 
 CREATE TABLE obszar (
     id_obszaru INT      NOT NULL AUTO_INCREMENT,
-    nazwa      VARCHAR(20) NOT NULL,
+    nazwa      VARCHAR(50) NOT NULL,
     opis       VARCHAR(50),
     PRIMARY KEY(id_obszaru)
 );
