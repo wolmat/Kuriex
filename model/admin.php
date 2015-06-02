@@ -62,6 +62,23 @@ class AdminModel extends Model{
         return $data;  
            
     }
+    
+    public function addCustomer($post){
+        
+
+        $pesel=$post['pesel_klienta'];
+        $imie=$post['imie'];
+        $nazwisko=$post['nazwisko'];
+        $adres=$post['adres'];
+        $numer_kontaktowy=$post['numer_kontaktowy'];
+        $adres_email=$post['adres_email'];
+        $id_rejonu=$post['id_rejonu'];
+        $query='INSERT INTO klient 
+        VALUES ('.$pesel.','.$imie.','.$nazwisko.','.$adres.',
+        '.$numer_kontaktowy.','.$adres_email.','.id_rejonu;
+        $this->pdo->query($query);
+    }
+    
 }
         
 

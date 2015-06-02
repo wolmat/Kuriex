@@ -29,7 +29,7 @@ class AdminController extends Controller{
 		$view=$this->loadView('admin');
         $view->customers();
 	}
-    
+
     //Wyszukiwanie zleceń
 	public function orders(){
 		$view=$this->loadView('admin');
