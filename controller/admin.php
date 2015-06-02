@@ -18,5 +18,11 @@ class AdminController extends Controller{
         $view->login();
 	}
 
+    //Wyszukiwanie kierowców
+	public function workers(){
+		$view=$this->loadView('admin');
+        $view->workers();
+	}
+    
 	
 }

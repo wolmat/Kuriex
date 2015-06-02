@@ -1,18 +1,22 @@
 <?php include('templates/header.php'); ?>
 
 
-
-
 	<div class="container">
-		<div class="row">
-			
-				
-                <h4> Strona logowania do panelu </h4>
-                
 
-		</div>
+				<h3>Logowanie do panelu admina</h3>
+				<form action="login" method="post">
+					<table>
+                        <tr>
+                            <td>Login: </td>
+                            <td><input type="text" name="user"></td>
+                        </tr>
+                        <tr>
+                            <td>Hasło: </td>
+                            <td><input type="text" name="pass"></td>
+                        </tr>
+                    </table>
+				    <input style="margin auto" type="submit" value="Zaloguj">
+				</form>
 	</div>
-            
 
-
-<?php include('templates/footer.php'); ?>
+<?php include 'templates/footer.php'; ?>

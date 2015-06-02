@@ -12,6 +12,11 @@ class AdminView extends View{
         $this->render('/admin/login');
     }
 
+    public function  workers() {
+        $this->render('/admin/workers');
+    }
+
+
 }
 
 ?>
