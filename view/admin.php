@@ -20,6 +20,10 @@ class AdminView extends View{
         $this->render('/admin/customers');
     }
 
+     public function  orders() {
+        $this->render('/admin/orders');
+    }
+    
 }
 
 ?>
