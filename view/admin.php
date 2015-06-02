@@ -15,7 +15,10 @@ class AdminView extends View{
     public function  workers() {
         $this->render('/admin/workers');
     }
-
+    
+    public function  customers() {
+        $this->render('/admin/customers');
+    }
 
 }
 

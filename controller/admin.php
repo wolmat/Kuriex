@@ -24,5 +24,10 @@ class AdminController extends Controller{
         $view->workers();
 	}
     
-	
+    //Wyszukiwanie pracowników
+	public function customers(){
+		$view=$this->loadView('admin');
+        $view->customers();
+	}
+    
 }
