@@ -82,6 +82,7 @@ CREATE TABLE pojazd (
 CREATE TABLE `przesylka`(
     id_przesylki    INT         NOT NULL AUTO_INCREMENT,
     opis            varchar(30) NOT NULL,
+    status          ENUM("w realizacji","zakończono","oczekuje") NOT NULL,
     pesel_dostawcy  BIGINT      NOT NULL,
     pesel_kuriera   BIGINT      NOT NULL,
     id_zlecenia     INT         NOT NULL,
@@ -94,7 +95,7 @@ CREATE TABLE `zlecenie`(
     opis            varchar(30) NOT NULL,
     cena            float(10,2) NOT NULL,
     rodzaj_platnosci ENUM("przy odbiorze","z góry","za pobraniem") NOT NULL,
-    status      ENUM("w realizacji","zakończono","oczekuje") NOT NULL,
+    status           ENUM("w realizacji","zakończono","oczekuje") NOT NULL,
     pesel_nadawcy   BIGINT     NOT NULL,
     PRIMARY KEY(id_zlecenia)
 );
