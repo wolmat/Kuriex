@@ -17,7 +17,11 @@ class AdminView extends View{
     }
     
     public function  customers() {
+        $mod=$this->loadModel('admin');
+        $this->set('customers',$mod->selectAllCustomers());
+        
         $this->render('/admin/customers');
+    
     }
 
      public function  orders() {

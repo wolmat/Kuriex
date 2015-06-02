@@ -20,7 +20,7 @@ class MainView extends View{
     public function  find() {
         $mod=$this->loadModel('main');
         
-        if( $_SERVER['REQUEST_METHOD'] == 'POST' ){
+        if( $_SERVER['REQUEST_METHOD'] == 'POST'  ){
             $this->set('orderInfo',$mod->orderDetails($_POST));
             $this->set('deliveries',$mod->deliveryDetails($_POST));
             $this->render('/main/findResult');       

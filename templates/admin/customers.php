@@ -1,4 +1,5 @@
-<?php include 'templates/header.php'; ?>
+<?php include 'templates/header.php';
+$customers = $this->get('customers'); ?>
 
 	<div class="container">
 
@@ -25,6 +26,17 @@
                             <td><input type="text" name="adres_email"></td>
                             <td><input type="text" name="id_rejonu"></td>
                         </tr>
+                        <?php foreach($this->get('customers') as $customer) { ?>
+                        <tr>
+                            <td><?php echo $customer['pesel_klienta']; ?></td>
+                            <td><?php echo $customer['imie']; ?></td>
+                            <td><?php echo $customer['nazwisko']; ?></td>
+                            <td><?php echo $customer['adres']; ?></td>
+                            <td><?php echo $customer['numer_kontaktowy']; ?></td>
+                            <td><?php echo $customer['adres_email']; ?></td>
+                            <td><?php echo $customer['id_rejonu']; ?></td>
+                        </tr>
+                        <?php } ?>
                     </table>
 				    <input style="margin auto" type="submit" value="Znajdz">
 				</form>
