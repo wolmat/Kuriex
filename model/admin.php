@@ -93,18 +93,18 @@ class AdminModel extends Model{
         if(isset($post['nazwisko']))
            $nazwisko=$post['nazwisko'];
         
-        $id_obszaru=NULL;
-        if(isset($post['id_obszaru']))
-           $id_obszaru=$post['id_obszaru'];
+        $id_miejsca=NULL;
+        if(isset($post['id_miejsca']))
+           $id_miejsca=$post['id_miejsca'];
         
         $id_pojazdu=NULL;
         if(isset($post['id_pojazdu']))
            $id_pojazdu=$post['id_pojazdu'];
-                echo $post['function'];
- 
+
+        $function="kurier";
         if(isset($post['function']))
            $function=$post['function'];
-
+ 
         $query='SELECT * FROM '.$function.' WHERE 1';
         if($pesel!=NULL)
         $query=$query.' AND pesel = '.$pesel;
@@ -112,12 +112,14 @@ class AdminModel extends Model{
         $query=$query.' AND imie = "'.$imie.'"';
         if($nazwisko!=NULL)
         $query=$query.' AND nazwisko = "'.$nazwisko.'"';
-        if($id_obszaru!=NULL)
-        $query=$query.' AND id_obszaru = "'.$id_obszaru.'"';
+        if($id_miejsca!=NULL && $function=="kurier")
+        $query=$query.' AND id_obszaru = '.$id_miejsca.'';
+        if($id_miejsca!=NULL && $function=="dostawca")
+        $query=$query.' AND id_filii = '.$id_miejsca.'';
         if($id_pojazdu!=NULL)
         $query=$query.' AND id_pojazdu = '.$id_pojazdu;
                 
-        $data[] = null;
+        $data = array();
         $select=$this->pdo->query($query);
 
             
@@ -125,7 +127,7 @@ class AdminModel extends Model{
             $data[]=$row;
         }
         $select->closeCursor();
- 
+        
         return $data;  
            
     }
