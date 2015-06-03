@@ -2,10 +2,7 @@
 <?php include('header.php'); 
 $function = $this -> get('function'); ?>
 	<div class="container">
-
         <h3>Lista pracowników</h3>
-
-
 				<form action="workers" method="post">
                     
                 Rodzaj pracownika:
@@ -15,8 +12,7 @@ $function = $this -> get('function'); ?>
                     else echo '<option value="kurier">Kurier</option><option value="dostawca">Dostawca</option>';
                      ?>
                 </select>
-                    
-					<table>
+					<table id="worker-table">
                         <thead>
                         <tr>
                             <td>PESEL : </td>

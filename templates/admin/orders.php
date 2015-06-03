@@ -4,7 +4,7 @@
 
 				<h3>Lista zleceń </h3>
 				<form action="find" method="post">
-					<table>
+					<table id="order-table">
                         <thead>
                         <tr>
                             <td>Id </td>
