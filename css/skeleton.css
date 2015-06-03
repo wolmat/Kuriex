@@ -233,7 +233,6 @@ input[type="url"],
 input[type="password"],
 textarea,
 select {
-  height: 38px;
   padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
   background-color: #fff;
   border: 1px solid #D1D1D1;
@@ -323,7 +322,7 @@ pre > code {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 th,
 td {
-  padding: 12px 15px;
+  padding: 5px 5px;
   text-align: left;
   border-bottom: 1px solid #E1E1E1; }
 th:first-child,
@@ -340,8 +339,7 @@ button,
 input,
 textarea,
 select,
-fieldset {
-  margin-bottom: 1.5rem; }
+fieldset {}
 pre,
 blockquote,
 dl,
