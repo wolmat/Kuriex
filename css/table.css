@@ -1,3 +1,18 @@
+table {
+  border-collapse: collapse;
+}
+table tbody {
+  border-top: 1em solid transparent;
+}
+
+th, td {
+    text-align: center;
+}
+
+td input {
+    width: 100%;
+}
+
 .package-table {
 }
 
@@ -9,6 +24,11 @@
     background: #eaeaff;
 }
 
-.customer-table input[type="text"] {
-    width: 120px;
+.customer-table th, td {
+    width: 140px;
+}
+
+#order-table input[type="text"],
+#worker-table input[type="text"]{
+    width: 180px;
 }

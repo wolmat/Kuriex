@@ -8,15 +8,14 @@
 					<table class="customer-table">
                         <thead>
                         <tr>
-                            <td>PESEL </td>
-                            <td>Imie </td>
-                            <td>Nazwisko </td>
-                            <td>Adres </td>
-                            <td>Numer kontaktowy </td>
-                            <td>Adres email </td>
-                            <td>Id rejonu </td>
+                            <th>PESEL </th>
+                            <th>Imie </th>
+                            <th>Nazwisko </th>
+                            <th>Adres </th>
+                            <th>Numer kontaktowy </th>
+                            <th>Adres email </th>
+                            <th>Id rejonu </th>
                         </tr>
-                        </thead>
                         <tr>
                             <td><input type="text" name="pesel_klienta"></td>
                             <td><input type="text" name="imie"></td>
@@ -26,7 +25,9 @@
                             <td><input type="text" name="adres_email"></td>
                             <td><input type="text" name="id_rejonu"></td>
                         </tr>
-                        <?php foreach($this->get('customers') as $customer) { ?>
+                        </thead>
+                        <tbody>
+                        <?php foreach($this->get('customers') as $customer): ?>
                         <tr>
                             <td><?php echo $customer['pesel_klienta']; ?></td>
                             <td><?php echo $customer['imie']; ?></td>
@@ -36,7 +37,8 @@
                             <td><?php echo $customer['adres_email']; ?></td>
                             <td><?php echo $customer['id_rejonu']; ?></td>
                         </tr>
-                        <?php } ?>
+                        <?php endforeach; ?>
+                        </tbody>
                     </table>
 				    <input style="margin auto" type="submit" value="Znajdz">
 				</form>
