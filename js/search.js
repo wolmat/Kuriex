@@ -3,8 +3,8 @@ $(document).ready(function() {
         var full = $(':text').filter(function() {
             return $(this).val() != '';
         });
-
-        $('tr:not(:first-child)').each(function() {
+        var count = 0;
+        $('.customer-table tbody tr').each(function() {
             var tr = $(this);
             var show = true;
             $(full).each(function() {
@@ -14,11 +14,12 @@ $(document).ready(function() {
                 if(val != '' && !$(td).text().startsWith(val))
                    show = false;
             });
-            if(show)
+            if(show) {
                 $(this).fadeIn('slow');
-            else
+                ++count;
+            } else
                 $(this).fadeOut('slow');
         });
-
+        $('#count').text(count);
     });
 });

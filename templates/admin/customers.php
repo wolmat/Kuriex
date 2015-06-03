@@ -3,7 +3,12 @@
 
 	<div class="container">
 
-				<h3>Lista klientów </h3>
+				<h3>
+                    Lista klientów |
+                    <span id="count">
+                         <?php echo count($this->get('customers')); ?>
+                    </span>
+                </h3>
 				<form action="customers" method="post">
 					<table class="customer-table">
                         <thead>
