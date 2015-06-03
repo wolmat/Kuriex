@@ -50,7 +50,7 @@ class AdminModel extends Model{
         if($id_rejonu!=NULL)
         $query=$query.' AND id_rejonu = '.$id_rejonu;
                 
-        $data[] = null;
+        $data = array();
         $select=$this->pdo->query($query);
 
             
