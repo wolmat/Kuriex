@@ -1,7 +1,7 @@
 $(window).bind("scroll", function() {
-    if ($(this).scrollTop() > 300) {
-        $("header").fadeIn();
+    if ($(this).scrollTop() > 150) {
+        $("#top-nav").fadeIn();
     } else {
-        $("header").stop().fadeOut();
+        $("#top-nav").stop().fadeOut();
     }
 });
