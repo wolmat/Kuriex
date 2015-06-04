@@ -48,7 +48,8 @@
            style="text-align: center">
         <img src="templates/images/kuriex.png">
         <h6>
-          Usiądź wygodnie w fotelu. Zrobimy wszystko za Ciebie!
+          Usiądź wygodnie w fotelu.
+          Zrobimy wszystko za Ciebie!
         </h6>
       </div>
     </div>
