@@ -1,7 +1,7 @@
 <?php include('templates/header.php'); ?>
 <div id="block1">
   <?php  $result = $this->get('statisticsIndex'); ?>
-  <div id="container">
+  <div class="ten columns offset-by-two">
     <table>
       <tr>
         <td>Zaufało nam już</td>
