@@ -1,5 +1,6 @@
 <?php include 'templates/header.php'; ?>
-<?php include('header.php'); ?>
+<?php include('header.php'); 
+$function = $this -> get('function'); ?>
 	<div class="container">
 
         <h3>Lista pracowników</h3>
@@ -9,9 +10,10 @@
                     
                 Rodzaj pracownika:
                 <select name="function">
-                    <?php if(isset($worker['id_obszaru'])) 
-                    echo '<option value="kurier">Kurier</option><option value="dostawca">Dostawca</option>';
-                    else echo '<option value="dostawca">Dostawca</option><option value="kurier">Kurier</option>'; ?>
+                    <?php if($function == "dostawca") 
+                    echo '<option value="dostawca">Dostawca</option><option value="kurier">Kurier</option>';
+                    else echo '<option value="kurier">Kurier</option><option value="dostawca">Dostawca</option>';
+                     ?>
                 </select>
                     
 					<table>
@@ -20,10 +22,10 @@
                             <td>PESEL : </td>
                             <td>Imie: </td>
                             <td>Nazwisko: </td>
-                            <td><?php if(isset($worker['id_obszaru']))
-                                      echo "Obszar";
+                            <td><?php if($function == "dostawca") 
+                                      echo "Filia";
                                       else 
-                                      echo "Filia"; ?></td>
+                                      echo "Obszar"; ?></td>
                             <td>Id pojazdu: </td>
                         </tr>
                         </thead>
