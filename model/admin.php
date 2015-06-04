@@ -132,6 +132,52 @@ class AdminModel extends Model{
            
     }
     
+ public function selectOrders($post){
+        
+        $id_zlecenia=NULL;
+        if(isset($post['id_zlecenia']))
+           $id_zlecenia=$post['id_zlecenia'];
+        
+        $opis=NULL;
+        if(isset($post['opis']))
+           $opis=$post['opis'];
+        
+        $rodzaj_platnosci=NULL;
+        if(isset($post['rodzaj_platnosci']))
+           $rodzaj_platnosci=$post['rodzaj_platnosci'];
+        
+        $status=NULL;
+        if(isset($post['status']))
+           $status=$post['status'];
+        
+        $pesel_nadawcy=NULL;
+        if(isset($post['pesel_nadawcy']))
+           $pesel_nadawcy=$post['pesel_nadawcy'];
+ 
+        $query='SELECT * FROM zlecenie WHERE 1';
+        if($id_zlecenia!=NULL)
+        $query=$query.' AND id_zlecenia = '.$id_zlecenia;
+        if($opis!=NULL)
+        $query=$query.' AND opis = "'.$opis.'"';
+        if($rodzaj_platnosci!=NULL)
+        $query=$query.' AND rodzaj_platnosci = "'.$rodzaj_platnosci.'"';
+        if($status!=NULL)
+        $query=$query.' AND status = "'.$status.'"';
+        if($pesel_nadawcy!=NULL)
+        $query=$query.' AND pesel_nadawcy = '.$pesel_nadawcy;
+                
+        $data = array();
+        $select=$this->pdo->query($query);
+
+            
+        foreach ($select as $row) {
+            $data[]=$row;
+        }
+        $select->closeCursor();
+        
+        return $data;  
+           
+    }
     
 }
         

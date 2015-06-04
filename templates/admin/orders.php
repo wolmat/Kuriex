@@ -20,8 +20,17 @@
                             <td><input type="text" name="rodzaj_platnosci"></td>
                             <td><input type="text" name="status"></td>
                             <td><input type="text" name="pesel_nadawcy"></td>
-
                         </tr>
+                        <?php foreach($this->get('orders') as $order) { ?>
+                        <tr>
+                            <td><?php echo $order['id_zlecenia']; ?></td>
+                            <td><?php echo $order['opis']; ?></td>
+                            <td><?php echo $order['rodzaj_platnosci']; ?></td>
+                            <td><?php echo $order['status']; ?></td>
+                            <td><?php echo $order['pesel_nadawcy']; ?></td>
+                        </tr>
+                        <?php } ?>
+                        
                     </table>
 				    <input style="margin auto" type="submit" value="Znajdz">
 				</form>

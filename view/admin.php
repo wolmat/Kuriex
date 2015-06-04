@@ -26,12 +26,13 @@ class AdminView extends View{
     public function  customers() {
         $mod=$this->loadModel('admin');
         $this->set('customers',$mod->selectCustomers($_POST));
-
         $this->render('/admin/customers');
     
     }
 
      public function  orders() {
+        $mod=$this->loadModel('admin');
+        $this->set('orders',$mod->selectOrders($_POST));
         $this->render('/admin/orders');
     }
     
