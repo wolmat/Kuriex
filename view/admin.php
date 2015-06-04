@@ -5,6 +5,9 @@ include 'view/view.php';
 class AdminView extends View{
 	
     public function  index() {
+        $mod=$this->loadModel('admin');
+        $post['status'] = "oczekuje";
+        $this->set('orders',$mod->selectOrders($post));
         $this->render('/admin/index');
     }
 	
