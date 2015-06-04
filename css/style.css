@@ -50,6 +50,41 @@ body {
   color: #f07830;
 }
 
+#header-nav {
+    
+}
+
+#header-nav ul {
+  list-style: none;
+}
+
+#header-nav ul, #header-nav li {
+  margin: 0;
+  padding: 0;
+}
+
+#header-nav li {
+}
+
+#header-nav li:hover {
+  background: #fff;
+  cursor: pointer;
+}
+
+#header-nav a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  width: 100%;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+#header-nav li:hover a {
+  color: #f07830;
+  padding-left: 0.5em;
+}
+
 #container {
   margin: 0 auto;
   padding: 20px 0;

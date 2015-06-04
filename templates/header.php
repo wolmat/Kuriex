@@ -33,12 +33,15 @@
 
   <div id="header">
     <div class="row">
-      <div class="one-half column u-pull-left">
-        <nav>
-          <a href = "main">Strona główna</a></br>
-          <a href = "order">Złóż zamówienie</a></br>
-          <a href = "find">Znajdź paczkę</a></br>
-          <a href = "about">Kontakt</a></br>
+      <div class="two columns u-pull-left offset-by-two">
+        <nav id="header-nav">
+          <ul>
+            <li><a href="main">Strona główna</a></li>
+            <li><a href="login">Zaloguj się</a></li>
+            <li><a href="login">Złóż zamówienie</a></li>
+            <li><a href="find">Znajdź paczkę</a></li>
+            <li><a href="about">Kontakt</a></li>
+          </ul>
         </nav>
       </div>
       <div class="one-half column u-pull-right"
