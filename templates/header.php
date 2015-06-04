@@ -22,8 +22,13 @@
 </head>
 <body>
   <nav id="top-nav">
-    <a href="login">Zaloguj się</a> | <a href="find">Szukaj</a> |
-    <a href="about">Kontakt</a>
+    <ul>
+      <li><a href="main">Strona główna</a></li>
+      <li><a href="login">Zaloguj się</a></li>
+      <li><a href="login">Złóż zamówienie</a></li>
+      <li><a href="find">Znajdź paczkę</a></li>
+      <li><a href="about">Kontakt</a></li>
+    </ul>
   </nav>
 
   <div id="header">

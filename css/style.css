@@ -1,42 +1,53 @@
 body {
-  font-family: 'Avant Garde', Avantgarde, 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+  font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
 }
 
 #top-nav {
-  width: 90%;
-  background: rgba(255,255,255,0.8);
-  color: #781800;
-  z-index: 1;
-  padding-left: 10%;
-  padding-top: 3px;
-  padding-bottom: 5px;  
   height: 2em;
+  width: 100%;
   display: none;
   position: fixed;
-  -webkit-box-shadow: 0px 3px 3px 0px rgba(50, 50, 50, 0.6);
-  -moz-box-shadow:    0px 3px 3px 0px rgba(50, 50, 50, 0.6);
-  box-shadow:         0px 3px 3px 0px rgba(50, 50, 50, 0.6);
+  background: rgba(240, 120, 48, 0.95);
+  font-size: 1em;
+  font-weight: bold;
+  z-index: 10;
+  text-align: center;
+  height: 2em;
+  width: 100%;
+  display: none;
+  position: fixed;
+  top: 0;
 }
 
-nav h1 {
-  float: left;
-  font-size: 2em;
-  line-height: 1em;
+#top-nav ul {
+  height: 100%;
+}
+
+#top-nav ul, #top-nav li {
+  display: inline-block;
   margin: 0;
+  padding: 0;
+  line-height: 2em;
 }
 
-a {
+#top-nav li {
+  padding: 0 2em;
+}
+
+#top-nav li:hover {
+  background: #fff;
+  cursor: pointer;
+}
+
+#top-nav a {
+  display: inline-block;
+  color: #fff;
   text-decoration: none;
-  color: #781800;
+  width: 100%;
 }
 
-a:hover {
-  color: #4878A8;
-}
-
-nav {
-  text-indent: 5em;
-  padding-top: 0.3em;
+#top-nav li:hover a {
+  color: #f07830;
 }
 
 #container {
