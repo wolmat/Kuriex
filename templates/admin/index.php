@@ -17,14 +17,6 @@
                             <td>Status </td>
                             <td>Pesel nadawcy </td>
                         </tr>
-                        </thead>
-                        <tr>
-                            <td><input type="text" name="id_zlecenia"></td>
-                            <td><input type="text" name="opis"></td>
-                            <td><input type="text" name="rodzaj_platnosci"></td>
-                            <td><input type="text" name="status"></td>
-                            <td><input type="text" name="pesel_nadawcy"></td>
-                        </tr>
                         <?php foreach($this->get('orders') as $order) { ?>
                         <tr>
                             <td><?php echo $order['id_zlecenia']; ?></td>
