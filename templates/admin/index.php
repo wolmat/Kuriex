@@ -5,7 +5,7 @@
 
 
 	<div class="container">
-
+        <div class="one-half column u-pull-left">
         <h5> Oczekujące zlecenia </h5>
             
                     <table id="order-table">
@@ -23,9 +23,13 @@
                     </table>
     
 
-        <h5> Oczekujące reklamacje </h5>
+        
+        </div>
+        
+        <div class="one-half column u-pull-right">
+            <h5> Oczekujące reklamacje </h5>
             
-
+        </div>
 	</div>
             
 
