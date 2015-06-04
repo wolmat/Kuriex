@@ -3,8 +3,10 @@
 	<div class="container">
 
 				<h3>Lista zleceń </h3>
-				<form action="find" method="post">
+
+				<form action="orders" method="post">
 					<table id="order-table">
+
                         <thead>
                         <tr>
                             <td>Id </td>
@@ -36,4 +38,4 @@
 				</form>
 	</div>
 
-<?php include 'templates/footer.php'; ?>
+<?php include 'templates/footer.php'; 
