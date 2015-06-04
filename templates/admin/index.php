@@ -5,13 +5,14 @@
 
 
 	<div class="container">
-		<div class="row">
-			
-				
-                <h4> Strona główna panelu admina</h4>
-
-
-		</div>
+		<div class="one-half column u-pull-right">
+        <h5> Oczekujące zlecenia </h5>
+            
+        </div>
+        <div class="one-half column u-pull-right">
+        <h5> Oczekujące reklamacje </h5>
+            
+        </div>
 	</div>
             
 
