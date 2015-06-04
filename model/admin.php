@@ -132,7 +132,7 @@ class AdminModel extends Model{
            
     }
     
- public function selectOrders($post){
+    public function selectOrders($post){
         
         $id_zlecenia=NULL;
         if(isset($post['id_zlecenia']))
@@ -179,6 +179,51 @@ class AdminModel extends Model{
            
     }
     
+    public function selectComplains($post){
+        
+        $id_reklamacji=NULL;
+        if(isset($post['id_reklamacji']))
+           $id_reklamacji=$post['id_reklamacji'];
+        
+        $opis=NULL;
+        if(isset($post['opis']))
+           $opis=$post['opis'];
+        
+        $status=NULL;
+        if(isset($post['status']))
+           $status=$post['status'];
+        
+        $status=NULL;
+        if(isset($post['status']))
+           $status=$post['status'];
+        
+        $id_przesylki=NULL;
+        if(isset($post['id_przesylki']))
+           $id_przesylki=$post['id_przesylki'];
+ 
+        $query='SELECT * FROM reklamacja WHERE 1';
+        if($id_reklamacji!=NULL)
+        $query=$query.' AND id_reklamacji = '.$id_reklamacji;
+        if($opis!=NULL)
+        $query=$query.' AND opis = "'.$opis.'"';
+        if($status!=NULL)
+        $query=$query.' AND status = "'.$status.'"';
+        if($id_przesylki!=NULL)
+        $query=$query.' AND id_przesylki = '.$id_przesylki;
+                
+        $data = array();
+        $select=$this->pdo->query($query);
+
+            
+        foreach ($select as $row) {
+            $data[]=$row;
+        }
+        $select->closeCursor();
+        
+        return $data;  
+
+    }
+
 }
         
 

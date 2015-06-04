@@ -29,6 +29,19 @@
         <div class="one-half column u-pull-right">
             <h5> Oczekujące reklamacje </h5>
             
+                    <table id="order-table">
+                        <tr>
+                            <td>Id </td>
+                            <td>Id zlecenie </td>
+                        </tr>
+                        <?php foreach($this->get('complains') as $complain) { ?>
+                        <tr>
+                            <td><?php echo $complain['id_reklamacji']; ?></td>
+                            <td><?php echo $complain['id_zlecenia']; ?></td>
+                        </tr>
+                        <?php } ?>
+                        
+                    </table>
         </div>
 	</div>
             

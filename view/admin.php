@@ -8,6 +8,7 @@ class AdminView extends View{
         $mod=$this->loadModel('admin');
         $post['status'] = "oczekuje";
         $this->set('orders',$mod->selectOrders($post));
+        $this->set('complains',$mod->selectComplains($post));
         $this->render('/admin/index');
     }
 	
