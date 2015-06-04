@@ -2,7 +2,7 @@
 
 	<div class="container">
 
-				<h3>Znajdz paczke</h3>
+				<h3>Znajdz paczkę</h3>
 				<form action="find" method="post">
 					<table>
                         <tr>
