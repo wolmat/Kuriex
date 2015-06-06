@@ -24,7 +24,7 @@
                             <td><input type="text" name="pesel_nadawcy"></td>
                         </tr>
                         <?php foreach($this->get('orders') as $order) { ?>
-                        <tr>
+                        <tr class="order">
                             <td><?php echo $order->id_zlecenia; ?></td>
                             <td><?php echo $order->opis; ?></td>
                             <td><?php echo $order->rodzaj_platnosci; ?></td>
@@ -32,7 +32,7 @@
                             <td><?php echo $order->nadawca; ?></td>
                         </tr>
                             <?php foreach($order->przesylki as $delivery) { ?>
-                            <tr>
+                            <tr class="package">
                                 <td> <?php echo $delivery['id_przesylki']; ?> </td>    
                                 <td> <?php echo $delivery['opis']; ?> </td>    
                                 <td> <?php echo $delivery['status']; ?> </td>    
