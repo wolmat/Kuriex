@@ -54,3 +54,32 @@
 * Sprawdzanie stanu przesyłki
 * Po podaniu ID przesyłki, można sprawdzić co dzieje się z daną paczką
 * Wyświetlenie danych kontaktowych do nadawcy/odbiorcy, nadzorcy lub kuriera
+* 
+
+## TO DO
+
+TODO:
+
+### Część 3
+W kodzie instalacyjnym:
+* wyzwalacze
+* procedury
+
+### Część 4
+W panelu admina:
+* Logowanie, zablokowanie dostępu do panelu admina
+* Dodawanie pracowników / klientów / pojazdów / zleceń
+* Edytowanie powyższych
+* Wyświetlanie podsumowań
+* jQuerry dla pozostałych list
+* Dodanie zakładki "opcje" ze skryptem instalacyjnym i importem danych
+
+W panelu klienta:
+*Logowanie
+*Dodawanie zleceń / paczek
+*Edytowanie danych o kliencie
+
+### Ogólne:
+* Wyszukiwanie paczki dla odbiorcy I NADAWCY
+* Wypełnić "kontakt"
+* Dodać dane do REKLAMACJI
