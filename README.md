@@ -14,9 +14,6 @@
  * dodaj serwer z którego również chcesz pobierać zmiany np `git remote add davpal https://github.com/davpal/Kuriex`
  * pobieraj je przy pomocy `git fetch nazwa_serwera` np. `git fetch davpal`
 
-## Styl kodowania
-* Wcięcia na 4 spacje
-
 ## Pomoce
 ### Treść zadania:
 * http://riad.pk.edu.pl/~strug/bd/st/bd-st.html
@@ -33,32 +30,7 @@
 ### Uruchomienie mod_rewrite na Apache:
 * http://gajdaw.pl/varia/przyjazne-url-mod-rewrite/print.html
 
-## Funkcje
-
-#### Po zalagowaniu się jako admin:
-* Pracownicy
- * Dodawanie
- * Edytowanie 
- * Wyświetlanie
-
-* Paczki
- * Tworzenie nowych wysyłek
- * Sprawdzanie kto zajmuje się istniejącymi
- * Przypisywanie pracowników do paczek
-
-* Filie / trasy
- * Sprawdzenie kto działa w danym rejonie
-
-#### Zwykły klient - bez logowania
-
-* Sprawdzanie stanu przesyłki
-* Po podaniu ID przesyłki, można sprawdzić co dzieje się z daną paczką
-* Wyświetlenie danych kontaktowych do nadawcy/odbiorcy, nadzorcy lub kuriera
-* 
-
 ## TO DO
-
-TODO:
 
 ### Część 3
 W kodzie instalacyjnym:
@@ -67,17 +39,18 @@ W kodzie instalacyjnym:
 
 ### Część 4
 W panelu admina:
-* Logowanie, zablokowanie dostępu do panelu admina
+* ~~Logowanie, zablokowanie dostępu do panelu admina~~
 * Dodawanie pracowników / klientów / pojazdów / zleceń
 * Edytowanie powyższych
 * Wyświetlanie podsumowań
 * jQuerry dla pozostałych list
 * Dodanie zakładki "opcje" ze skryptem instalacyjnym i importem danych
+* Przycisk WYLOGUJ w górnym menu
 
 W panelu klienta:
-*Logowanie
-*Dodawanie zleceń / paczek
-*Edytowanie danych o kliencie
+* Logowanie
+* Dodawanie zleceń / paczek
+* Edytowanie danych o kliencie
 
 ### Ogólne:
 * Wyszukiwanie paczki dla odbiorcy I NADAWCY
