@@ -17,6 +17,12 @@ class AdminController extends Controller{
 		$view=$this->loadView('admin');
         $view->login();
 	}
+    
+    public function logout(){
+        session_start();
+        session_destroy();
+        header("Location: main");
+    }
 
     //Wyszukiwanie kierowców
 	public function workers(){
