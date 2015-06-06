@@ -13,9 +13,21 @@ class AdminView extends View{
     }
 	
     public function  login() {
-        $this->render('/admin/login');
+        if( $_SERVER['REQUEST_METHOD'] == 'POST'  ){
+            
+            if($_POST['user'] == "admin" && $_POST['pass'] == "pass"){
+                session_start();
+                $_SESSION['user'] = "admin";
+                header("Location: admin");
+                
+            }
+            else
+                $this->render('/admin/login');                
+        }
+        else
+            $this->render('/admin/login');
     }
-
+    
     public function  workers() {
         $mod=$this->loadModel('admin');
         $this->set('workers',$mod->selectWorkers($_POST));

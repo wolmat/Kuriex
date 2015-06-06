@@ -8,6 +8,7 @@ RewriteRule find index.php?task=main&action=find
 
 RewriteRule admin index.php?task=admin&action=index
 RewriteRule login index.php?task=admin&action=login
+RewriteRule logout index.php?task=admin&action=logout
 RewriteRule workers index.php?task=admin&action=workers
 RewriteRule customers index.php?task=admin&action=customers
 RewriteRule orders index.php?task=admin&action=orders
