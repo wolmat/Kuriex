@@ -31,7 +31,7 @@
                             <td><?php echo $order->status; ?></td>
                             <td><?php echo $order->nadawca; ?></td>
                         </tr>
-                            <?php foreach($order->przesylki as $delivery) { ?>
+                        <?php foreach($order->przesylki as $delivery) { ?>
                             <tr class="package">
                                 <td> <?php echo $delivery['id_przesylki']; ?> </td>    
                                 <td> <?php echo $delivery['opis']; ?> </td>    
@@ -39,10 +39,8 @@
                                 <td> <?php echo $delivery['pesel_dostawcy']; ?> </td>    
                                 <td> <?php echo $delivery['pesel_kuriera']; ?> </td>    
                                 <td> <?php echo $delivery['pesel_odbiorcy']; ?> </td>    
-                            </tr>
-                            <?php } ?>
-                        
-                        <?php } ?>
+                            </tr>                        
+                        <?php } } ?>
                         
                     </table>
 				    <input style="margin auto" type="submit" value="Znajdz">
