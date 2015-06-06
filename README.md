@@ -52,7 +52,7 @@ W panelu klienta:
 * Dodawanie zleceń / paczek
 * Edytowanie danych o kliencie
 
-### Ogólne:
+Ogólne:
 * Wyszukiwanie paczki dla odbiorcy I NADAWCY
 * Wypełnić "kontakt"
 * Dodać dane do REKLAMACJI
