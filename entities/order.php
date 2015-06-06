@@ -8,6 +8,7 @@ class Order{
     public $rodzaj_platnosci;
     public $status;
     public $nadawca;
+    public $pesel_nadawcy;
     public $odbiorca;
     public $dostawca;
     public $przesylki;
@@ -19,7 +20,8 @@ class Order{
         $this->cena = $data['cena'];
         $this->rodzaj_platnosci = $data['rodzaj_platnosci'];
         $this->status = $data['status'];
-        $this->nadawca = $data['pesel_nadawcy'];            
+        $this->nadawca = $data['nadawca'];            
+        $this->pesel_nadawcy = $data['pesel_nadawcy'];            
         $this->przesylki = $przesylki;
         
     }

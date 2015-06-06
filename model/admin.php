@@ -154,8 +154,8 @@ class AdminModel extends Model{
         $pesel_nadawcy=NULL;
         if(isset($post['pesel_nadawcy']))
            $pesel_nadawcy=$post['pesel_nadawcy'];
- 
-        $query='SELECT * FROM zlecenie WHERE 1';
+        $query='SELECT z.*, CONCAT(k.imie," ",k.nazwisko) as nadawca FROM zlecenie z 
+        INNER JOIN klient k ON k.pesel_klienta = z.pesel_nadawcy  WHERE 1';
         if($id_zlecenia!=NULL)
         $query=$query.' AND id_zlecenia = '.$id_zlecenia;
         if($opis!=NULL)
