@@ -36,6 +36,7 @@ $order = $o[0]; ?>
                 </tr>
                 <?php foreach($order->przesylki as $delivery) { ?>
                 <tr>
+                    <td><b><?php echo $delivery['id_przesylki']; ?></b></td>
                     <td><?php echo $delivery['opis']; ?></td>
                     <td><?php echo $delivery['pesel_odbiorcy']; ?></td>
                     <td><?php echo $delivery['pesel_dostawcy']; ?></td>

@@ -21,7 +21,6 @@ class MainView extends View{
         $mod=$this->loadModel('admin');
         
         if( $_SERVER['REQUEST_METHOD'] == 'POST'  ){
-            echo $_POST['id_zlecenia']." ".$_POST['pesel_nadawcy'];
             $this->set('order',$mod->selectOrders($_POST));
             $this->render('/main/findResult');       
         }
