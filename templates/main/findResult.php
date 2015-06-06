@@ -1,12 +1,13 @@
 <?php include 'templates/header.php';
-$order = $this->get('orderInfo'); ?>
+
+$order = $this->get('order'); ?>
     
 	<div class="container">
-        <?php if($order->id != null){ ?>
-				<h5>Podsumowanie zamówienia nr <?php echo $order->id; ?></h5>
+        <?php if($order->id_zlecenia != null){ ?>
+				<h5>Podsumowanie zamówienia nr <?php echo $order->id_zlecenia; ?></h5>
                 <table class="order-table">
                 <tr>
-                    <td><b>Opis</b></td>
+                    <td><b></b></td>
                     <td><?php echo $order->opis; ?></td>
                 </tr>
                 <tr>
@@ -32,7 +33,7 @@ $order = $this->get('orderInfo'); ?>
                     <td><b>Dostawca</b></td>
                     <td><b>Kurier</b></td>                    
                 </tr>
-                <?php foreach($this->get('deliveries') as $delivery) { ?>
+                <?php foreach($order->przesylki as $delivery) { ?>
                 <tr>
                     <td><b><?php echo $delivery['id_przesylki']; ?></b></td>
                     <td><?php echo $delivery['opis']; ?></td>
