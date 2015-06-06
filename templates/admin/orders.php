@@ -25,12 +25,23 @@
                         </tr>
                         <?php foreach($this->get('orders') as $order) { ?>
                         <tr>
-                            <td><?php echo $order['id_zlecenia']; ?></td>
-                            <td><?php echo $order['opis']; ?></td>
-                            <td><?php echo $order['rodzaj_platnosci']; ?></td>
-                            <td><?php echo $order['status']; ?></td>
-                            <td><?php echo $order['pesel_nadawcy']; ?></td>
+                            <td><?php echo $order->id_zlecenia; ?></td>
+                            <td><?php echo $order->opis; ?></td>
+                            <td><?php echo $order->rodzaj_platnosci; ?></td>
+                            <td><?php echo $order->status; ?></td>
+                            <td><?php echo $order->nadawca; ?></td>
                         </tr>
+                            <?php foreach($order->przesylki as $delivery) { ?>
+                            <tr>
+                                <td> <?php echo $delivery['id_przesylki']; ?> </td>    
+                                <td> <?php echo $delivery['opis']; ?> </td>    
+                                <td> <?php echo $delivery['status']; ?> </td>    
+                                <td> <?php echo $delivery['pesel_dostawcy']; ?> </td>    
+                                <td> <?php echo $delivery['pesel_kuriera']; ?> </td>    
+                                <td> <?php echo $delivery['pesel_odbiorcy']; ?> </td>    
+                            </tr>
+                            <?php } ?>
+                        
                         <?php } ?>
                         
                     </table>

@@ -1,6 +1,7 @@
 <?php
 
 include 'model/model.php';
+include 'entities/order.php';
 
 class AdminModel extends Model{
    
@@ -171,7 +172,7 @@ class AdminModel extends Model{
 
             
         foreach ($select as $row) {
-            $data[]=$row;
+            $data[]= new Order($row,$this->selectDeliveries($row['id_zlecenia']));
         }
         $select->closeCursor();
         
@@ -179,6 +180,22 @@ class AdminModel extends Model{
            
     }
     
+    public function selectDeliveries($id){
+
+        $query='SELECT * FROM przesylka WHERE id_zlecenia = "'.$id.'"';
+                
+        $data = array();
+        $select=$this->pdo->query($query);
+
+        foreach ($select as $row) {
+            $data[]=$row;
+        }
+        $select->closeCursor();
+        
+        return $data;  
+    }
+                               
+                               
     public function selectComplains($post){
         
         $id_reklamacji=NULL;
