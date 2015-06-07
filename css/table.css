@@ -1,8 +1,13 @@
 table {
   border-collapse: collapse;
 }
+
 table tbody {
   border-top: 1em solid transparent;
+}
+
+th {
+    font-weight: bold;
 }
 
 th, td {
@@ -13,17 +18,6 @@ td input {
     width: 100%;
 }
 
-.package-table {
-}
-
-.package-table .odd {
-    background: #fafaff;
-}
-
-.package-table .even {
-    background: #eaeaff;
-}
-
 .customer-table th, td {
     width: 140px;
 }
@@ -31,4 +25,36 @@ td input {
 #order-table input[type="text"],
 #worker-table input[type="text"]{
     width: 180px;
+}
+
+.package-table {
+}
+
+.package-table .odd, .package-tr .odd {
+    background: #fafaff;
+}
+
+.package-table .even, .package-tr .even {
+    background: #eaeaff;
+}
+
+#order-table {
+    width: 100%;
+}
+
+#order-table input[type="text"],
+#worker-table input[type="text"]{
+    width: 180px;
+}
+
+.order {
+    cursor: pointer;
+}
+
+.package-tr {
+    display: none;
+}
+
+.package-tr table {
+    width: 100%;
 }
