@@ -13,13 +13,13 @@ class AdminView extends View{
     }
 	
     public function  login() {
+        if(isset($_SESSION['user']))
+            header("Location: admin");
         if( $_SERVER['REQUEST_METHOD'] == 'POST'  ){
             
             if($_POST['user'] == "admin" && $_POST['pass'] == "pass"){
-                session_start();
                 $_SESSION['user'] = "admin";
                 header("Location: admin");
-                
             }
             else
                 $this->render('/admin/login');                

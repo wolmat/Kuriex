@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SESSION))
+    session_start();
+
 $file = 'controller/main.php';
 $controller_class = 'MainController';
 $action = 'index';
