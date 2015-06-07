@@ -24,7 +24,13 @@
   <nav id="top-nav">
     <ul>
       <li><a href="main">Strona główna</a></li>
-      <li><a href="login">Zaloguj się</a></li>
+      <li>
+        <?php if(isset($_SESSION['user'])): ?>
+          <a href="logout">Wyloguj</a>
+        <?php else: ?>
+          <a href="login">Zaloguj się</a>
+        <?php endif; ?>
+      </li>
       <li><a href="login">Złóż zamówienie</a></li>
       <li><a href="find">Znajdź paczkę</a></li>
       <li><a href="about">Kontakt</a></li>
@@ -37,7 +43,13 @@
         <nav id="header-nav">
           <ul>
             <li><a href="main">Strona główna</a></li>
-            <li><a href="login">Zaloguj się</a></li>
+            <li>
+              <?php if(isset($_SESSION['user'])): ?>
+                <a href="logout">Wyloguj</a>
+              <?php else: ?>
+                <a href="login">Zaloguj się</a>
+              <?php endif; ?>
+            </li>
             <li><a href="login">Złóż zamówienie</a></li>
             <li><a href="find">Znajdź paczkę</a></li>
             <li><a href="about">Kontakt</a></li>
