@@ -13,4 +13,4 @@ if(isset($_SESSION['user']) && $_SESSION['user'] == "admin"){ ?>
 		</div>
 	</div>
 
-<?php } else header("Location: main"); ?>
+<?php } else header("Location: login"); ?>
