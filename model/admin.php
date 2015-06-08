@@ -229,41 +229,43 @@ class AdminModel extends Model{
     public function addCustomer($post){
 
         $output = '<div class="error">Nie podano: ';
+        $empty = false;
         foreach($post as $key => $val){
-            if($val == null)
+            if($val == null){
                 $output .= '<span class="field">'.$key.'</span>';
-        }
-
-        if($output == '<div class="error">Nie podano: ' ){
-            try{
-                
-                $q = $this->pdo->prepare('INSERT INTO klient (pesel_klienta, imie, nazwisko, adres, numer_kontaktowy, adres_email, id_rejonu) VALUES (
-                    :pesel_klienta,
-                    :imie,
-                    :nazwisko,
-                    :adres,
-                    :numer_kontaktowy,
-                    :adres_email,
-                    :id_rejonu)');
-        
-                $q->bindValue(':pesel_klienta', $_POST['pesel_klienta'], PDO::PARAM_INT);
-                $q->bindValue(':imie', $_POST['imie'], PDO::PARAM_STR);
-                $q->bindValue(':nazwisko', $_POST['nazwisko'], PDO::PARAM_STR);
-                $q->bindValue(':adres', $_POST['adres'], PDO::PARAM_STR);
-                $q->bindValue(':numer_kontaktowy', $_POST['numer_kontaktowy'], PDO::PARAM_INT);
-                $q->bindValue(':adres_email', $_POST['adres_email'], PDO::PARAM_STR);
-                $q->bindValue(':id_rejonu', $_POST['id_rejonu'], PDO::PARAM_INT);
-                
-                $q->execute();
-                }
-            catch(PDOException $e){
-		      return $output.'.</br> '.'Błąd spójności danych <div>';
+                $empty = true;
             }
-            return '<div class="info">Utworzono rekord!</div>';
-            
         }
-        return $output;
+        if($empty){
+            $output .= '</div>';
+            return $output;
+        }
 
+        try{
+
+            $q = $this->pdo->prepare('INSERT INTO klient (pesel_klienta, imie, nazwisko, adres, numer_kontaktowy, adres_email, id_rejonu) VALUES (
+                :pesel_klienta,
+                :imie,
+                :nazwisko,
+                :adres,
+                :numer_kontaktowy,
+                :adres_email,
+                :id_rejonu)');
+
+            $q->bindValue(':pesel_klienta', $_POST['pesel_klienta'], PDO::PARAM_INT);
+            $q->bindValue(':imie', $_POST['imie'], PDO::PARAM_STR);
+            $q->bindValue(':nazwisko', $_POST['nazwisko'], PDO::PARAM_STR);
+            $q->bindValue(':adres', $_POST['adres'], PDO::PARAM_STR);
+            $q->bindValue(':numer_kontaktowy', $_POST['numer_kontaktowy'], PDO::PARAM_INT);
+            $q->bindValue(':adres_email', $_POST['adres_email'], PDO::PARAM_STR);
+            $q->bindValue(':id_rejonu', $_POST['id_rejonu'], PDO::PARAM_INT);
+
+            $q->execute();
+        }
+        catch(PDOException $e){
+          return $output.'.</br> '.'Błąd spójności danych</div>';
+        }
+        return '<div class="info">Utworzono rekord!</div>';
     }
                         
 }
