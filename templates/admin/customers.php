@@ -35,7 +35,7 @@
                         </thead>
                         <tbody>
                         <?php foreach($this->get('customers') as $customer): ?>
-                        <tr>
+                        <tr class="customer">
                             <td><?php echo $customer['pesel_klienta']; ?></td>
                             <td><?php echo $customer['imie']; ?></td>
                             <td><?php echo $customer['nazwisko']; ?></td>

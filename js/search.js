@@ -4,7 +4,7 @@ $(document).ready(function() {
             return $(this).val() != '';
         });
         var count = 0;
-        $('.customer-table tbody tr').each(function() {
+        var found = $('.customer, .worker, .order').filter(function() {
             var tr = $(this);
             var show = true;
             $(full).each(function() {
@@ -16,12 +16,10 @@ $(document).ready(function() {
                     return;
                 }
             });
-            if(show) {
-                $(this).fadeIn('slow');
-                ++count;
-            } else
-                $(this).fadeOut('slow');
+            return show;
         });
-        $('#count').text(count);
+        $(found).fadeIn();
+        $('.customer, .worker, .order').not($(found)).fadeOut();
+        $('#count').text($(found).length);
     });
 });
