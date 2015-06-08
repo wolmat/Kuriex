@@ -232,7 +232,24 @@ class AdminModel extends Model{
         $query= $query.$_POST['pesel_klienta'].', "'.$_POST['imie'].'", "'.$_POST['nazwisko'].'", "'.$_POST['adres'].'",';
         $query= $query.$_POST['numer_kontaktowy'].', "'.$_POST['adres_email'].'", '.$_POST['id_rejonu'].')';
 
-        $this->pdo->query($query);
+        $q = $this->pdo->prepare('INSERT INTO klient (pesel_klienta, imie, nazwisko, adres, numer_kontaktowy, adres_email, id_rejonu) VALUES (
+            :pesel_klienta,
+            :imie,
+            :nazwisko,
+            :adres,
+            :numer_kontaktowy,
+            :adres_email,
+            :id_rejonu)');
+        
+        $q->bindValue(':pesel_klienta', $_POST['pesel_klienta'], PDO::PARAM_STR);
+        $q->bindValue(':imie', $_POST['imie'], PDO::PARAM_STR);
+        $q->bindValue(':nazwisko', $_POST['nazwisko'], PDO::PARAM_STR);
+        $q->bindValue(':adres', $_POST['adres'], PDO::PARAM_STR);
+        $q->bindValue(':numer_kontaktowy', $_POST['numer_kontaktowy'], PDO::PARAM_STR);
+        $q->bindValue(':adres_email', $_POST['adres_email'], PDO::PARAM_STR);
+        $q->bindValue(':id_rejonu', $_POST['id_rejonu'], PDO::PARAM_STR);
+        
+        $q->execute();
     }
                         
 }
