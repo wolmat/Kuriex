@@ -18,11 +18,6 @@ td input {
     width: 140px;
 }
 
-#order-table input[type="text"],
-#worker-table input[type="text"]{
-    width: 180px;
-}
-
 .package-table {
 }
 
@@ -35,12 +30,22 @@ td input {
 }
 
 #order-table {
-    width: 100%;
+    margin: 0 auto;
+    width: 80%;
 }
 
-#order-table input[type="text"] {
-    width: 180px;
-}
+.order > td:nth-child(1){ width: 5%; }
+.order > td:nth-child(2){ width: 20%; }
+.order > td:nth-child(3){ width: 8%; }
+.order > td:nth-child(4){ width: 8%; }
+.order > td:nth-child(5){ width: 15%; }
+
+.package-tr td:nth-child(1){ width: 5%; }
+.package-tr td:nth-child(2){ width: 20%; }
+.package-tr td:nth-child(3){ width: 10%; }
+.package-tr td:nth-child(4){ width: 10%; }
+.package-tr td:nth-child(5){ width: 10%; }
+.package-tr td:nth-child(6){ width: 10%; }
 
 #worker-table {
     margin: 0 auto;
