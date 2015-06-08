@@ -4,25 +4,29 @@ $function = $this -> get('function'); ?>
 	<div class="container">
         <h3>Lista pracowników</h3>
 				<form action="workers" method="post">
-                    
-                Rodzaj pracownika:
-                <select name="function">
-                    <?php if($function == "dostawca") 
-                    echo '<option value="dostawca">Dostawca</option><option value="kurier">Kurier</option>';
-                    else echo '<option value="kurier">Kurier</option><option value="dostawca">Dostawca</option>';
-                     ?>
-                </select>
+                <div class="three columns offset-by-four">
+                    Rodzaj pracownika:
+                    <select name="function">
+                        <?php if($function == "dostawca"): ?>
+                            <option value="dostawca">Dostawca</option>
+                            <option value="kurier">Kurier</option>
+                        <?php else: ?>
+                            <option value="kurier">Kurier</option>
+                            <option value="dostawca">Dostawca</option>
+                        <?php endif; ?>
+                    </select>
+                </div>
 					<table id="worker-table">
                         <thead>
                         <tr>
-                            <td>PESEL : </td>
-                            <td>Imie: </td>
-                            <td>Nazwisko: </td>
-                            <td><?php if($function == "dostawca") 
+                            <th>PESEL : </th>
+                            <th>Imie: </th>
+                            <th>Nazwisko: </th>
+                            <th><?php if($function == "dostawca")
                                       echo "Filia";
                                       else 
-                                      echo "Obszar"; ?></td>
-                            <td>Id pojazdu: </td>
+                                      echo "Obszar"; ?></th>
+                            <th>Id pojazdu: </th>
                         </tr>
                         </thead>
                         <tr>

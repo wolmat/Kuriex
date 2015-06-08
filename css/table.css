@@ -2,10 +2,6 @@ table {
   border-collapse: collapse;
 }
 
-table tbody {
-  border-top: 1em solid transparent;
-}
-
 th {
     font-weight: bold;
 }
@@ -42,9 +38,17 @@ td input {
     width: 100%;
 }
 
-#order-table input[type="text"],
-#worker-table input[type="text"]{
+#order-table input[type="text"] {
     width: 180px;
+}
+
+#worker-table {
+    margin: 0 auto;
+    width: 70%;
+}
+
+#worker-table input[type="text"] {
+    width: 140px;
 }
 
 .order {
