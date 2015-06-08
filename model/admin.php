@@ -228,7 +228,7 @@ class AdminModel extends Model{
     
     public function addCustomer($post){
 
-        $output = '<div class="error">Nie podano: ';
+        $output = '<div class="message error">Nie podano: ';
         $empty = false;
         foreach($post as $key => $val){
             if($val == null){
@@ -265,7 +265,7 @@ class AdminModel extends Model{
         catch(PDOException $e){
           return '<div class="error">Błąd spójności danych</div>';
         }
-        return '<div class="info">Utworzono rekord!</div>';
+        return '<div class="message info">Utworzono rekord!</div>';
     }
                         
 }
