@@ -67,3 +67,10 @@ td input {
 .package-tr table {
     width: 100%;
 }
+
+#pending-table {
+    width: 100%;
+}
+
+#pending-table td:nth-child(1) { width: 10%; }
+#pedning-table td:nth-child(2) { width: 90%; }

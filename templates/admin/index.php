@@ -5,10 +5,10 @@
 
 
 	<div class="container">
-        <div class="one-half column u-pull-left">
+        <div class="four columns offset-by-two">
         <h5> Oczekujące zlecenia </h5>
             
-                    <table id="order-table">
+                    <table id="pending-table">
                         <tr>
                             <td>Id </td>
                             <td>Opis </td>
@@ -26,10 +26,10 @@
         
         </div>
         
-        <div class="one-half column u-pull-right">
+        <div class="four columns">
             <h5> Oczekujące reklamacje </h5>
             
-                    <table id="order-table">
+                    <table id="pending-table">
                         <tr>
                             <td>Id </td>
                             <td>Id zlecenie </td>
