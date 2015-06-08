@@ -228,28 +228,38 @@ class AdminModel extends Model{
     
     public function addCustomer($post){
 
-        $query = 'INSERT INTO klient (pesel_klienta, imie, nazwisko, adres, numer_kontaktowy, adres_email, id_rejonu) VALUES (';
-        $query= $query.$_POST['pesel_klienta'].', "'.$_POST['imie'].'", "'.$_POST['nazwisko'].'", "'.$_POST['adres'].'",';
-        $query= $query.$_POST['numer_kontaktowy'].', "'.$_POST['adres_email'].'", '.$_POST['id_rejonu'].')';
+        $output = '<div class="error">Nie podano: ';
+        foreach($post as $key => $val){
+            if($val == null)
+                $output = $output.' '.$key;
+        }
+        
+        try{
 
-        $q = $this->pdo->prepare('INSERT INTO klient (pesel_klienta, imie, nazwisko, adres, numer_kontaktowy, adres_email, id_rejonu) VALUES (
-            :pesel_klienta,
-            :imie,
-            :nazwisko,
-            :adres,
-            :numer_kontaktowy,
-            :adres_email,
-            :id_rejonu)');
+            $q = $this->pdo->prepare('INSERT INTO klient (pesel_klienta, imie, nazwisko, adres, numer_kontaktowy, adres_email, id_rejonu) VALUES (
+                :pesel_klienta,
+                :imie,
+                :nazwisko,
+                :adres,
+                :numer_kontaktowy,
+                :adres_email,
+                :id_rejonu)');
         
-        $q->bindValue(':pesel_klienta', $_POST['pesel_klienta'], PDO::PARAM_STR);
-        $q->bindValue(':imie', $_POST['imie'], PDO::PARAM_STR);
-        $q->bindValue(':nazwisko', $_POST['nazwisko'], PDO::PARAM_STR);
-        $q->bindValue(':adres', $_POST['adres'], PDO::PARAM_STR);
-        $q->bindValue(':numer_kontaktowy', $_POST['numer_kontaktowy'], PDO::PARAM_STR);
-        $q->bindValue(':adres_email', $_POST['adres_email'], PDO::PARAM_STR);
-        $q->bindValue(':id_rejonu', $_POST['id_rejonu'], PDO::PARAM_STR);
+            $q->bindValue(':pesel_klienta', $_POST['pesel_klienta'], PDO::PARAM_STR);
+            $q->bindValue(':imie', $_POST['imie'], PDO::PARAM_STR);
+            $q->bindValue(':nazwisko', $_POST['nazwisko'], PDO::PARAM_STR);
+            $q->bindValue(':adres', $_POST['adres'], PDO::PARAM_STR);
+            $q->bindValue(':numer_kontaktowy', $_POST['numer_kontaktowy'], PDO::PARAM_STR);
+            $q->bindValue(':adres_email', $_POST['adres_email'], PDO::PARAM_STR);
+            $q->bindValue(':id_rejonu', $_POST['id_rejonu'], PDO::PARAM_STR);
         
-        $q->execute();
+            $q->execute();
+        }
+        catch(PDOException $e){
+		  return $output.'.</br> '.'Błąd: ' . $e->getMessage().'</div>';
+        }
+        return 'Utworzono rekord!';
+
     }
                         
 }

@@ -9,6 +9,7 @@
                          <?php echo count($this->get('customers')); ?>
                     </span>
                 </h3>
+                <?php echo $this->get('message'); ?>
 				<form action="customers" method="post" autocomplete="off">
 					<table class="customer-table">
                         <thead>

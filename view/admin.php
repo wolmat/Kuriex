@@ -43,8 +43,9 @@ class AdminView extends View{
         $mod=$this->loadModel('admin');
 
         if(isset($_POST['add']))
-            $mod->addCustomer($_POST);         
-        
+            $this->set('message',$mod->addCustomer($_POST));
+        else
+            $this->set('message','');
         $this->set('customers',$mod->selectCustomers($_POST));
         $this->render('/admin/customers');
     
