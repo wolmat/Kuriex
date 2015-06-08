@@ -153,3 +153,16 @@ h6 {
 .highlight {
     color: #f07830;
 }
+
+.error {
+    color: #c00;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.field {
+    padding: 5px;
+    margin: 0 2px;
+    color: #fff;
+    background: #c00;
+}

@@ -231,7 +231,7 @@ class AdminModel extends Model{
         $output = '<div class="error">Nie podano: ';
         foreach($post as $key => $val){
             if($val == null)
-                $output = $output.' '.$key;
+                $output .= '<span class="field">'.$key.'</span>';
         }
 
         if($output == '<div class="error">Nie podano: ' ){
