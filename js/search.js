@@ -11,8 +11,10 @@ $(document).ready(function() {
                 var index = $(this).parent().index() + 1;
                 var val = $(this).val();
                 var td = $(tr).find('td:nth-child(' + index + ')');
-                if(val != '' && !$(td).text().startsWith(val))
-                   show = false;
+                if(val != '' && !$(td).text().startsWith(val)){
+                    show = false;
+                    return;
+                }
             });
             if(show) {
                 $(this).fadeIn('slow');
