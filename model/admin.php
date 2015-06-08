@@ -231,7 +231,7 @@ class AdminModel extends Model{
         $query = 'INSERT INTO klient (pesel_klienta, imie, nazwisko, adres, numer_kontaktowy, adres_email, id_rejonu) VALUES (';
         $query= $query.$_POST['pesel_klienta'].', "'.$_POST['imie'].'", "'.$_POST['nazwisko'].'", "'.$_POST['adres'].'",';
         $query= $query.$_POST['numer_kontaktowy'].', "'.$_POST['adres_email'].'", '.$_POST['id_rejonu'].')';
-        echo $query;
+
         $this->pdo->query($query);
     }
                         
