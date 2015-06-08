@@ -161,8 +161,20 @@ h6 {
 }
 
 .field {
-    padding: 5px;
+    padding: 3px 5px;
     margin: 0 2px;
     color: #fff;
     background: #c00;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.info {
+    color: #fff;
+    background: #4878a8;
+    margin-bottom: 20px;
+    font-weight: bold;
+    padding: 5px;
+    display: inline-block;
 }
