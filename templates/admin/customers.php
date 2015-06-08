@@ -29,6 +29,7 @@
                             <td><input type="text" name="numer_kontaktowy"></td>
                             <td><input type="text" name="adres_email"></td>
                             <td><input type="text" name="id_rejonu"></td>
+                            <td><input style="margin auto" type="submit" value="Dodaj" name="add"></td>
                         </tr>
                         </thead>
                         <tbody>
@@ -45,7 +46,7 @@
                         <?php endforeach; ?>
                         </tbody>
                     </table>
-				    <input style="margin auto" type="submit" value="Znajdz">
+
 				</form>
 	</div>
 

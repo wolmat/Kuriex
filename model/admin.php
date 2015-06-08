@@ -64,21 +64,6 @@ class AdminModel extends Model{
            
     }
     
-    public function addCustomer($post){
-        
-
-        $pesel=$post['pesel_klienta'];
-        $imie=$post['imie'];
-        $nazwisko=$post['nazwisko'];
-        $adres=$post['adres'];
-        $numer_kontaktowy=$post['numer_kontaktowy'];
-        $adres_email=$post['adres_email'];
-        $id_rejonu=$post['id_rejonu'];
-        $query='INSERT INTO klient 
-        VALUES ('.$pesel.','.$imie.','.$nazwisko.','.$adres.',
-        '.$numer_kontaktowy.','.$adres_email.','.id_rejonu;
-        $this->pdo->query($query);
-    }
     
     public function selectWorkers($post){
         
@@ -240,8 +225,17 @@ class AdminModel extends Model{
         return $data;  
 
     }
+    
+    public function addCustomer($post){
 
+        $query = 'INSERT INTO klient (pesel_klienta, imie, nazwisko, adres, numer_kontaktowy, adres_email, id_rejonu) VALUES (';
+        $query= $query.$_POST['pesel_klienta'].', "'.$_POST['imie'].'", "'.$_POST['nazwisko'].'", "'.$_POST['adres'].'",';
+        $query= $query.$_POST['numer_kontaktowy'].', "'.$_POST['adres_email'].'", '.$_POST['id_rejonu'].')';
+        echo $query;
+        $this->pdo->query($query);
+    }
+                        
 }
-        
+       
 
 ?>
