@@ -2,12 +2,10 @@ $(document).ready(function(){
     $('tr:odd').addClass('odd');
     $('tr:even').addClass('even');
 
-    $('.customer').on({
-        mouseenter: function(){
+    $('.customer').hoverIntent(function(){
             $(this).find('.crud').fadeIn();
-        },
-        mouseleave: function(){
+        }, function(){
             $(this).find('.crud').fadeOut();
         }
-    });
+    );
 });
