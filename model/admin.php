@@ -285,31 +285,37 @@ class AdminModel extends Model{
         }
 
         try{
-            $querry = 'INSERT INTO '.$post['function'].' (pesel_klienta, imie, nazwisko, adres, numer_kontaktowy, adres_email, ';
+            $querry = 'INSERT INTO '.$post['function'].' (pesel, imie, nazwisko,    id_pojazdu, ';
             if($post['function'] == "kurier")
                 $querry .= 'id_obszaru) ';
             else
                 $querry .= 'id_rejonu) ';
                                      
-            $querry .= '$VALUES (
+            $querry .= 'VALUES (
                 :pesel,
                 :imie,
                 :nazwisko,
-                :id_miejsca,
-                :id_pojazdu)';
+                :id_pojazdu,';
+            if($post['function'] == "kurier")
+                $querry .= ' :id_obszaru)';
+            else
+                $querry .= ' :id_rejonu)';
 
            $q = $this->pdo->prepare($querry);
             
             $q->bindValue(':pesel', $_POST['pesel'], PDO::PARAM_INT);
             $q->bindValue(':imie', $_POST['imie'], PDO::PARAM_STR);
             $q->bindValue(':nazwisko', $_POST['nazwisko'], PDO::PARAM_STR);
-            $q->bindValue(':id_miejsca', $_POST['id_miejsca'], PDO::PARAM_STR);
+            if($post['function'] == "kurier")
+                $q->bindValue(':id_obszaru', $_POST['id_miejsca'], PDO::PARAM_INT);
+            else
+                $q->bindValue(':id_rejonu', $_POST['id_miejsca'], PDO::PARAM_INT);
             $q->bindValue(':id_pojazdu', $_POST['id_pojazdu'], PDO::PARAM_INT);
 
             $q->execute();
         }
         catch(PDOException $e){
-          return '<div class="error">Błąd spójności danych</div>';
+          return '<div class="error">Błąd spójności danych</div>'.$e->getMessage();
         }
         return '<div class="message info">Utworzono rekord!</div>';
     }
