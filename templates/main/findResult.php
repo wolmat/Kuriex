@@ -6,6 +6,7 @@ if ($o !=null)
     
 	<div class="container">
         
+
     <div class="four columns offset-by-two">
         <?php if(isset($delivery['id_przesylki'])){ ?>
                 <div class="info"> Znaleziono przesyłkę!</div>
@@ -116,15 +117,7 @@ if ($o !=null)
         
         
     </div>
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
 	</div>
 
 
