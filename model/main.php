@@ -37,6 +37,21 @@ class MainModel extends Model{
  
         return $result;
     }
+    
+    public function selectDeliveries($id){
+
+        $query='SELECT * FROM przesylka WHERE id_przesylki = "'.$id.'"';
+                
+        $data = array();
+        $select=$this->pdo->query($query);
+
+        foreach ($select as $row) {
+            $data[]=$row;
+        }
+        $select->closeCursor();
+        
+        return $data;  
+    }
 
 }
 

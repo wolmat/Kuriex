@@ -18,15 +18,18 @@ class MainView extends View{
     }
 
     public function  find() {
-        $mod=$this->loadModel('admin');
+        $mod=$this->loadModel('main');
         
         if( $_SERVER['REQUEST_METHOD'] == 'POST'  ){
-            $this->set('order',$mod->selectOrders($_POST));
+            $this->set('delivery',$mod->selectDeliveries($_POST['id_zlecenia']));
             $this->render('/main/findResult');       
         }
         else
             $this->render('/main/find');
     }
+    
+
+    
 }
 
 ?>
