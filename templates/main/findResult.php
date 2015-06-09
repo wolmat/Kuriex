@@ -47,7 +47,7 @@ if ($o !=null)
                         zoom: 5,
                         zoomControl: false,
                         disableDoubleClickZoom: false,
-                        mapTypeControl: true,
+                        mapTypeControl: false,
                         mapTypeControlOptions: {
                             style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
                         },
