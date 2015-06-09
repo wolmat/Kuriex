@@ -18,17 +18,16 @@ if ($o !=null)
                 </tr>
                 <tr>
                     <td><b>Odbiorca</b></td>
-                    <td><?php echo $delivery['pesel_odbiorcy']; ?></td>
+                    <td><?php echo $delivery['odbiorca']; ?></td>
                 </tr>
                 <tr>
-                    <td><b>Dostawca</b></td>
-                    <td><?php echo $delivery['pesel_dostawcy']; ?></td>
+                    <td><b>Nadawca</b></td>
+                    <td><?php echo $delivery['nadawca']; ?></td>
                 </tr>
                 <tr>
                     <td><b>Kurier</b></td>
-                    <td><?php echo $delivery['pesel_kuriera']; ?></td>
+                    <td><?php echo $delivery['kurier']; ?></td>
                 </tr>
-     
                 </table>
         
     </div>  
