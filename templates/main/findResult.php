@@ -17,6 +17,10 @@ if ($o !=null)
                     <td><?php echo $delivery['opis']; ?></td>
                 </tr>
                 <tr>
+                    <td><b>Status</b></td>
+                    <td><?php echo $delivery['status']; ?></td>
+                </tr>
+                <tr>
                     <td><b>Odbiorca</b></td>
                     <td><?php echo $delivery['odbiorca']; ?></td>
                 </tr>
