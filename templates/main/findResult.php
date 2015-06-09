@@ -28,6 +28,10 @@ if ($o !=null)
                     <td><b>Kurier</b></td>
                     <td><?php echo $delivery['pesel_kuriera']; ?></td>
                 </tr>
+                    <tr>
+                        <td>Nazwa</td>
+                        <td><?php echo $this->address($delivery['nazwa']) ?></td>
+                    </tr>
                 </table>
         
     </div>  
@@ -64,7 +68,7 @@ if ($o !=null)
                     var mapElement = document.getElementById('Przesylki');
                     var map = new google.maps.Map(mapElement, mapOptions);
                     var locations = [
-            ['Przesylka 1', 'Opis pierwszej przesylki', 'undefined', 'undefined', 'undefined', 50.06465009999999, 19.94497990000002, 'https://mapbuildr.com/assets/img/markers/default.png'],['Przesylka 2', 'Opis drugiej przesylki', 'undefined', 'undefined', 'undefined', 51.1078852, 17.03853760000004, 'https://mapbuildr.com/assets/img/markers/default.png']
+            ['Przesylka 1', 'Opis pierwszej przesylki', 'undefined', 'undefined', 'undefined', <?php echo $this->address($delivery['nazwa']) ?>, 'https://mapbuildr.com/assets/img/markers/default.png'],['Przesylka 2', 'Opis drugiej przesylki', 'undefined', 'undefined', 'undefined', 51.1078852, 17.03853760000004, 'https://mapbuildr.com/assets/img/markers/default.png']
                     ];
                     for (i = 0; i < locations.length; i++) {
                         if (locations[i][1] =='undefined'){ description ='';} else { description = locations[i][1];}

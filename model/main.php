@@ -40,7 +40,8 @@ class MainModel extends Model{
     
     public function selectDeliveries($id){
 
-        $query='SELECT * FROM przesylka WHERE id_przesylki = "'.$id.'"';
+        $query='SELECT * FROM przesylka p INNER JOIN klient k ON p.pesel_odbiorcy = k.pesel_klienta
+        INNER JOIN rejon r ON k.id_rejonu = r.id_rejonu WHERE id_przesylki = "'.$id.'"';
                 
         $data = array();
         $select=$this->pdo->query($query);
