@@ -28,10 +28,7 @@ if ($o !=null)
                     <td><b>Kurier</b></td>
                     <td><?php echo $delivery['pesel_kuriera']; ?></td>
                 </tr>
-                    <tr>
-                        <td>Nazwa</td>
-                        <td><?php echo $this->address($delivery['nazwa']) ?></td>
-                    </tr>
+     
                 </table>
         
     </div>  
