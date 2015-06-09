@@ -8,6 +8,10 @@ $(document).ready(function(){
             $(this).html(input);
         });
 
+        $(".customer").unbind("mouseenter").unbind("mouseleave");
+        $(".customer").removeProp('hoverIntent_t');
+        $(".customer").removeProp('hoverIntent_s');
+
         return false;
     });
 
