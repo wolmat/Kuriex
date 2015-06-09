@@ -44,7 +44,7 @@
                             <td><?php echo $customer['adres_email']; ?></td>
                             <td><?php echo $customer['id_rejonu']; ?></td>
                             <td class="crud">
-                                <input class="update" type="submit" name="update" value="">
+                                <input class="edit" type="submit" name="update" value="">
                                 <input class="delete" type="submit" name="delete" value="">
                             </td>
                         </tr>

@@ -16,7 +16,7 @@
     background: url('../templates/images/insert.png') no-repeat;
 }
 
-.update {
+.edit {
     width: 22px;
     height: 22px;
     background: url('../templates/images/update.png') no-repeat;

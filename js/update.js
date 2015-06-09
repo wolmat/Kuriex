@@ -1,4 +1,20 @@
 $(document).ready(function(){
+    $('.edit').on('click', function(){
+        var row = $(this).parent().parent();
+        var cells = $(row).find('td').not(':last');
+        $(cells).each(function(index){
+            var input = $('thead td:nth-child(' + (index + 1) + ') input').clone();
+            input.val($(this).text());
+            $(this).html(input);
+        });
+
+        return false;
+    });
+
+    $('.update').on('click', function(){
+
+    });
+
     $('#customers').submit(function(event){
         var $form = $(this);
         var $inputs = $form.find("input, select, button, textarea");
