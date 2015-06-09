@@ -315,7 +315,7 @@ class AdminModel extends Model{
             $q->execute();
         }
         catch(PDOException $e){
-          return '<div class="error">Błąd spójności danych</div>'.$e->getMessage();
+          return '<div class="error">Błąd spójności danych</div>';
         }
         return '<div class="message info">Utworzono rekord!</div>';
     }
