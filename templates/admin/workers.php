@@ -7,6 +7,7 @@ $function = $this -> get('function'); ?>
                 <?php echo count($this->get('workers')); ?>
             </span>
         </h3>
+        <?php echo $this->get('message'); ?>
         <form action="workers" method="post">
         <div class="three columns offset-by-four">
             Rodzaj pracownika:
@@ -38,6 +39,7 @@ $function = $this -> get('function'); ?>
                     <td><input type="text" name="nazwisko"></td>
                     <td><input type="text" name="id_miejsca"></td>
                     <td><input type="text" name="id_pojazdu"></td>
+                    <td><input style="margin auto" type="submit" value="Dodaj" name="add"></td>
                 </tr>
                 </thead>
                 <?php foreach($this->get('workers') as $worker) { ?>
@@ -54,7 +56,6 @@ $function = $this -> get('function'); ?>
                 <?php } ?>
 
             </table>
-            <input style="margin auto" type="submit" value="Znajdz">
         </form>
 	</div>
 

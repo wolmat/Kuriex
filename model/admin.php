@@ -267,6 +267,54 @@ class AdminModel extends Model{
         }
         return '<div class="message info">Utworzono rekord!</div>';
     }
+    
+    
+        public function addWorker($post){
+
+        $output = '<div class="message error">Nie podano: ';
+        $empty = false;
+        foreach($post as $key => $val){
+            if($val == null){
+                $output .= '<span class="field">'.$key.'</span>';
+                $empty = true;
+            }
+        }
+        if($empty){
+            $output .= '</div>';
+            return $output;
+        }
+
+        try{
+            $querry = 'INSERT INTO '.$post['function'].' (pesel_klienta, imie, nazwisko, adres, numer_kontaktowy, adres_email, ';
+            if($post['function'] == "kurier")
+                $querry .= 'id_obszaru) ';
+            else
+                $querry .= 'id_rejonu) ';
+                                     
+            $querry .= '$VALUES (
+                :pesel,
+                :imie,
+                :nazwisko,
+                :id_miejsca,
+                :id_pojazdu)';
+
+           $q = $this->pdo->prepare($querry);
+            
+            $q->bindValue(':pesel', $_POST['pesel'], PDO::PARAM_INT);
+            $q->bindValue(':imie', $_POST['imie'], PDO::PARAM_STR);
+            $q->bindValue(':nazwisko', $_POST['nazwisko'], PDO::PARAM_STR);
+            $q->bindValue(':id_miejsca', $_POST['id_miejsca'], PDO::PARAM_STR);
+            $q->bindValue(':id_pojazdu', $_POST['id_pojazdu'], PDO::PARAM_INT);
+
+            $q->execute();
+        }
+        catch(PDOException $e){
+          return '<div class="error">Błąd spójności danych</div>';
+        }
+        return '<div class="message info">Utworzono rekord!</div>';
+    }
+    
+    
                         
 }
        

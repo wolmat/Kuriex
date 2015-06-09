@@ -30,12 +30,20 @@ class AdminView extends View{
     
     public function  workers() {
         $mod=$this->loadModel('admin');
-        $this->set('workers',$mod->selectWorkers($_POST));
+
         
         if(!isset($_POST['function']))
             $_POST['function'] = "kurier";    
-        
         $this->set('function',$_POST['function']);
+        
+        if(isset($_POST['add'])){
+            $this->set('message',$mod->addWorker($_POST));
+            $_POST = null;
+        }
+        else
+            $this->set('message','');
+        
+        $this->set('workers',$mod->selectWorkers($_POST));
         $this->render('/admin/workers');
     }
     
