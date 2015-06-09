@@ -15,8 +15,12 @@ $(document).ready(function(){
         return false;
     });
 
-    $('.update').on('click', function(){
+    $('.delete').on('click', function(){
+        return false;
+    });
 
+    $('.update').on('click', function(){
+        return false;
     });
 
     $('#customers').submit(function(event){
