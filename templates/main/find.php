@@ -6,7 +6,7 @@
 				<form action="find" method="post">
 
                     <h5> ID paczki: </h5>
-                    <input type="text" name="id_zlecenia">
+                    <input type="text" name="id_przesylki">
 
 				    <input style="margin auto" type="submit" value="Znajdz">
 				</form>
