@@ -36,8 +36,9 @@
                     <td><?php echo $order->nadawca; ?></td>
                     <td class="crud">
                         <input class="edit" type="submit" name="update" value="">
-                        <input class="delete" type="submit" name="delete" value="<?php echo $order['id_zlecenia']; ?>">
+                        <input class="delete" type="submit" name="delete" value="<?php echo $order->id_zlecenia; ?>">
                     </td>
+                </tr>
                 <tr class="package-tr">
                     <td colspan="5">
                         <table>
