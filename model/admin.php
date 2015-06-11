@@ -320,7 +320,48 @@ class AdminModel extends Model{
         return '<div class="message info">Utworzono rekord!</div>';
     }
     
-    
+        public function addOrder($post){
+
+        $output = '<div class="message error">Nie podano: ';
+        $empty = false;
+        foreach($post as $key => $val){
+            if($val == null){
+                $output .= '<span class="field">'.$key.'</span>';
+                $empty = true;
+            }
+        }
+        if($empty){
+            $output .= '</div>';
+            return $output;
+        }
+
+        try{
+            $querry = 'INSERT INTO zlecenie (id_zlecenia, opis, cena, rodzaj_platnosci, status, pesel_nadawcy) ';
+            $querry .= 'VALUES (	
+                :id_zlecenia
+                :opis
+                :cena
+                :rodzaj_platnosci
+                :status
+                :pesel_nadawcy)';
+
+           $q = $this->pdo->prepare($querry);
+            
+            $q->bindValue(':id_zlecenia', $_POST['id_zlecenia'], PDO::PARAM_INT);
+            $q->bindValue(':opis', $_POST['opis'], PDO::PARAM_STR);
+            $q->bindValue(':cena', $_POST['cena'], PDO::PARAM_INT);
+            $q->bindValue(':rodzaj_platnosci', $_POST['rodzaj_platnosci'], PDO::PARAM_STR);
+            $q->bindValue(':status', $_POST['status'], PDO::PARAM_STR);
+            $q->bindValue(':pesel_nadawcy', $_POST['pesel_nadawcy'], PDO::PARAM_INT);
+
+            $q->execute();
+        }
+        catch(PDOException $e){
+            return $e->getMessage();
+          //return '<div class="error">Błąd spójności danych</div>';
+        }
+        return '<div class="message info">Utworzono rekord!</div>';
+    }
     
     public function deleteCustomer($pesel){
         
@@ -358,7 +399,7 @@ class AdminModel extends Model{
         
         try{
             
-            $queryB = 'DELETE FROM zlecenie WHERE id_zlecenia = '.$id_zlecenia;
+            $query = 'DELETE FROM zlecenie WHERE id_zlecenia = '.$id_zlecenia;
             $q = $this->pdo->prepare($query);
             $q->execute();
             

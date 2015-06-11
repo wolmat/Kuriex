@@ -15,6 +15,7 @@
             <tr>
                 <th>Id</th>
                 <th>Opis</th>
+                <th>Cena</th>
                 <th>Rodzaj płatności</th>
                 <th>Status</th>
                 <th>Nadawca</th>
@@ -22,6 +23,7 @@
             <tr>
                 <td><input type="text" name="id_zlecenia"></td>
                 <td><input type="text" name="opis"></td>
+                <td><input type="text" name="cena"></td>
                 <td><input type="text" name="rodzaj_platnosci"></td>
                 <td><input type="text" name="status"></td>
                 <td><input type="text" name="pesel_nadawcy"></td>
@@ -33,6 +35,7 @@
                 <tr class="order">
                     <td><?php echo $order->id_zlecenia; ?></td>
                     <td><?php echo $order->opis; ?></td>
+                    <td><?php echo $order->cena; ?></td>
                     <td><?php echo $order->rodzaj_platnosci; ?></td>
                     <td><?php echo $order->status; ?></td>
                     <td><?php echo $order->nadawca; ?></td>
