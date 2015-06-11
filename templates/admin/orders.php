@@ -7,6 +7,7 @@
             <?php echo count($this->get('orders')); ?>
         </span>
     </h3>
+        <?php echo $this->get('message'); ?>    
     <form action="orders" method="post">
         <table id="order-table">
 
@@ -24,6 +25,7 @@
                 <td><input type="text" name="rodzaj_platnosci"></td>
                 <td><input type="text" name="status"></td>
                 <td><input type="text" name="pesel_nadawcy"></td>
+                <td><input style="margin auto" type="submit" value="Dodaj" name="add"></td>
             </tr>
             </thead>
             <tbody>

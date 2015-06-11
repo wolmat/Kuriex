@@ -358,8 +358,7 @@ class AdminModel extends Model{
         
         try{
             
-            $query = 'DELETE FROM zlecenie WHERE id_zlecenia = '.$id_zlecenia;
-            echo $query;
+            $queryB = 'DELETE FROM zlecenie WHERE id_zlecenia = '.$id_zlecenia;
             $q = $this->pdo->prepare($query);
             $q->execute();
             
