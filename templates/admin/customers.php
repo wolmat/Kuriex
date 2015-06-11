@@ -30,7 +30,7 @@
                             <td><input type="text" name="numer_kontaktowy"></td>
                             <td><input type="text" name="adres_email"></td>
                             <td><input type="text" name="id_rejonu"></td>
-                            <td><input class="add" type="submit" name="add" value=""></td>
+                            <td><input class="add" type="submit" name="add"></td>
                         </tr>
                         </thead>
                         <tbody>
@@ -45,7 +45,7 @@
                             <td><?php echo $customer['id_rejonu']; ?></td>
                             <td class="crud">
                                 <input class="edit" type="submit" name="update" value="">
-                                <input class="delete" type="submit" name="delete" value="">
+                                <input class="delete" type="submit" name="delete" value="<?php echo $customer['pesel_klienta']; ?>">
                             </td>
                         </tr>
                         <?php endforeach; ?>

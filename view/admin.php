@@ -54,6 +54,10 @@ class AdminView extends View{
             $this->set('message',$mod->addCustomer($_POST));
             $_POST = null;
         }
+        elseif(isset($_POST['delete'])){
+            $this->set('message',$mod->deleteCustomer($_POST['delete']));
+            $_POST = null;
+        }
         else
             $this->set('message','');
         $this->set('customers',$mod->selectCustomers($_POST));

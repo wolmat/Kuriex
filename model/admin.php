@@ -321,6 +321,21 @@ class AdminModel extends Model{
     }
     
     
+    
+    public function deleteCustomer($pesel){
+        
+        try{
+            
+            $query = 'DELETE FROM klient WHERE pesel_klienta = '.$pesel;
+            $q = $this->pdo->prepare($query);
+            $q->execute();
+            
+        }catch(PDOException $e){
+          return '<div class="error">Nie mozna usunąć rekordu!</br> Sprawdź czy nie jest powiązany z <span class="field">przesyłką</span> lub <span class="field">zleceniem</span>.</div>';
+        }
+        return '<div class="message info">Usunięto rekord!</div>';
+        
+    }
                         
 }
        
