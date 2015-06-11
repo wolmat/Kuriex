@@ -336,7 +336,23 @@ class AdminModel extends Model{
         return '<div class="message info">Usunięto rekord!</div>';
         
     }
-                        
+        
+    
+    public function deleteWorker($pesel,$function){
+        
+        try{
+            
+            $query = 'DELETE FROM '.$function.' WHERE pesel = '.$pesel;
+            echo $query;
+            $q = $this->pdo->prepare($query);
+            $q->execute();
+            
+        }catch(PDOException $e){
+          return $e->getMessage();
+        }
+        return '<div class="message info">Usunięto rekord!</div>';
+        
+    }
 }
        
 

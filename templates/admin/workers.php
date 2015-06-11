@@ -52,6 +52,10 @@ $function = $this -> get('function'); ?>
                               else
                               echo $worker['id_filii']; ?></td>
                     <td><?php echo $worker['id_pojazdu']; ?></td>
+                    <td class="crud">
+                        <input class="edit" type="submit" name="update" value="">
+                        <input class="delete" type="submit" name="delete" value="<?php echo $worker['pesel']; ?>">
+                    </td>
                 </tr>
                 <?php } ?>
 

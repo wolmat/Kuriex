@@ -40,6 +40,10 @@ class AdminView extends View{
             $this->set('message',$mod->addWorker($_POST));
             $_POST = null;
         }
+        elseif(isset($_POST['delete'])){
+            $this->set('message',$mod->deleteWorker($_POST['delete'],$_POST['function']));
+            $_POST = null;
+        }
         else
             $this->set('message','');
         
