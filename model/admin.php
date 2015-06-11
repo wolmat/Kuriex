@@ -353,6 +353,23 @@ class AdminModel extends Model{
         return '<div class="message info">Usunięto rekord!</div>';
         
     }
+    
+    public function deleteOrder($id_zlecenia){
+        
+        try{
+            
+            $query = 'DELETE FROM zlecenie WHERE id_zlecenia = '.$id_zlecenia;
+            echo $query;
+            $q = $this->pdo->prepare($query);
+            $q->execute();
+            
+        }catch(PDOException $e){
+          return '<div class="error">Nie mozna usunąć rekordu!</div>';
+        }
+        return '<div class="message info">Usunięto rekord!</div>';
+        
+    }
+    
 }
        
 

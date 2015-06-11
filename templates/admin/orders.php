@@ -34,7 +34,10 @@
                     <td><?php echo $order->rodzaj_platnosci; ?></td>
                     <td><?php echo $order->status; ?></td>
                     <td><?php echo $order->nadawca; ?></td>
-                </tr>
+                    <td class="crud">
+                        <input class="edit" type="submit" name="update" value="">
+                        <input class="delete" type="submit" name="delete" value="<?php echo $order['id_zlecenia']; ?>">
+                    </td>
                 <tr class="package-tr">
                     <td colspan="5">
                         <table>
@@ -61,6 +64,7 @@
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
+                    </td>
                     </td>
                 </tr>
                 <?php endforeach; ?>

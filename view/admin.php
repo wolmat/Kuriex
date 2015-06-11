@@ -71,6 +71,18 @@ class AdminView extends View{
 
      public function  orders() {
         $mod=$this->loadModel('admin');
+         
+        if(isset($_POST['add'])){
+            $this->set('message',$mod->addOrder($_POST));
+            $_POST = null;
+        }
+        elseif(isset($_POST['delete'])){
+            $this->set('message',$mod->deleteOrder($_POST['delete']));
+            $_POST = null;
+        }
+        else
+            $this->set('message','');
+         
         $this->set('orders',$mod->selectOrders($_POST));
         $this->render('/admin/orders');
     }
