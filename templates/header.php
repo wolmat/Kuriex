@@ -58,7 +58,7 @@
       </div>
       <div class="one-half column u-pull-right"
            style="text-align: center">
-        <img src="templates/images/kuriex.png">
+        <img src="templates/images/kuriex.png" alt="Kuriex">
         <p>
           Usiądź wygodnie w fotelu.
           Zrobimy wszystko za Ciebie!
