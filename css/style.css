@@ -23,7 +23,7 @@ body {
   height: 100%;
 }
 
-#top-nav ul, #top-nav li {
+#top-nav ul, #top-nav li, #admin-nav ul, #admin-nav li {
   display: inline-block;
   margin: 0;
   padding: 0;
@@ -105,7 +105,7 @@ body {
     color: #4878A8;
 }
 
-h6 {
+#header p {
     color: #487890;
 }
 
@@ -145,7 +145,7 @@ h6 {
 }
 
 #block3 {
-    padding: 100px 0;
+    padding: 110px 0;
     background: #f07830;
     color: #fff;
 }
