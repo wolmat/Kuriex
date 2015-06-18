@@ -8,14 +8,6 @@
     line-height: 22px;
 }
 
-.add {
-    width: 22px;
-    height: 22px;
-    padding: 2px !important;
-    vertical-align: middle;
-    background: url('../templates/images/insert.png') no-repeat;
-}
-
 .edit {
     width: 22px;
     height: 22px;
