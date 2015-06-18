@@ -263,7 +263,7 @@ class AdminModel extends Model{
             $q->execute();
         }
         catch(PDOException $e){
-          return '<div class="error">Błąd spójności danych</div>';
+          return '<div class="message error">Błąd spójności danych</div>';
         }
         return '<div class="message info">Utworzono rekord!</div>';
     }
@@ -315,7 +315,7 @@ class AdminModel extends Model{
             $q->execute();
         }
         catch(PDOException $e){
-          return '<div class="error">Błąd spójności danych</div>';
+          return '<div class="message error">Błąd spójności danych</div>';
         }
         return '<div class="message info">Utworzono rekord!</div>';
     }
@@ -358,7 +358,7 @@ class AdminModel extends Model{
         }
         catch(PDOException $e){
             return $e->getMessage();
-          //return '<div class="error">Błąd spójności danych</div>';
+          //return '<div class="message error">Błąd spójności danych</div>';
         }
         return '<div class="message info">Utworzono rekord!</div>';
     }
@@ -372,7 +372,7 @@ class AdminModel extends Model{
             $q->execute();
             
         }catch(PDOException $e){
-          return '<div class="error">Nie mozna usunąć rekordu!</br> Sprawdź czy nie jest powiązany z <span class="field">przesyłką</span> lub <span class="field">zleceniem</span>.</div>';
+          return '<div class="message error">Nie mozna usunąć rekordu!</br> Sprawdź czy nie jest powiązany z <span class="field">przesyłką</span> lub <span class="field">zleceniem</span>.</div>';
         }
         return '<div class="message info">Usunięto rekord!</div>';
         
@@ -389,7 +389,7 @@ class AdminModel extends Model{
             $q->execute();
             
         }catch(PDOException $e){
-          return '<div class="error">Nie mozna usunąć rekordu!</br> Sprawdź czy nie jest powiązany z <span class="field">przesyłką</span> lub <span class="field">zleceniem</span>.</div>';
+          return '<div class="message error">Nie mozna usunąć rekordu!</br> Sprawdź czy nie jest powiązany z <span class="field">przesyłką</span> lub <span class="field">zleceniem</span>.</div>';
         }
         return '<div class="message info">Usunięto rekord!</div>';
         
@@ -404,7 +404,7 @@ class AdminModel extends Model{
             $q->execute();
             
         }catch(PDOException $e){
-          return '<div class="error">Nie mozna usunąć rekordu!</div>';
+          return '<div class="message error">Nie mozna usunąć rekordu!</div>';
         }
         return '<div class="message info">Usunięto rekord!</div>';
         
