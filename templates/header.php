@@ -59,10 +59,10 @@
       <div class="one-half column u-pull-right"
            style="text-align: center">
         <img src="templates/images/kuriex.png">
-        <h6>
+        <p>
           Usiądź wygodnie w fotelu.
           Zrobimy wszystko za Ciebie!
-        </h6>
+        </p>
       </div>
     </div>
   </div>
