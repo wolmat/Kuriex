@@ -14,7 +14,7 @@ td input {
     width: 100%;
 }
 
-.customer-table th, td {
+.customer-table th, .customer-table td {
     width: 140px;
 }
 
@@ -31,14 +31,16 @@ td input {
 
 #order-table {
     margin: 0 auto;
-    width: 80%;
+    width: 100%;
 }
 
 .order > td:nth-child(1){ width: 5%; }
 .order > td:nth-child(2){ width: 20%; }
-.order > td:nth-child(3){ width: 8%; }
-.order > td:nth-child(4){ width: 8%; }
-.order > td:nth-child(5){ width: 15%; }
+.order > td:nth-child(3){ width: 5%; }
+.order > td:nth-child(4){ width: 5%; }
+.order > td:nth-child(5){ width: 5%; }
+.order > td:nth-child(6){ width: 15%; }
+#order-table td:nth-child(7){ width: 1%; }
 
 .package-tr td:nth-child(1){ width: 5%; }
 .package-tr td:nth-child(2){ width: 20%; }

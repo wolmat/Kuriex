@@ -27,7 +27,7 @@
                 <td><input type="text" name="rodzaj_platnosci"></td>
                 <td><input type="text" name="status"></td>
                 <td><input type="text" name="pesel_nadawcy"></td>
-                <td><input style="margin auto" type="submit" value="Dodaj" name="add"></td>
+                <td><input type="submit" value="Dodaj" name="add"></td>
             </tr>
             </thead>
             <tbody>
@@ -45,7 +45,7 @@
                     </td>
                 </tr>
                 <tr class="package-tr">
-                    <td colspan="5">
+                    <td colspan="6">
                         <table>
                             <thead>
                                 <tr>

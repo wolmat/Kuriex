@@ -39,7 +39,7 @@ $function = $this -> get('function'); ?>
                     <td><input type="text" name="nazwisko"></td>
                     <td><input type="text" name="id_miejsca"></td>
                     <td><input type="text" name="id_pojazdu"></td>
-                    <td><input style="margin auto" type="submit" value="Dodaj" name="add"></td>
+                    <td><input type="submit" value="Dodaj" name="add"></td>
                 </tr>
                 </thead>
                 <?php foreach($this->get('workers') as $worker) { ?>
