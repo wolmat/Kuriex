@@ -1,9 +1,4 @@
-<?php include('templates/header.php'); ?>
 <?php include('header.php'); ?>
-
-
-
-
 	<div class="container">
         <div class="four columns offset-by-two">
         <h5> Oczekujące zlecenia </h5>
@@ -13,7 +8,7 @@
                             <td>Id </td>
                             <td>Opis </td>
                         </tr>
-                        <?php foreach($this->get('orders') as $order) { ?>
+                        <?php foreach($data['orders'] as $order) { ?>
                         <tr>
                             <td><?php echo $order->id_zlecenia; ?></td>
                             <td><?php echo $order->opis; ?></td>
@@ -34,7 +29,7 @@
                             <td>Id </td>
                             <td>Id zlecenie </td>
                         </tr>
-                        <?php foreach($this->get('complains') as $complain) { ?>
+                        <?php foreach($data['complains'] as $complain) { ?>
                         <tr>
                             <td><?php echo $complain['id_reklamacji']; ?></td>
                             <td><?php echo $complain['id_zlecenia']; ?></td>

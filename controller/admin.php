@@ -1,15 +1,15 @@
 <?php
-/**
- * Kontroler panel admina
- */
- 
 include_once 'controller/controller.php';
  
 class AdminController extends Controller{
 	//Strona z notyfikacjami
     public function index() {
-        $view=$this->loadView('admin');
-        $view->index();
+        $adminModel = new AdminModel();
+        $view = new ViewModel('admin/index');
+        $view->assign('orders', $adminModel->selectOrders($_POST));
+        $view->assign('complains', $adminModel->selectComplains($_POST));
+
+        $view->display();
     }
 	
 	//Logowanie się
