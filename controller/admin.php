@@ -2,7 +2,6 @@
 include_once 'controller/controller.php';
  
 class AdminController extends Controller{
-	//Strona z notyfikacjami
     public function index() {
         $adminModel = new AdminModel();
         $view = new ViewModel('admin/index');
@@ -12,10 +11,17 @@ class AdminController extends Controller{
         $view->display();
     }
 	
-	//Logowanie się
 	public function login(){
-		$view=$this->loadView('admin');
-        $view->login();
+        $view = new ViewModel('/admin/login');
+        if(isset($_SESSION['user']) && $_SESSION['user'] == "admin")
+            header("Location: admin");
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            if($_POST['user'] == "admin" && $_POST['pass'] == "pass"){
+                $_SESSION['user'] = "admin";
+                header("Location: admin");
+            } else $view->display();
+        } else $view->display();
 	}
     
     public function logout(){
