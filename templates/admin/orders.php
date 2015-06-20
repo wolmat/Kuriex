@@ -1,16 +1,14 @@
-<?php include 'templates/header.php'; ?>
 <?php include('header.php'); ?>
 
 <div class="container">
     <h3>Lista zleceń |
         <span id="count">
-            <?php echo count($this->get('orders')); ?>
+            <?php echo count($data['orders']); ?>
         </span>
     </h3>
-        <?php echo $this->get('message'); ?>    
+    <?php include('templates/message.php'); ?>
     <form action="orders" method="post">
         <table id="order-table">
-
             <thead>
             <tr>
                 <th>Id</th>
@@ -27,18 +25,18 @@
                 <td><input type="text" name="rodzaj_platnosci"></td>
                 <td><input type="text" name="status"></td>
                 <td><input type="text" name="pesel_nadawcy"></td>
-                <td><input type="submit" value="Dodaj" name="add"></td>
+                <td><input type="submit" value="Dodaj" name="add" class="add"></td>
             </tr>
             </thead>
             <tbody>
-                <?php foreach($this->get('orders') as $order): ?>
+                <?php foreach($data['orders'] as $order): ?>
                 <tr class="order">
-                    <td><?php echo $order->id_zlecenia; ?></td>
-                    <td><?php echo $order->opis; ?></td>
-                    <td><?php echo $order->cena; ?></td>
-                    <td><?php echo $order->rodzaj_platnosci; ?></td>
-                    <td><?php echo $order->status; ?></td>
-                    <td><?php echo $order->nadawca; ?></td>
+                    <td><?php echo $order['id_zlecenia']; ?></td>
+                    <td><?php echo $order['opis']; ?></td>
+                    <td><?php echo $order['cena']; ?></td>
+                    <td><?php echo $order['rodzaj_platnosci']; ?></td>
+                    <td><?php echo $order['status']; ?></td>
+                    <td><?php echo $order['nadawca']; ?></td>
                     <td class="crud">
                         <input class="edit" type="submit" name="update" value="">
                         <input class="delete" type="submit" name="delete" value="">
@@ -58,7 +56,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach($order->przesylki as $delivery): ?>
+                                <?php foreach($order['deliveries'] as $delivery): ?>
                                 <tr>
                                     <td> <?php echo $delivery['id_przesylki']; ?> </td>
                                     <td> <?php echo $delivery['opis']; ?> </td>
@@ -79,5 +77,3 @@
         <input style="margin auto" type="submit" value="Znajdz">
     </form>
 </div>
-
-<?php include 'templates/footer.php'; ?>

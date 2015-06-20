@@ -11,4 +11,4 @@ RewriteRule login index.php?task=admin&action=login
 RewriteRule logout index.php?task=admin&action=logout
 RewriteRule workers index.php?task=worker&action=show
 RewriteRule customers index.php?task=customer&action=show
-RewriteRule orders index.php?task=admin&action=orders
+RewriteRule orders index.php?task=order&action=show
