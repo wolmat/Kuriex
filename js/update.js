@@ -46,8 +46,8 @@ $(document).ready(function(){
         return false;
     });
 
-    $('#customers').submit(function(event){
-        var $form = $(this);
+    $('.add').click(function(event){
+        var $form = $('form');
         var $inputs = $form.find("input, select, button, textarea");
         var serializedData = $form.serialize();
         $inputs.prop("disabled", true);

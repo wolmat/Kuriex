@@ -39,7 +39,7 @@
                             <td><input type="text" name="numer_kontaktowy"></td>
                             <td><input type="text" name="adres_email"></td>
                             <td><input type="text" name="id_rejonu"></td>
-                            <td><input type="submit" value="Dodaj" name="add"></td>
+                            <td><input type="submit" value="Dodaj" name="add" class="add"></td>
                         </tr>
                         </thead>
                         <tbody>
