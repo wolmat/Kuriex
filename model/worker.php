@@ -11,14 +11,14 @@ class WorkerModel extends Model {
             pesel = ?,
             imie = ?,
             nazwisko = ?,
-            rejon = ?,
+            id_obszaru = ?,
             id_pojazdu = ?";
     
     private $updateSupplier = "UPDATE dostawca SET
             pesel = ?,
             imie = ?,
             nazwisko = ?,
-            obszar = ?,
+            id_filii = ?,
             id_pojazdu = ?";
 
     public function selectCouriers(){
