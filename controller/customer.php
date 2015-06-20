@@ -18,7 +18,7 @@ class CustomerController {
         
         if(!empty($empty_fields)){
             $view->assign('message-type', 'error');
-            $view->assign('message', 'Prosze wypełnić brakjące pola: ');
+            $view->assign('message', 'Prosze wypełnić brakujące pola: ');
             $view->assign('fields', $empty_fields);
             $view->display();
             return;
@@ -42,11 +42,13 @@ class CustomerController {
 
     public function delete(){
         $view = new ViewModel('admin/customers');
+        $customerModel = new CustomerModel();
         try {
-            $view->assign('message', $customerModel->deleteCustomer($_POST['delete']));
+            $view->assign('customers', $customerModel->deleteCustomer($_POST['delete']));
         } catch(PDOException $e) {
             $view->assign('message-type', 'error');
-            $view->assign('message','Błąd spójności danych!'. $e->getMessage());
+            $view->assign('message',
+                'Nie można usunąć klienta. Sprawdź czy nie jest powiązany z przesyłką lub zleceniem!');
             $view->display();
             return;
         }
