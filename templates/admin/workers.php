@@ -1,13 +1,17 @@
-<?php include 'templates/header.php'; ?>
-<?php include('header.php'); 
-$function = $this -> get('function'); ?>
+<?php include('header.php'); ?>
+<?php
+    if(isset($_POST['function']))
+        $function = $_POST['function'];
+    else
+        $function = 'kurier';
+?>
 	<div class="container">
         <h3>Lista pracowników |
             <span id="count">
-                <?php echo count($this->get('workers')); ?>
+                <?php echo count($data['workers']); ?>
             </span>
         </h3>
-        <?php echo $this->get('message'); ?>
+        <?php include('templates/message.php'); ?>
         <form action="workers" method="post">
         <div class="three columns offset-by-four">
             Rodzaj pracownika:
@@ -39,10 +43,10 @@ $function = $this -> get('function'); ?>
                     <td><input type="text" name="nazwisko"></td>
                     <td><input type="text" name="id_miejsca"></td>
                     <td><input type="text" name="id_pojazdu"></td>
-                    <td><input type="submit" value="Dodaj" name="add"></td>
+                    <td><input type="submit" value="Dodaj" name="add" class="add"></td>
                 </tr>
                 </thead>
-                <?php foreach($this->get('workers') as $worker) { ?>
+                <?php foreach($data['workers'] as $worker) { ?>
                 <tr class="worker">
                     <td><?php echo $worker['pesel']; ?></td>
                     <td><?php echo $worker['imie']; ?></td>
@@ -62,5 +66,3 @@ $function = $this -> get('function'); ?>
             </table>
         </form>
 	</div>
-
-<?php include 'templates/footer.php'; ?>

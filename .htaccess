@@ -9,6 +9,6 @@ RewriteRule find index.php?task=main&action=find
 RewriteRule admin index.php?task=admin&action=index
 RewriteRule login index.php?task=admin&action=login
 RewriteRule logout index.php?task=admin&action=logout
-RewriteRule workers index.php?task=admin&action=workers
+RewriteRule workers index.php?task=worker&action=show
 RewriteRule customers index.php?task=customer&action=show
 RewriteRule orders index.php?task=admin&action=orders
