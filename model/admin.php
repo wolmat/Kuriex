@@ -1,9 +1,9 @@
 <?php
 
-include 'model/model.php';
+require_once 'model/model.php';
 include 'entities/order.php';
 
-class AdminModel extends Model{
+class AdminModel extends Model {
    
     public function selectCustomers($post){
         
