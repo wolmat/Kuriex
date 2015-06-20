@@ -29,19 +29,28 @@ class AdminController extends Controller{
         header("Location: main");
     }
 
-    //Wyszukiwanie kierowców
 	public function workers(){
 		$view=$this->loadView('admin');
         $view->workers();
 	}
     
-    //Wyszukiwanie pracowników
 	public function customers(){
-		$view=$this->loadView('admin');
-        $view->customers();
+        $mod = new AdminModel();
+        $view = new ViewModel('admin/customers');
+        if(isset($_POST['add'])){
+            $view->assign('message',$mod->addCustomer($_POST));
+            $_POST = null;
+        }
+        elseif(isset($_POST['delete'])){
+            $view->assign('message',$mod->deleteCustomer($_POST['delete']));
+            $_POST = null;
+        }
+        else
+            $view->assign('message','');
+        $view->assign('customers',$mod->selectCustomers($_POST));
+        $view->display();
 	}
 
-    //Wyszukiwanie zleceń
 	public function orders(){
 		$view=$this->loadView('admin');
         $view->orders();

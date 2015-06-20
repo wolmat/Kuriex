@@ -1,4 +1,3 @@
-<?php include 'templates/header.php'; ?>
 <?php include('header.php'); ?>
 
 	<div class="container">
@@ -6,10 +5,10 @@
 				<h3>
                     Lista klientów |
                     <span id="count">
-                         <?php echo count($this->get('customers')); ?>
+                         <?php echo count($data['customers']); ?>
                     </span>
                 </h3>
-                <?php echo $this->get('message'); ?>
+                <?php echo $data['message']; ?>
 				<form id="customers" action="customers" method="post" autocomplete="off">
 					<table class="customer-table">
                         <thead>
@@ -34,7 +33,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <?php foreach($this->get('customers') as $customer): ?>
+                        <?php foreach($data['customers'] as $customer): ?>
                         <tr class="customer">
                             <td><?php echo $customer['pesel_klienta']; ?></td>
                             <td><?php echo $customer['imie']; ?></td>
