@@ -1,7 +1,6 @@
 $(document).ready(function(){
     $('[name="function"]').on('change',
         function(){
-            console.log($(this).val());
             var data = {
                 'function': $(this).val()
             };
@@ -9,11 +8,24 @@ $(document).ready(function(){
                 url: 'index.php?task=worker&action=show',
                 type: 'post',
                 data: data,
+                beforeSend: function() {
+                    $('.message').remove();
+                    $('h3').after($('<div class="message info">Wczytywanie...</div>'));
+                },
+                complete: function() {
+                    $('.message').remove();
+                },
                 success: function(result){
                     var table = $(result).find('table');
                     $('table').fadeOut();
                     $('table').replaceWith(table);
                     $(table).fadeIn();
+                    $('.worker').hoverIntent(function(){
+                            $(this).find('.crud').fadeIn();
+                        }, function(){
+                            $(this).find('.crud').fadeOut();
+                        }
+                    );
                 }
             });
         }
