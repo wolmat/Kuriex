@@ -64,7 +64,8 @@
                     var mapElement = document.getElementById('Przesylki');
                     var map = new google.maps.Map(mapElement, mapOptions);
                     var locations = [
-            ['Przesylka 1', 'Opis pierwszej przesylki', 'undefined', 'undefined', 'undefined', <?php echo $this->address($delivery['od']) ?>, 'https://mapbuildr.com/assets/img/markers/default.png'],['Przesylka 2', 'Opis drugiej przesylki', 'undefined', 'undefined', 'undefined', <?php echo $this->address($delivery['do']) ?>, 'https://mapbuildr.com/assets/img/markers/default.png']
+            ['Przesylka 1', 'Opis pierwszej przesylki', 'undefined', 'undefined', 'undefined', <?php echo $data['from']; ?>, 'https://mapbuildr.com/assets/img/markers/default.png'],['Przesylka 2', 'Opis drugiej przesylki', 'undefined', 'undefined', 'undefined', <?php
+    echo $data['to']; ?>, 'https://mapbuildr.com/assets/img/markers/default.png']
                     ];
                     for (i = 0; i < locations.length; i++) {
                         if (locations[i][1] =='undefined'){ description ='';} else { description = locations[i][1];}

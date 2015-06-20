@@ -37,6 +37,15 @@ class OrderModel extends Model {
         return $this->pdo->query($find)->fetch();
     }
     
+    public function getAddress($address){
+        $prepAddr = str_replace(' ','+',$address);
+        $geocode = file_get_contents("http://maps.google.com/maps/api/geocode/json?address=$prepAddr&sensor=false");
+        $output= json_decode($geocode);
+        $lat = $output->results[0]->geometry->location->lat;
+        $long = $output->results[0]->geometry->location->lng;
+        return $lat.', '.$long;
+    }
+
     public function selectPendingOrders(){
         $pending = "SELECT * FROM zlecenie WHERE status = 'oczekuje'";
         return $this->pdo->query($pending)->fetchAll();

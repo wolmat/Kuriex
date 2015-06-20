@@ -27,7 +27,11 @@ class MainController extends Controller{
         $orderModel = new OrderModel();
         if(isset($_POST['id_przesylki'])){
             $result = $orderModel->findDelivery($_POST['id_przesylki']);
-            if(!empty($result)) $view->assign('delivery', $result);
+            if(!empty($result)){
+                $view->assign('delivery', $result);
+                $view->assign('from', $orderModel->getAddress($result['od']));
+                $view->assign('to', $orderModel->getAddress($result['do']));
+            }
             $view->setTemplate('main/findResult');
         }
         $view->display();
