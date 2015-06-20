@@ -4,10 +4,10 @@ require_once 'controller/controller.php';
  
 class AdminController extends Controller {
     public function index() {
-        $adminModel = new AdminModel();
+        $orderModel = new OrderModel();
         $view = new ViewModel('admin/index');
-        $view->assign('orders', $adminModel->selectOrders($_POST));
-        $view->assign('complains', $adminModel->selectComplains($_POST));
+        $view->assign('orders', $orderModel->selectPendingOrders($_POST));
+        $view->assign('complains', $orderModel->selectComplains($_POST));
 
         $view->display();
     }

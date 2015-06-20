@@ -10,8 +10,8 @@
                         </tr>
                         <?php foreach($data['orders'] as $order) { ?>
                         <tr>
-                            <td><?php echo $order->id_zlecenia; ?></td>
-                            <td><?php echo $order->opis; ?></td>
+                            <td><?php echo $order['id_zlecenia']; ?></td>
+                            <td><?php echo $order['opis']; ?></td>
                         </tr>
                         <?php } ?>
                         

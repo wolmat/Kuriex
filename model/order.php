@@ -19,6 +19,16 @@ class OrderModel extends Model {
         $deliveries = "SELECT * FROM przesylka WHERE id_zlecenia = $id";
         return $this->pdo->query($deliveries)->fetchAll();
     }
+    
+    public function selectPendingOrders(){
+        $pending = "SELECT * FROM zlecenie WHERE status = 'oczekuje'";
+        return $this->pdo->query($pending)->fetchAll();
+    }
+    
+    public function selectComplains(){
+        $complains = "SELECT * FROM reklamacja";
+        return $this->pdo->query($complains)->fetchAll();
+    }
 
     public function insertOrder($customer){
         $query = $this->pdo->prepare($this->insert);
