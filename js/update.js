@@ -21,7 +21,7 @@ $(document).ready(function(){
             delete: tr.find('td:first-child').text()
         };
         $.ajax({
-            url: 'customers',
+            url: 'index.php?task=customer&action=delete',
             type: 'post',
             data: data,
             success: function(result){
@@ -49,10 +49,11 @@ $(document).ready(function(){
     $('#customers').submit(function(event){
         var $form = $(this);
         var $inputs = $form.find("input, select, button, textarea");
-        var serializedData = $form.serialize() + '&add=1';
+        var serializedData = $form.serialize();
         $inputs.prop("disabled", true);
+        console.log(serializedData);
         $.ajax({ 
-            url: 'customers',
+            url: 'index.php?task=customer&action=add',
             type: 'post',
             data: serializedData,
             success: function(result){
