@@ -8,13 +8,12 @@ class CustomerModel extends Model {
     private $insert = "INSERT INTO klient VALUES (?, ?, ?, ?, ?, ?, ?)";
     private $delete = "DELETE FROM klient WHERE pesel_klienta = ?";
     private $update = "UPDATE klient SET
-            pesel_klienta = ?,
             imie = ?,
             nazwisko = ?,
             adres = ?,
             adres_email = ?,
             telefon_kontaktowy = ?,
-            id_rejonu = ?";
+            id_rejonu = ? WHERE pesel_klienta = ?";
 
     public function selectAll(){
         return $this->pdo->query($this->selectAll)->fetchAll();
@@ -27,7 +26,7 @@ class CustomerModel extends Model {
 
     public function deleteCustomer($pesel){
         $query = $this->pdo->prepare($this->delete);
-        $query->execute($pesel);
+        $query->execute(array($pesel));
     }
 
     public function updateCustomer($customer){
