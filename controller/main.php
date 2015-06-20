@@ -6,22 +6,25 @@
 include_once 'controller/controller.php';
  
 class MainController extends Controller{
-	//Wyswietlanie strony glownej
     public function index() {
-        $view=$this->loadView('main');
-        $view->index();
+        $view = new ViewModel('main/index');
+        $stats = new StatisticsModel();
+        foreach($stats->getStatistics() as $stat => $value){
+            $view->assign($stat, $value);
+        }
+        $view->display();
     }
 	
 	//Informacje kontaktowe
 	public function about(){
-		$view=$this->loadView('main');
-        $view->about();
+		$view = new ViewModel('main/about');
+        $view->display();
 	}
 
 	//Znajdywanie paczki
 	public function find(){
-		$view=$this->loadView('main');
-        $view->find();
+		$view = new ViewModel('main/find');
+        $view->display();
 	}
 	
 }

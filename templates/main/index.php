@@ -1,19 +1,17 @@
-<?php include('templates/header.php'); ?>
 <div id="block1">
-  <?php  $result = $this->get('statisticsIndex'); ?>
   <div class="ten columns offset-by-two">
     <table>
       <tr>
         <td>Zaufało nam już</td>
-        <td class="highlight"><?php echo $result['customers']; ?> klientów</td>
+        <td class="highlight"><?php echo $data['customers']; ?> klientów</td>
       </tr>
       <tr>
         <td>Przekazalismy</td>
-        <td class="highlight"><?php echo $result['packages']; ?> paczek</td>
+        <td class="highlight"><?php echo $data['packages']; ?> paczek</td>
       </tr>
       <tr>
         <td>W pocie czoła pracuje</td>
-        <td class="highlight"><?php echo $result['workers']; ?> pracowników</td>
+        <td class="highlight"><?php echo $data['workers']; ?> pracowników</td>
       </tr>
     </table>
   </div>
@@ -29,7 +27,7 @@
         <h4>Filia w <span class="highlight">każdym</span> województwie</h4>
         <h4>Działamy w
         <span class="highlight"s>
-          <?php echo $result['cities']; ?>
+          <?php echo $data['cities']; ?>
         </span> miastach</h4>
         <h4>Dotrzemy <span class="highlight">wszędzie</span></h4>
         <h4>Bo dla nas granice <span class="highlight">nie istnieją</span></h4>
@@ -52,5 +50,3 @@
     </div>
   </div>
 </div>
-
-<?php include('templates/footer.php'); ?>
