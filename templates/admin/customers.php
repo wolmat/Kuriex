@@ -8,17 +8,7 @@
                          <?php echo count($data['customers']); ?>
                     </span>
                 </h3>
-                <?php if(isset($data['message'])): ?>
-                    <div class="message <?php echo $data['message-type'] ?>">
-                        <?php echo $data['message']; ?>
-                        <?php
-                            if(isset($data['fields']))
-                                foreach($data['fields'] as $field){
-                                    echo '<span class="field">'.$field.'</span>';
-                                }
-                        ?>
-                    </div>
-                <?php endif; ?>
+                <?php include('templates/message.php'); ?>
 				<form id="customers" action="customers" method="post" autocomplete="off">
 					<table class="customer-table">
                         <thead>
@@ -43,6 +33,7 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <?php if(isset($data['customers'])) ?>
                         <?php foreach($data['customers'] as $customer): ?>
                         <tr class="customer">
                             <td><?php echo $customer['pesel_klienta']; ?></td>
@@ -53,8 +44,9 @@
                             <td><?php echo $customer['adres_email']; ?></td>
                             <td><?php echo $customer['id_rejonu']; ?></td>
                             <td class="crud">
-                                <input class="edit" type="submit" name="update" value="">
+                                <input class="edit" type="submit" name="edit" value="">
                                 <input class="delete" type="submit" name="delete" value="">
+                                <input class="update" type="submit" name="update" value="">
                             </td>
                         </tr>
                         <?php endforeach; ?>
