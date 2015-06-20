@@ -1,4 +1,7 @@
 $(document).ready(function(){
+    var url = window.location.pathname.split("/");
+    var controller = url[2].substring(0, url[2].length - 1);
+    
     $('.edit').on('click', function(){
         var row = $(this).parent().parent();
         var cells = $(row).find('td').not(':last');
@@ -11,6 +14,9 @@ $(document).ready(function(){
         $(".customer").unbind("mouseenter").unbind("mouseleave");
         $(".customer").removeProp('hoverIntent_t');
         $(".customer").removeProp('hoverIntent_s');
+        
+        $(this).parent().find(".edit, .delete").fadeOut();
+        $(this).parent().find(".update").fadeIn();
 
         return false;
     });
@@ -20,8 +26,11 @@ $(document).ready(function(){
         var data = {
             delete: tr.find('td:first-child').text()
         };
+        if(controller == 'worker'){
+            data['function'] = $('[name="function"]').val();
+        }
         $.ajax({
-            url: 'index.php?task=customer&action=delete',
+            url: 'index.php?task=' + controller + '&action=delete',
             type: 'post',
             data: data,
             success: function(result){
@@ -42,21 +51,27 @@ $(document).ready(function(){
         return false;
     });
 
-    $('.update').on('click', function(){
+    $('.update').on('click', function(){    
+        $('.customer, .order, .worker').hoverIntent(function(){
+                $(this).find('.crud').fadeIn();
+            }, function(){
+                $(this).find('.crud').fadeOut();
+            }
+        );
         return false;
     });
 
-    $('.add').click(function(event){
+    $('.add').on('click', function(event){
         var $form = $('form');
         var $inputs = $form.find("input, select, button, textarea");
-        var serializedData = $form.serialize();
+        var data = $form.serialize();
         $inputs.prop("disabled", true);
-        console.log(serializedData);
         $.ajax({ 
-            url: 'index.php?task=customer&action=add',
+            url: 'index.php?task=' + controller + '&action=add',
             type: 'post',
-            data: serializedData,
+            data: data,
             success: function(result){
+                console.log(result);
                 var message = $('.message');
                 if(!$(message).length){
                     message = $(result).find('.message');
@@ -76,7 +91,7 @@ $(document).ready(function(){
                     $('thead').after(row);
                     $(':text').trigger('keyup');
                 }
-            }
+            },
         });
         $inputs.prop("disabled", false);
         return false;
