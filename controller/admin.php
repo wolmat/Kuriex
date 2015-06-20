@@ -13,7 +13,7 @@ class AdminController extends Controller {
     }
 	
 	public function login(){
-        $view = new ViewModel('/admin/login');
+        $view = new ViewModel('admin/login');
         if(isset($_SESSION['user']) && $_SESSION['user'] == "admin")
             header("Location: admin");
 
@@ -29,31 +29,4 @@ class AdminController extends Controller {
         session_destroy();
         header("Location: main");
     }
-
-	public function workers(){
-		$view=$this->loadView('admin');
-        $view->workers();
-	}
-    
-	public function customers(){
-        $customerModel = new CustomerModel();
-        $view = new ViewModel('admin/customers');
-        if(isset($_POST['add'])){
-            $view->assign('message',$customerModel->addCustomer($_POST));
-            $_POST = null;
-        }
-        elseif(isset($_POST['delete'])){
-            $view->assign('message',$customerModel->deleteCustomer($_POST['delete']));
-            $_POST = null;
-        }
-        else
-            $view->assign('message','');
-        $view->assign('customers',$customerModel->selectAll());
-        $view->display();
-	}
-
-	public function orders(){
-		$view=$this->loadView('admin');
-        $view->orders();
-	}
 }
