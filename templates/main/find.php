@@ -1,5 +1,3 @@
-<?php include 'templates/header.php'; ?>
-
 <div id="block3" style="text-align: center;">
   <div id="container">
     <div class="row">
@@ -14,5 +12,3 @@
     </div>
   </div>
 </div>
-
-<?php include 'templates/footer.php'; ?>

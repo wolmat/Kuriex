@@ -24,7 +24,12 @@ class MainController extends Controller{
 	//Znajdywanie paczki
 	public function find(){
 		$view = new ViewModel('main/find');
+        $orderModel = new OrderModel();
+        if(isset($_POST['id_przesylki'])){
+            $result = $orderModel->findDelivery($_POST['id_przesylki']);
+            if(!empty($result)) $view->assign('delivery', $result);
+            $view->setTemplate('main/findResult');
+        }
         $view->display();
 	}
-	
 }

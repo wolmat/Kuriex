@@ -9,7 +9,7 @@ class OrderModel extends Model {
         INNER JOIN klient k 
         ON k.pesel_klienta = z.pesel_nadawcy";
     private $insert = "INSERT INTO zlecenie VALUES (?, ?, ?, ?, ?, ?)";
-    private $delete = "DELETE FROM zlecenie WHERE pesel_klienta = ?";
+    private $delete = "DELETE FROM zlecenie WHERE id_zlecenia = ?";
     
     public function selectAll(){
         return $this->pdo->query($this->selectAll)->fetchAll();
@@ -18,6 +18,23 @@ class OrderModel extends Model {
     public function selectDeliveries($id){
         $deliveries = "SELECT * FROM przesylka WHERE id_zlecenia = $id";
         return $this->pdo->query($deliveries)->fetchAll();
+    }
+    
+    public function findDelivery($id){
+        $find = "SELECT p.*, rn.nazwa AS do, r.nazwa AS od,
+        CONCAT(k.imie,\" \",k.nazwisko) AS odbiorca,
+        CONCAT(n.imie,\" \",n.nazwisko) AS nadawca,
+        CONCAT(kur.imie,\" \",kur.nazwisko) AS kurier
+        FROM przesylka p 
+        INNER JOIN klient k ON p.pesel_odbiorcy = k.pesel_klienta
+        INNER JOIN rejon r ON k.id_rejonu = r.id_rejonu
+        INNER JOIN zlecenie z ON p.id_zlecenia = z.id_zlecenia
+        INNER JOIN klient n ON z.pesel_nadawcy = n.pesel_klienta
+        INNER JOIN rejon rn ON n.id_rejonu = rn.id_rejonu
+        INNER JOIN kurier kur ON kur.pesel = p.pesel_kuriera
+        WHERE id_przesylki = '$id'";
+
+        return $this->pdo->query($find)->fetch();
     }
     
     public function selectPendingOrders(){
@@ -35,8 +52,8 @@ class OrderModel extends Model {
         $query->execute($customer);
     }
 
-    public function deleteOrder($pesel){
+    public function deleteOrder($id){
         $query = $this->pdo->prepare($this->delete);
-        $query->execute(array($pesel));
+        $query->execute(array($id));
     }
 }

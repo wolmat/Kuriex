@@ -1,14 +1,9 @@
-<?php include 'templates/header.php';
-
-$o = $this->get('delivery');
-if ($o !=null)
-    $delivery = $o[0]; ?>
-    
-	<div class="container">
+<div class="container">
         
 
     <div class="four columns offset-by-two">
-        <?php if(isset($delivery['id_przesylki'])){ ?>
+        <?php if(isset($data['delivery'])){ 
+                $delivery = $data['delivery']; ?>
                 <div class="info"> Znaleziono przesyłkę!</div>
 				<h5>Przesyłka numer <?php echo $delivery['id_przesylki']; ?></h5>
         
@@ -111,14 +106,6 @@ if ($o !=null)
 
         <div id='Przesylki'></div>
         
-        <?php } else { echo '<dif class="error">Nie znaleziono paczki!</h5>'; } ?>
-        
-        
-        
-        
+        <?php } else { echo '<dif class="error">Nie znaleziono paczki!</h5>'; } ?>    
     </div>
-
-	</div>
-
-
-<?php include 'templates/footer.php'; ?>
+</div>
