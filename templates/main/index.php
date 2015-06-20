@@ -5,15 +5,15 @@
     <table>
       <tr>
         <td>Zaufało nam już</td>
-        <td class="highlight"><?php echo $result[0]; ?> klientów</td>
+        <td class="highlight"><?php echo $result['customers']; ?> klientów</td>
       </tr>
       <tr>
         <td>Przekazalismy</td>
-        <td class="highlight"><?php echo $result[1]; ?> paczek</td>
+        <td class="highlight"><?php echo $result['packages']; ?> paczek</td>
       </tr>
       <tr>
         <td>W pocie czoła pracuje</td>
-        <td class="highlight"><?php echo $result[2]; ?> pracowników</td>
+        <td class="highlight"><?php echo $result['workers']; ?> pracowników</td>
       </tr>
     </table>
   </div>
@@ -29,7 +29,7 @@
         <h4>Filia w <span class="highlight">każdym</span> województwie</h4>
         <h4>Działamy w
         <span class="highlight"s>
-          <?php echo $result[3]; ?>
+          <?php echo $result['cities']; ?>
         </span> miastach</h4>
         <h4>Dotrzemy <span class="highlight">wszędzie</span></h4>
         <h4>Bo dla nas granice <span class="highlight">nie istnieją</span></h4>

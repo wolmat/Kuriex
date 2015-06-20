@@ -210,4 +210,39 @@ ALTER TABLE filia
 ALTER TABLE rejon
     ADD CONSTRAINT rejon_filia
     FOREIGN KEY (id_filii)
-    REFERENCES filia(id_filii)
+    REFERENCES filia(id_filii);
+
+-- Widoki dla strony głównej
+CREATE VIEW customer_count AS
+SELECT COUNT(pesel_klienta) c
+FROM klient;
+
+CREATE VIEW package_count AS
+SELECT COUNT(id_przesylki) p
+FROM przesylka;
+
+CREATE VIEW kurier_count AS
+SELECT COUNT(pesel) AS x
+FROM kurier;
+
+CREATE VIEW dostawca_count AS
+SELECT COUNT(pesel) AS x
+FROM dostawca;
+
+CREATE VIEW worker_count AS
+SELECT k.x + d.x AS x
+FROM kurier_count k
+JOIN dostawca_count d;
+
+CREATE VIEW city_count AS
+SELECT COUNT(id_rejonu) AS x
+FROM rejon;
+
+-- Główny widok
+-- Liczba klientów, paczek, pracowników, miast
+CREATE VIEW main AS
+SELECT k.c AS customers, p.p AS packages, w.x AS workers, c.x AS cities
+FROM customer_count k
+JOIN package_count p
+JOIN worker_count w
+JOIN city_count c;

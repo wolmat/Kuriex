@@ -6,33 +6,11 @@ include 'entities/order.php';
 class MainModel extends Model{
     
      public function statisticsIndex() {
-        $query='
-        SELECT k.*,p.*, ku.x + d.x, m.x
-        FROM(
-            SELECT COUNT(pesel_klienta)
-            FROM klient
-        ) AS k
-        JOIN(
-            SELECT COUNT(id_przesylki)
-            FROM przesylka
-        ) AS p
-        JOIN(
-            SELECT COUNT(pesel) AS x
-            FROM kurier
-        ) AS ku
-        JOIN(
-            SELECT COUNT(pesel) AS x
-            FROM dostawca
-        ) AS d
-        JOIN(
-            SELECT COUNT(id_rejonu) AS x
-            FROM rejon
-        ) AS m
-        ';
+        $query='SELECT * FROM main';
  
         $select=$this->pdo->query($query);
         
-        $result = $select->fetch();
+        $result = $select->fetch(PDO::FETCH_ASSOC);
         $select->closeCursor();
  
         return $result;
