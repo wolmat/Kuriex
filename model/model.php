@@ -10,13 +10,7 @@ abstract class Model{
      * Konstruktor łączący się z bazą danych
      */
     public function  __construct() {
-        try {
-            require 'config/sql.php';
-            $this->pdo=new PDO("mysql:host=$host;dbname=$dbase", $user, $pass, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
-            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch(DBException $e) {
-            echo 'Nie udało się połączyć! ' . $e->getMessage();
-        }
+        $this->pdo = new MysqlDriver();
     }
 	
     /**
