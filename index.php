@@ -1,4 +1,23 @@
 <?php
+function __autoload($class){
+    list($filename, $suffix) =
+    preg_split('/(?=[A-Z])/', $class, -1, PREG_SPLIT_NO_EMPTY);
+    switch(strtolower($suffix)){
+        case 'model':
+            $directory = 'model/'; break;
+        case 'controller':
+            $directory = 'controller/'; break;
+        case 'driver':
+        default:
+            $directory = 'lib/';
+    }
+    $file = $directory . strtolower($filename) . '.php';
+    if(file_exists($file))
+        include_once($file);
+    else
+        die("File '$file' containing class '$class' not found!");
+}
+
 if(!isset($_SESSION))
     session_start();
 
