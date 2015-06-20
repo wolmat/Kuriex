@@ -1,7 +1,6 @@
 <?php
 
 include 'model/model.php';
-include 'entities/order.php'; 
 
 class StatisticsModel extends Model{
     
