@@ -45,7 +45,7 @@
             <li><a href="main">Strona główna</a></li>
             <li>
               <?php if(isset($_SESSION['user'])): ?>
-                <a href="logout">Wyloguj</a>
+                <a href="admin">Panel</a>
               <?php else: ?>
                 <a href="login">Zaloguj się</a>
               <?php endif; ?>
