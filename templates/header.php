@@ -10,10 +10,12 @@
 
   <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
   
-  <!-- include all css stylesheets -->
-  <?php foreach(glob('css/*.css') as $css): ?>
-    <link rel="stylesheet" href="<?php echo $css; ?>">
-  <?php endforeach; ?>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/table.css">
+  <link rel="stylesheet" href="css/crud.css">
   
   <!-- include all js scripts -->
   <?php foreach(glob('js/*.js') as $script): ?>
