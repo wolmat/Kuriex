@@ -1,7 +1,8 @@
 <?php
-include_once 'controller/controller.php';
+
+require_once 'controller/controller.php';
  
-class AdminController extends Controller{
+class AdminController extends Controller {
     public function index() {
         $adminModel = new AdminModel();
         $view = new ViewModel('admin/index');
@@ -35,19 +36,19 @@ class AdminController extends Controller{
 	}
     
 	public function customers(){
-        $mod = new AdminModel();
+        $customerModel = new CustomerModel();
         $view = new ViewModel('admin/customers');
         if(isset($_POST['add'])){
-            $view->assign('message',$mod->addCustomer($_POST));
+            $view->assign('message',$customerModel->addCustomer($_POST));
             $_POST = null;
         }
         elseif(isset($_POST['delete'])){
-            $view->assign('message',$mod->deleteCustomer($_POST['delete']));
+            $view->assign('message',$customerModel->deleteCustomer($_POST['delete']));
             $_POST = null;
         }
         else
             $view->assign('message','');
-        $view->assign('customers',$mod->selectCustomers($_POST));
+        $view->assign('customers',$customerModel->selectAll());
         $view->display();
 	}
 
