@@ -2,7 +2,7 @@
         
 
     <div class="four columns offset-by-two">
-        <?php if(isset($data['delivery'])){ 
+        <?php if(isset($data['delivery'])):
                 $delivery = $data['delivery']; ?>
                 <div class="info"> Znaleziono przesyłkę!</div>
 				<h5>Przesyłka numer <?php echo $delivery['id_przesylki']; ?></h5>
@@ -31,10 +31,8 @@
                 </table>
         
     </div>  
-        
+    <?php if(isset($data['from']) && isset($data['to'])): ?>
     <div class="four columns offset-by-two">    
-
-
 <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBZRH8wbvbxkjwRdzdyx372PZHmvSLKRj0&sensor=false&extension=.js'>  </script> 
 
             <script> 
@@ -64,8 +62,9 @@
                     var mapElement = document.getElementById('Przesylki');
                     var map = new google.maps.Map(mapElement, mapOptions);
                     var locations = [
-            ['Przesylka 1', 'Opis pierwszej przesylki', 'undefined', 'undefined', 'undefined', <?php echo $data['from']; ?>, 'https://mapbuildr.com/assets/img/markers/default.png'],['Przesylka 2', 'Opis drugiej przesylki', 'undefined', 'undefined', 'undefined', <?php
-    echo $data['to']; ?>, 'https://mapbuildr.com/assets/img/markers/default.png']
+            ['Przesylka 1', 'Opis pierwszej przesylki', 'undefined', 'undefined', 'undefined',
+            <?php echo $data['from']; ?>, 'https://mapbuildr.com/assets/img/markers/default.png'],['Przesylka 2', 'Opis drugiej przesylki', 'undefined', 'undefined', 'undefined',
+            <?php echo $data['to']; ?>, 'https://mapbuildr.com/assets/img/markers/default.png']
                     ];
                     for (i = 0; i < locations.length; i++) {
                         if (locations[i][1] =='undefined'){ description ='';} else { description = locations[i][1];}
@@ -106,7 +105,9 @@
         </style>
 
         <div id='Przesylki'></div>
-        
-        <?php } else { echo '<dif class="error">Nie znaleziono paczki!</h5>'; } ?>    
+        <?php endif; ?>
     </div>
+    <?php else: ?>
+        <dif class="message error">Nie znaleziono paczki!</h5>
+    <?php endif; ?>
 </div>
