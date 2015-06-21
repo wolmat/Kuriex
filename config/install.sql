@@ -139,7 +139,7 @@ CREATE TABLE `przesylka_typprzesylki`(
 ALTER TABLE `przesylka`
     ADD CONSTRAINT przesylka_zlecenie
     FOREIGN KEY (id_zlecenia)
-    REFERENCES zlecenie(id_zlecenia),
+    REFERENCES zlecenie(id_zlecenia) ON DELETE CASCADE,
 
     ADD CONSTRAINT przesylka_kurier 
     FOREIGN KEY (pesel_kuriera)
