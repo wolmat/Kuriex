@@ -5,6 +5,7 @@ require_once 'model/model.php';
 class CustomerModel extends Model {
     private $select = "SELECT * FROM klient WHERE pesel_klienta = ?";
     private $selectAll = "SELECT * FROM klient";
+    private $selectPassword = "SELECT haslo FROM klient WHERE adres_email = :email";
     private $insert = "INSERT INTO klient VALUES (?, ?, ?, ?, ?, ?, ?)";
     private $delete = "DELETE FROM klient WHERE pesel_klienta = ?";
     private $update = "UPDATE klient SET
@@ -17,6 +18,14 @@ class CustomerModel extends Model {
 
     public function selectAll(){
         return $this->pdo->query($this->selectAll)->fetchAll();
+    }
+
+    public function selectWithPassword($email, $password){
+        $query = $this->pdo->prepare($this->selectPassword);
+        $query->bindParam(":email", $email);
+        $query->execute();
+        $user = $query->fetch();
+        return $user && hash_equals($user['haslo'], crypt($password, $user['haslo']));
     }
 
     public function insertCustomer($customer){
