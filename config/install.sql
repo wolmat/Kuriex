@@ -249,9 +249,41 @@ JOIN package_count p
 JOIN worker_count w
 JOIN city_count c;
 
-CREATE DEFINER=`kuriex`@`localhost` PROCEDURE `nowe_zlecenie`(
+DROP FUNCTION IF EXISTS `nowe_zlecenie`;
+
+DELIMITER $$
+CREATE DEFINER=`kuriex`@`localhost` FUNCTION `nowe_zlecenie`(
 	nadawca BIGINT,
-    odbiorca BIGINT,
+    opis VARCHAR(100),
+    platnosc VARCHAR(50)
+) RETURNS int(11)
+BEGIN
+    SET @id = (
+		SELECT MAX(id_zlecenia) FROM zlecenie
+    ) + 1;
+
+    INSERT INTO zlecenie VALUES (
+		@id,
+        opis,
+        0,
+        platnosc,
+        'oczekuje',
+        nadawca
+    );
+
+    RETURN @id;
+END $$
+
+DROP PROCEDURE IF EXISTS `nowa_paczka`;
+
+DELIMITER $$
+CREATE DEFINER=`kuriex`@`localhost` PROCEDURE `nowa_paczka`(
+	zlecenie INT,
+	nadawca BIGINT,
+	odbiorca BIGINT,
+    opis_przesylki VARCHAR(100),
+    opis_zlecenia VARCHAR(100),
+    platnosc VARCHAR(30),
     imie VARCHAR(50),
     nazwisko VARCHAR(50),
     adres VARCHAR(50),
@@ -260,6 +292,11 @@ CREATE DEFINER=`kuriex`@`localhost` PROCEDURE `nowe_zlecenie`(
     rejon_odbiorcy VARCHAR(50)
 )
 BEGIN
+	SET @zlecenie = (SELECT id_zlecenia FROM zlecenie WHERE id_zlecenia = zlecenie);
+    IF @zlecenie IS NULL THEN
+		SET @zlecenie = nowe_zlecenie(nadawca, opis_zlecenia, platnosc);
+    END IF;
+
 	SET @pesel_odbiorcy = (SELECT pesel_klienta FROM klient WHERE pesel_klienta = odbiorca);
     IF @pesel_odbiorcy IS NULL THEN
 		INSERT INTO klient VALUES (
@@ -269,17 +306,20 @@ BEGIN
             adres,
             telefon,
             email,
-            rejon
+            NULL,
+            rejon_odbiorcy
         );
     END IF;
-    SET @kurier = (
-		SELECT k.pesel, k.imie, k.nazwisko, COUNT(p.id_przesylki) as 'paczek'
+
+    SET @rejon = (SELECT id_rejonu FROM klient WHERE pesel_klienta = odbiorca);
+	SET @kurier = (
+		SELECT pesel
 		FROM (
 			SELECT k.* FROM kurier k
 			NATURAL JOIN filia f
 			INNER JOIN rejon r
 			ON f.id_filii = r.id_filii
-			WHERE r.nazwa = rejon_odbiorcy
+			WHERE r.id_rejonu = @rejon
 		) k
 		LEFT JOIN przesylka p
 		ON k.pesel = p.pesel_kuriera
@@ -287,5 +327,38 @@ BEGIN
 		ORDER BY COUNT(p.id_przesylki)
         LIMIT 1
 	);
+    SET @dostawca = (
+		SELECT pesel
+		FROM ( 
+			SELECT pesel FROM dostawca d
+			NATURAL JOIN filia f
+			INNER JOIN rejon r
+			ON d.id_filii = r.id_filii
+			WHERE r.id_rejonu = @rejon
+		) d
+		LEFT JOIN przesylka p
+		ON d.pesel = p.pesel_dostawcy
+		GROUP BY d.pesel
+		ORDER BY COUNT(p.id_przesylki)
+        LIMIT 1
+	);
 
-END
+    INSERT INTO przesylka(opis,
+		status,
+		pesel_dostawcy,
+		pesel_kuriera,
+		id_zlecenia,
+		pesel_odbiorcy)
+	VALUES (
+		opis_przesylki,
+        'oczekuje',
+        @dostawca,
+        @kurier,
+        @zlecenie,
+        odbiorca
+    );
+
+    UPDATE zlecenie
+    SET cena = cena + 10
+    WHERE id_zlecenia = @zlecenie;
+END $$
