@@ -1,9 +1,9 @@
 <?php
 class MysqlDriver {
     private $pdo;
-    public function  __construct() {
+    public function  __construct($config) {
         try {
-            require_once 'config/sql.php';
+            extract($config);
             $this->pdo=new PDO("mysql:host=$host;dbname=$dbase", $user, $pass,
                                array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

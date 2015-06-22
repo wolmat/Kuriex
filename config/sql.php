@@ -1,8 +1,8 @@
 <?php
 
-$host='localhost';
-$dbase='kuriex';
-$user='kuriex';
-$pass='kuriex';
+$config['host'] = 'localhost';
+$config['dbase'] = 'kuriex';
+$config['user'] = 'kuriex';
+$config['pass'] = 'kuriex';
 
 ?>

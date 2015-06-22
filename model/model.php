@@ -10,7 +10,8 @@ abstract class Model{
      * Konstruktor łączący się z bazą danych
      */
     public function  __construct() {
-        $this->pdo = new MysqlDriver();
+        require_once('config/sql.php');
+        $this->pdo = new MysqlDriver($config);
     }
 	
     /**
