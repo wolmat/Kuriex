@@ -273,7 +273,7 @@ BEGIN
 
     RETURN @id;
 END $$
-
+DELIMITER ;
 DROP PROCEDURE IF EXISTS `nowa_paczka`;
 
 DELIMITER $$
