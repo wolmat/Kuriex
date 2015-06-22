@@ -248,3 +248,44 @@ FROM customer_count k
 JOIN package_count p
 JOIN worker_count w
 JOIN city_count c;
+
+CREATE DEFINER=`kuriex`@`localhost` PROCEDURE `nowe_zlecenie`(
+	nadawca BIGINT,
+    odbiorca BIGINT,
+    imie VARCHAR(50),
+    nazwisko VARCHAR(50),
+    adres VARCHAR(50),
+    telefon INT,
+    email VARCHAR(50),
+    rejon_odbiorcy VARCHAR(50)
+)
+BEGIN
+	SET @pesel_odbiorcy = (SELECT pesel_klienta FROM klient WHERE pesel_klienta = odbiorca);
+    IF @pesel_odbiorcy IS NULL THEN
+		INSERT INTO klient VALUES (
+			odbiorca,
+            imie,
+            nazwisko,
+            adres,
+            telefon,
+            email,
+            rejon
+        );
+    END IF;
+    SET @kurier = (
+		SELECT k.pesel, k.imie, k.nazwisko, COUNT(p.id_przesylki) as 'paczek'
+		FROM (
+			SELECT k.* FROM kurier k
+			NATURAL JOIN filia f
+			INNER JOIN rejon r
+			ON f.id_filii = r.id_filii
+			WHERE r.nazwa = rejon_odbiorcy
+		) k
+		LEFT JOIN przesylka p
+		ON k.pesel = p.pesel_kuriera
+		GROUP BY k.pesel
+		ORDER BY COUNT(p.id_przesylki)
+        LIMIT 1
+	);
+
+END
