@@ -33,7 +33,7 @@
           <a href="login">Zaloguj się</a>
         <?php endif; ?>
       </li>
-      <li><a href="login">Złóż zamówienie</a></li>
+      <li><a href="newOrder">Złóż zamówienie</a></li>
       <li><a href="find">Znajdź paczkę</a></li>
       <li><a href="about">Kontakt</a></li>
     </ul>
@@ -52,7 +52,7 @@
                 <a href="login">Zaloguj się</a>
               <?php endif; ?>
             </li>
-            <li><a href="login">Złóż zamówienie</a></li>
+            <li><a href="newOrder">Złóż zamówienie</a></li>
             <li><a href="find">Znajdź paczkę</a></li>
             <li><a href="about">Kontakt</a></li>
           </ul>

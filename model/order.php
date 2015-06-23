@@ -61,6 +61,12 @@ class OrderModel extends Model {
         $query = $this->pdo->prepare($this->insert);
         $query->execute($order);
     }
+    
+    public function newOrder($order){
+        $newDelivery = "CALL nowa_paczka(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $query = $this->pdo->prepare($newDelivery);
+        $query->execute($order);
+    }
 
     public function deleteOrder($id){
         $query = $this->pdo->prepare($this->delete);

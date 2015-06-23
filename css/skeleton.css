@@ -279,7 +279,11 @@ legend {
   font-weight: 600; }
 fieldset {
   padding: 20px;
-  border-width: 2; }
+  border-width: 1;
+  -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
 input[type="checkbox"],
 input[type="radio"] {
   display: inline; }
