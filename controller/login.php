@@ -31,6 +31,7 @@ class LoginController extends Controller {
             $_SESSION['user'] = $_POST['user'];
             $view->assign('user', $_SESSION['user']);
             $view->setTemplate('customer/index');
+                    header('Location: yourAccount');
         }
         $view->display();
 	}
