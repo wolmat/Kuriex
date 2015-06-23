@@ -57,9 +57,9 @@ class OrderModel extends Model {
         return $this->pdo->query($complains)->fetchAll();
     }
 
-    public function insertOrder($customer){
+    public function insertOrder($order){
         $query = $this->pdo->prepare($this->insert);
-        $query->execute($customer);
+        $query->execute($order);
     }
 
     public function deleteOrder($id){
