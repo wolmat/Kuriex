@@ -7,8 +7,7 @@ class LoginController extends Controller {
 		$view = new ViewModel('admin/login');
         if(isset($_SESSION['user']) && $_SESSION['user'] != 'admin'){
             $view->assign('user', $_SESSION['user']);
-            $view->setTemplate('customer/index');
-            $view->display();
+                                header('Location: yourAccount');
             return;
         }
 
@@ -31,7 +30,8 @@ class LoginController extends Controller {
             $_SESSION['user'] = $_POST['user'];
             $view->assign('user', $_SESSION['user']);
             $view->setTemplate('customer/index');
-                    header('Location: yourAccount');
+            
+            header('Location: yourAccount');
         }
         $view->display();
 	}
