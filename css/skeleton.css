@@ -264,14 +264,22 @@ textarea:focus,
 select:focus {
   border: 1px solid #33C3F0;
   outline: 0; }
-label,
+label {
+  display:inline-block;
+  float: left;
+  width: 40%;
+  text-align: right;
+  margin-right: 40px;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
 legend {
   display: block;
   margin-bottom: .5rem;
   font-weight: 600; }
 fieldset {
-  padding: 0;
-  border-width: 0; }
+  padding: 20px;
+  border-width: 2; }
 input[type="checkbox"],
 input[type="radio"] {
   display: inline; }
