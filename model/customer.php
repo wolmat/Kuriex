@@ -42,4 +42,9 @@ class CustomerModel extends Model {
         $query = $this->pdo->prepare($this->update);
         $query->execute($customer);
     }
+    
+    public function selectByEmail($email){
+        $query = 'SELECT * FROM klient WHERE adres_email = "'.$email.'"';
+        return $this->pdo->query($query)->fetchAll();
+    }
 }

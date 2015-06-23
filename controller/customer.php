@@ -8,7 +8,13 @@ class CustomerController {
         $view->display();
     }
 
-
+    public function customerInformations(){
+        $view = new ViewModel('customer/index');
+        $customerModel = new CustomerModel();
+        $view->assign('customer', $customerModel->selectByEmail($_SESSION['user']));
+        $view->display();
+    }
+    
     public function add(){
         $view = new ViewModel('admin/customers');
         
