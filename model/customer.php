@@ -6,11 +6,9 @@ class CustomerModel extends Model {
     private $select = "SELECT * FROM klient WHERE pesel_klienta = ?";
     private $selectAll = "SELECT * FROM klient";
     private $selectPassword = "SELECT haslo FROM klient WHERE adres_email = :email";
-    private $insert = "
-    INSERT INTO klient
+    private $insert = "INSERT INTO klient
     (pesel_klienta, imie, nazwisko, adres, numer_kontaktowy, adres_email, haslo, id_rejonu)
-    VALUES (?, ?, ?, ?, ?, ?, null,?)
-    ";
+    VALUES (?, ?, ?, ?, ?, ?, null,?)";
     private $delete = "DELETE FROM klient WHERE pesel_klienta = ?";
     private $update = "UPDATE klient SET
             imie = ?,
@@ -19,7 +17,7 @@ class CustomerModel extends Model {
             adres_email = ?,
             telefon_kontaktowy = ?,
             id_rejonu = ? WHERE pesel_klienta = ?";
-
+    
     public function selectAll(){
         return $this->pdo->query($this->selectAll)->fetchAll();
     }
@@ -46,6 +44,13 @@ class CustomerModel extends Model {
         $query = $this->pdo->prepare($this->update);
         $query->execute($customer);
     }
+    
+    public function acceptOrder($id){
+        $acceptOrder = 'UPDATE zlecenie SET status = "w realizacji" WHERE id_zlecenia = '.$id.;
+        $query = $this->pdo->prepare($acceptOrder);
+        $query->execute($customer);
+    }
+    
     
     public function selectByEmail($email){
         $query = 'SELECT * FROM klient k
