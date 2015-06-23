@@ -66,4 +66,13 @@ class OrderModel extends Model {
         $query = $this->pdo->prepare($this->delete);
         $query->execute(array($id));
     }
+    
+    public function selectByEmail($email){
+        $query = 'SELECT *, CONCAT(k.imie," ",k.nazwisko) as nadawca 
+        FROM zlecenie z 
+        INNER JOIN klient k 
+        ON k.pesel_klienta = z.pesel_nadawcy
+        WHERE k.adres_email = "'.$email.'"';
+        return $this->pdo->query($query)->fetchAll();
+    }
 }

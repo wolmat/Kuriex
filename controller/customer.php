@@ -8,6 +8,7 @@ class CustomerController {
         $view->display();
     }
 
+
     public function add(){
         $view = new ViewModel('admin/customers');
         

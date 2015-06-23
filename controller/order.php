@@ -10,12 +10,23 @@ class OrderController {
                 $orderModel->selectDeliveries($orders[$i]['id_zlecenia']);
         }
         $view->assign('orders', $orders);
-        
         $view->display();
     }
 
+    public function showCustomerOrders(){
+        $view = new ViewModel('customer/orders');
+        $orderModel = new OrderModel();
+        $orders = $orderModel->selectByEmail($_SESSION['user']);
+        for($i = 0; $i < count($orders); ++$i){
+            $orders[$i]['deliveries'] = 
+                $orderModel->selectDeliveries($orders[$i]['id_zlecenia']);
+        }
+        $view->assign('orders', $orders);
+        $view->display();
+    }
+    
     public function add(){
-        $view = new ViewModel('admin/orders');
+        $view = new ViewModel('customer/orders');
         
         $empty_fields = array();
         foreach($_POST as $key => $value){
