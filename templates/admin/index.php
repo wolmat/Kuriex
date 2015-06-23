@@ -26,13 +26,13 @@
             
                     <table id="pending-table">
                         <tr>
-                            <td>Id </td>
-                            <td>Id zlecenie </td>
+                            <td>Id</td>
+                            <td>Id przesylki</td>
                         </tr>
                         <?php foreach($data['complains'] as $complain) { ?>
                         <tr>
                             <td><?php echo $complain['id_reklamacji']; ?></td>
-                            <td><?php echo $complain['id_zlecenia']; ?></td>
+                            <td><?php echo $complain['id_przesylki']; ?></td>
                         </tr>
                         <?php } ?>
                         
