@@ -67,6 +67,12 @@ class OrderModel extends Model {
         $query->execute(array($id));
     }
     
+    public function acceptOrder($id){
+        $acceptOrder = 'UPDATE zlecenie SET status = "w realizacji" WHERE id_zlecenia = '.$id.;
+        $query = $this->pdo->prepare($acceptOrder);
+        $query->execute($customer);
+    }
+    
     public function selectByEmail($email){
         $query = 'SELECT *, CONCAT(k.imie," ",k.nazwisko) as nadawca 
         FROM zlecenie z 

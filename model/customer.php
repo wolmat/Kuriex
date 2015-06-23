@@ -45,13 +45,6 @@ class CustomerModel extends Model {
         $query->execute($customer);
     }
     
-    public function acceptOrder($id){
-        $acceptOrder = 'UPDATE zlecenie SET status = "w realizacji" WHERE id_zlecenia = '.$id.;
-        $query = $this->pdo->prepare($acceptOrder);
-        $query->execute($customer);
-    }
-    
-    
     public function selectByEmail($email){
         $query = 'SELECT * FROM klient k
         INNER JOIN rejon r
