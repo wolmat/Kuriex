@@ -45,6 +45,6 @@ class CustomerModel extends Model {
     
     public function selectByEmail($email){
         $query = 'SELECT * FROM klient WHERE adres_email = "'.$email.'"';
-        return $this->pdo->query($query)->fetchAll();
+        return $this->pdo->query($query)->fetch();
     }
 }
