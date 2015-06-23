@@ -5,7 +5,7 @@ $customer = $data['customer'];
 
 <div class="container">
 
-    
+        <div class="four columns offset-by-two">
     <h4> Informacje na temat konta:</h4>
         <table class="order-table">
             <tr>
@@ -22,8 +22,8 @@ $customer = $data['customer'];
             </tr>
             <tr>
                 <th>Adres zamieszkania</th>
-                <td><?php echo $customer['adres']; ?>
-                <td>rejon: <?php echo $customer['nazwa']; ?></td>
+                <td><?php echo $customer['adres']; ?></br>
+                rejon: <?php echo $customer['nazwa']; ?>
                 </td>
             </tr>
             <tr>
@@ -35,4 +35,9 @@ $customer = $data['customer'];
                 <td><?php echo $customer['adres_email']; ?></td>
             </tr>
     </table>
+    </div>
+        <div class="four columns offset-by-two">
+                <img src="templates/images/user.jpg" alt="Kuriex" height="270" width="270">
+    </div>
+
 </div>
