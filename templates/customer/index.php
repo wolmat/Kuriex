@@ -14,23 +14,25 @@ $customer = $data['customer'];
             </tr>
             <tr>
                 <th>Nazwisko</th>
-                <td></td>
+                <td><?php echo $customer['nazwisko']; ?></td>
             </tr>
             <tr>
                 <th>Pesel</th>
-                <td></td>
+                <td><?php echo $customer['pesel_klienta']; ?></td>
             </tr>
             <tr>
                 <th>Adres zamieszkania</th>
-                <td>#ADRES (rejon: #REJON)</td>
+                <td><?php echo $customer['adres']; ?>
+                <td>rejon: <?php echo $customer['nazwa']; ?></td>
+                </td>
             </tr>
             <tr>
                 <th>Numer kontaktowy</th>
-                <td></td>
+                <td><?php echo $customer['numer_kontaktowy']; ?></td>
             </tr>
             <tr>
                 <th>Adres email</th>
-                <td></td>
+                <td><?php echo $customer['adres_email']; ?></td>
             </tr>
     </table>
 </div>

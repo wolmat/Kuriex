@@ -44,7 +44,10 @@ class CustomerModel extends Model {
     }
     
     public function selectByEmail($email){
-        $query = 'SELECT * FROM klient WHERE adres_email = "'.$email.'"';
+        $query = 'SELECT * FROM klient k
+        INNER JOIN rejon r
+        ON k.id_rejonu = r.id_rejonu
+        WHERE adres_email = "'.$email.'"';
         return $this->pdo->query($query)->fetch();
     }
 }
