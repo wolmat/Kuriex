@@ -6,7 +6,11 @@ class CustomerModel extends Model {
     private $select = "SELECT * FROM klient WHERE pesel_klienta = ?";
     private $selectAll = "SELECT * FROM klient";
     private $selectPassword = "SELECT haslo FROM klient WHERE adres_email = :email";
-    private $insert = "INSERT INTO klient VALUES (?, ?, ?, ?, ?, ?, ?)";
+    private $insert = "
+    INSERT INTO klient
+    (pesel_klienta, imie, nazwisko, adres, numer_kontaktowy, adres_email, haslo, id_rejonu)
+    VALUES (?, ?, ?, ?, ?, ?, null,?)
+    ";
     private $delete = "DELETE FROM klient WHERE pesel_klienta = ?";
     private $update = "UPDATE klient SET
             imie = ?,

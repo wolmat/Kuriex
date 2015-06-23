@@ -110,7 +110,7 @@ CREATE TABLE `klient`(
     adres            varchar(50) NOT NULL,
     numer_kontaktowy int(10)     NOT NULL,
     adres_email      varchar(50) NOT NULL,
-    haslo            varchar(13) NOT NULL,
+    haslo            varchar(13) NULL,
     id_rejonu        INT         NOT NULL,
     PRIMARY KEY(pesel_klienta)
 );
