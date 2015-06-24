@@ -79,6 +79,13 @@ class OrderModel extends Model {
         $query->execute($customer);
     }
     
+    public function acceptComplain($id){
+        $acceptOrder = 'UPDATE reklamacja SET status = "w realizacji" WHERE id_reklamacji = '.$id;
+        $query = $this->pdo->prepare($acceptOrder);
+        $query->execute($customer);
+    }
+    
+    
     public function selectByEmail($email){
         $query = 'SELECT *, CONCAT(k.imie," ",k.nazwisko) as nadawca 
         FROM zlecenie z 

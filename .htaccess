@@ -14,6 +14,8 @@ RewriteRule customers index.php?task=customer&action=show
 RewriteRule orders index.php?task=order&action=show
 RewriteRule doc index.php?task=admin&action=doc
 
-RewriteRule yourOrders   index.php?task=order&action=showCustomerOrders
-RewriteRule yourAccount   index.php?task=customer&action=customerInformations
+RewriteRule yourOrders  index.php?task=order&action=showCustomerOrders
+RewriteRule yourAccount index.php?task=customer&action=customerInformations
 RewriteRule newOrder    index.php?task=order&action=newOrder
+
+RewriteRule acceptOrder index.php?task=order&action=acceptComplain
