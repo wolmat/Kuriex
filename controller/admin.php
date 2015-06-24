@@ -29,4 +29,10 @@ class AdminController extends Controller {
         session_destroy();
         header("Location: main");
     }
+    
+    public function doc() {
+        $orderModel = new OrderModel();
+        $view = new ViewModel('admin/doc');
+        $view->display();
+    }
 }
