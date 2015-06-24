@@ -123,7 +123,7 @@ class OrderController {
         $view = new ViewModel('admin/index');
         $orderModel = new OrderModel();
         try {
-            $view->assign('orders', $orderModel->acceptOrder($_POST['accept']));
+            $orderModel->acceptOrder($_POST['id_zlecenia']);
         } catch(PDOException $e) {
             $view->assign('message-type', 'error');
             $view->assign('message',
@@ -141,7 +141,7 @@ class OrderController {
         $view = new ViewModel('admin/index');
         $orderModel = new OrderModel();
         try {
-            $view->assign('orders', $orderModel->acceptComplain($_POST['accept']));
+            $orderModel->acceptComplain($_POST['id_reklamacji']);
         } catch(PDOException $e) {
             $view->assign('message-type', 'error');
             $view->assign('message',

@@ -75,14 +75,12 @@ class OrderModel extends Model {
     
     public function acceptOrder($id){
         $acceptOrder = 'UPDATE zlecenie SET status = "w realizacji" WHERE id_zlecenia = '.$id;
-        $query = $this->pdo->prepare($acceptOrder);
-        $query->execute($customer);
+        $this->pdo->query($acceptOrder);
     }
     
     public function acceptComplain($id){
         $acceptOrder = 'UPDATE reklamacja SET status = "w realizacji" WHERE id_reklamacji = '.$id;
-        $query = $this->pdo->prepare($acceptOrder);
-        $query->execute($customer);
+        $this->pdo->query($acceptOrder);
     }
     
     

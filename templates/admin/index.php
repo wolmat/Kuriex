@@ -1,6 +1,8 @@
 <?php include('header.php'); ?>
 	<div class="container">
-        <div class="six columns">
+        <h3>Oczekujące</h3>
+        <?php include('templates/message.php'); ?>
+        <div class="five columns">
         <h5> Oczekujące zlecenia </h5>
             
                     <table id="pending-table">
