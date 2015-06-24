@@ -91,7 +91,7 @@ class OrderController {
         } catch(PDOException $e){
             $view->assign('orders', array());
             $view->assign('message-type', 'error');
-            $view->assign('message','Błąd spójności danych!'. $e->getMessage());
+            $view->assign('message','Błąd spójności danych!');
             $view->display();
             return;
         }

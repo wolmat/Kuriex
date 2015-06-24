@@ -37,7 +37,7 @@ class CustomerController {
         } catch(PDOException $e){
             $view->assign('customers', array());
             $view->assign('message-type', 'error');
-            $view->assign('message','Błąd spójności danych!'. $e->getMessage());
+            $view->assign('message','Błąd spójności danych!');
             $view->display();
             return;
         }
