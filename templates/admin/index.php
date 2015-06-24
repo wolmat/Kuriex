@@ -1,6 +1,6 @@
 <?php include('header.php'); ?>
 	<div class="container">
-        <div class="four columns offset-by-two">
+        <div class="six columns">
         <h5> Oczekujące zlecenia </h5>
             
                     <table id="pending-table">
@@ -12,6 +12,7 @@
                         <tr>
                             <td><?php echo $order['id_zlecenia']; ?></td>
                             <td><?php echo $order['opis']; ?></td>
+                            <td><button class="acceptOrder">Akceptuj</button></td>
                         </tr>
                         <?php } ?>
                         
@@ -21,7 +22,7 @@
         
         </div>
         
-        <div class="four columns">
+        <div class="six columns">
             <h5> Oczekujące reklamacje </h5>
             
                     <table id="pending-table">
@@ -33,6 +34,7 @@
                         <tr>
                             <td><?php echo $complain['id_reklamacji']; ?></td>
                             <td><?php echo $complain['id_przesylki']; ?></td>
+                            <td><button class="acceptComplain">Akceptuj</button></td>
                         </tr>
                         <?php } ?>
                         
