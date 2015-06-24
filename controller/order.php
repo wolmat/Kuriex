@@ -118,4 +118,41 @@ class OrderController {
         $view->assign('message','Usunięto zlecenie!');
         $view->display();
     }
+    
+    public function acceptOrder(){
+        $view = new ViewModel('admin/index');
+        $orderModel = new OrderModel();
+        try {
+            $orderModel->acceptOrder($_POST['id_zlecenia']);
+        } catch(PDOException $e) {
+            $view->assign('message-type', 'error');
+            $view->assign('message',
+                'Nie można zaakceptować!');
+            $view->display();
+            return;
+        }
+        
+        $view->assign('message-type', 'info');
+        $view->assign('message','Zaakceptowano!');
+        $view->display();
+    }
+    
+    public function acceptComplain(){
+        $view = new ViewModel('admin/index');
+        $orderModel = new OrderModel();
+        try {
+            $orderModel->acceptComplain($_POST['id_reklamacji']);
+        } catch(PDOException $e) {
+            $view->assign('message-type', 'error');
+            $view->assign('message',
+                'Nie można zaakceptować!');
+            $view->display();
+            return;
+        }
+        
+        $view->assign('message-type', 'info');
+        $view->assign('message','Zaakceptowano!');
+        $view->display();
+    }
+    
 }
