@@ -29,7 +29,7 @@ $(document).ready(function(){
     $('.acceptComplain').on('click', function(){
         var tr = $(this).parent().parent();
         var data = {
-            id_zlecenia: tr.find('td:first-child').text()
+            id_reklamacji: tr.find('td:first-child').text()
         };
         
         $.ajax({
