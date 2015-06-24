@@ -1,3 +1,6 @@
+<?php include('header.php'); ?>
+
+
 <div class="container">
     <div class="row">
         <div class="one-half column" style="margin-top:5%">

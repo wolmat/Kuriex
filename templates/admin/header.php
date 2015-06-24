@@ -7,6 +7,7 @@ if(isset($_SESSION['user']) && $_SESSION['user'] == "admin"){ ?>
     <li><a href = "customers">Klienci</a></li>
     <li><a href = "workers">Pracownicy</a></li>
     <li><a href = "orders">Zlecenia</a></li>
+    <li><a href = "doc">Dokumentacja</a></li>
     <li><a href = "logout">Wyloguj się</a></li>
   </nav>
 </div>
