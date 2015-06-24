@@ -53,7 +53,7 @@ class OrderModel extends Model {
     }
     
     public function selectComplains(){
-        $complains = "SELECT * FROM reklamacja";
+        $complains = "SELECT * FROM reklamacja WHERE status = 'w realizacji'";
         return $this->pdo->query($complains)->fetchAll();
     }
 
@@ -79,7 +79,7 @@ class OrderModel extends Model {
     }
     
     public function acceptComplain($id){
-        $acceptOrder = 'UPDATE reklamacja SET status = "w realizacji" WHERE id_reklamacji = '.$id;
+        $acceptOrder = 'UPDATE reklamacja SET status = "zaakceptowane" WHERE id_reklamacji = '.$id;
         $this->pdo->query($acceptOrder);
     }
     
