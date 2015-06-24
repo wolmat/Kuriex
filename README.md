@@ -1,58 +1,18 @@
 ﻿# KURIEX
 
-## Git - porady
-* Synchronizacja
- * do pobrania zmian używaj `git fetch` zamiast `git pull`
-* Gałęzie
- * przed rozpoczęciem nowych prac utwórz gałąź `git checkout -b nazwa/gałęzi`
- * nazywaj swoje gałęzie według schematu `kategoria/temat` np. `frontend/index`
-* Commit
- * commituj mniej, a częściej - używaj `git add -p`, dużo commitów to nie błąd!
- * gdy masz więcej informacji do przekazania używaj `git commit` zamiast `git commit -m`
- * opisuj zmiany w czasie teraźniejszym np. `Add main controller` zamiast `Added main controller`
-* Zmiany w innych repozytoriach
- * dodaj serwer z którego również chcesz pobierać zmiany np `git remote add davpal https://github.com/davpal/Kuriex`
- * pobieraj je przy pomocy `git fetch nazwa_serwera` np. `git fetch davpal`
+##Opis aplikacji klienckiej
+Trzon aplikacji napisany został w języku PHP, niektóre frontendowe rozwiązania zrealizowane zostały przy pomocy jQuerry.  Struktura projektu oparta jest na wzorcu Model-View-Controller.
+Utworzyliśmy następujące kontrolery: admin, customer, login, main, order, worker, dziedziczące po controller oraz odpowiadające im modele, dziedziczące po model. Kontrolery oraz modele odnoszą się albo do konkretnych encji (jak np. order) lub do konkretnych działań (np. login).  Model view odpowiedzialny jest za generowanie odpowiednich widoków dla danych akcji.
 
-## Pomoce
-### Treść zadania:
-* http://riad.pk.edu.pl/~strug/bd/st/bd-st.html
+##Opis funkcjonalności	
+Aplikacja posiada trzy poziomy dostępu.
+Niezalogowany klient, może sprawdzić informacje na temat przesyłki wpisując jej numer do przeglądarki na stronie głównej lub w zakładce „Znajdź paczkę”. Wypisane zostaną podstawowe informacje na temat przesyłki, oraz zaznaczone na mapie lokalizacje nadawcy i odbiorcy.
 
-### Działanie MVC w PHP:
-* http://lukasz-socha.pl/php/mvc-w-praktyce-%E2%80%93-tworzymy-system-artykulow-cz-1/
-* http://lukasz-socha.pl/php/mvc-w-praktyce-z-composer-tworzymy-system-artykulow-cz-1/
-* http://ferrante.pl/frontend/php/wzorzec-mvc-w-php/
-* http://www.forumweb.pl/porady-i-tutoriale-www/php-php-light-mvc,56553
+W zakładce „Zaloguj się” możliwe jest zalogowanie się na konto administratora (login: `admin`, hasło: `pass`) lub na konto klienta przy pomocy emaila oraz hasła (przykładowe dane do testowania: `gantoniak@gmail.com`, `krk8e8`). 
+Po zalogowaniu się jako administrator ukazuje nam się strona główna panelu administratora, na której wypisane są zlecenia oraz reklamacje oczekujące na zaakceptowanie lub odrzucenie. W kolejnych zakładkach: klienci, pracownicy i zlecenia, możliwe jest przeglądanie, filtrowanie, dodawanie, usuwanie, oraz edytowanie rekordów z bazy. Po kliknięciu wybranego zlecenia, rozwija się lista z wszystkimi przesyłkami przypisanymi do danego zlecenia.
+Po zalogowaniu się jako klient, w panelu klienta ukazują się informacje na temat konta. W zakładce zlecenia istnieje możliwość przejrzenia zleceń których zleceniodawcą jest zalogowany klient.
 
-### Dokumentacja PDO:
-* http://php.net/manual/en/book.pdo.php
+##Konfiguracja aplikacji
+Skrypt instalacyjny bazę danych (install.sql) znajduje się w folderze config, natomiast przykładowe dane do zaimportowania (dump.sql) znajdują się w folderze data.
 
-### Uruchomienie mod_rewrite na Apache:
-* http://gajdaw.pl/varia/przyjazne-url-mod-rewrite/print.html
-
-## TO DO
-
-### Część 3
-W kodzie instalacyjnym:
-* wyzwalacze
-* procedury
-
-### Część 4
-W panelu admina:
-* ~~Logowanie, zablokowanie dostępu do panelu admina~~
-* Dodawanie pracowników / klientów / pojazdów / zleceń
-* Edytowanie powyższych
-* Wyświetlanie podsumowań
-* jQuerry dla pozostałych list
-* Dodanie zakładki "opcje" ze skryptem instalacyjnym i importem danych
-* Przycisk WYLOGUJ w górnym menu
-
-W panelu klienta:
-* Logowanie
-* Dodawanie zleceń / paczek
-* Edytowanie danych o kliencie
-
-Ogólne:
-* Wyszukiwanie paczki dla odbiorcy I NADAWCY
-* Wypełnić "kontakt"
-* Dodać dane do REKLAMACJI
+Aplikacja wykorzystuje moduł serwera Apache mod_rewrite, który pozwala generować „przyjazne” adresy. Ponieważ działanie całej aplikacji opiera się na index.php który na podstawie przyjętych metodą GET parametrów wywołuje konkretne akcje, skorzystaliśmy z tego modułu aby zastąpić linki typu `index.php?task=main&action=index`, ładniejszym `main`.
