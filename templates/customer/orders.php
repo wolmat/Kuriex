@@ -37,7 +37,6 @@
                     <td><?php echo $order['status']; ?></td>
                     <td><?php echo $order['nadawca']; ?></td>
                     <td class="crud">
-                        <input class="edit" type="submit" name="update" value="">
                         <input class="delete" type="submit" name="delete" value="">
                     </td>
                 </tr>
@@ -73,6 +72,5 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <input style="margin auto" type="submit" value="Znajdz">
     </form>
 </div>

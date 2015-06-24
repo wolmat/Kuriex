@@ -44,15 +44,12 @@
                             <td><?php echo $customer['adres_email']; ?></td>
                             <td><?php echo $customer['id_rejonu']; ?></td>
                             <td class="crud">
-                                <input class="edit" type="submit" name="edit" value="">
                                 <input class="delete" type="submit" name="delete" value="">
-                                <input class="update" type="submit" name="update" value="">
                             </td>
                         </tr>
                         <?php endforeach; ?>
                         </tbody>
                     </table>
-
 				</form>
 	</div>
 
