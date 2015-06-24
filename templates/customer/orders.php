@@ -36,9 +36,6 @@
                     <td><?php echo $order['rodzaj_platnosci']; ?></td>
                     <td><?php echo $order['status']; ?></td>
                     <td><?php echo $order['nadawca']; ?></td>
-                    <td class="crud">
-                        <input class="delete" type="submit" name="delete" value="">
-                    </td>
                 </tr>
                 <tr class="package-tr">
                     <td colspan="6">
