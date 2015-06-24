@@ -281,12 +281,12 @@ DROP PROCEDURE IF EXISTS `nowa_paczka`;
 
 DELIMITER $$
 CREATE DEFINER=`kuriex`@`localhost` PROCEDURE `nowa_paczka`(
-	zlecenie INT,
 	nadawca BIGINT,
-	odbiorca BIGINT,
+	zlecenie INT,
+	opis_zlecenia VARCHAR(100),
+	platnosc VARCHAR(30),
     opis_przesylki VARCHAR(100),
-    opis_zlecenia VARCHAR(100),
-    platnosc VARCHAR(30),
+	odbiorca BIGINT,
     imie VARCHAR(50),
     nazwisko VARCHAR(50),
     adres VARCHAR(50),
